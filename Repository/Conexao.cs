@@ -11,7 +11,7 @@ namespace Repository
     {
 
         public const string CONEXAO = "mongodb://localhost:27017";
-        public const string DB = "oclube";
+        public const string DB = "maisvendas";
 
     }
 }

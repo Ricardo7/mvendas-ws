@@ -16,29 +16,29 @@ namespace Test
         {
             Usuario usuario = new Usuario
             {
+                ID = 1,
                 Nome = "Juninho",
-                Login = "juninho.play",
                 Email = "juninho_play@fodasse.com",
                 Senha = "senha",
-                Posicao = "Atacante",
-                PosicaoSecundaria = "Meia-Atacante"
+                Ativo = 1
+
             };
 
-            //UsuarioRepository dbUser = new UsuarioRepository();
+            UsuarioRepository dbUser = new UsuarioRepository();
 
-            //dbUser.AddUsuario(usuario);
+            dbUser.AddUsuario(usuario);
 
             //List<Usuario> lista;
             //lista = dbUser.GetListaUsuario();
             //Console.WriteLine(lista[0].Nome);
 
-           UsuarioApplication controle = new UsuarioApplication();
+          // UsuarioApplication controle = new UsuarioApplication();
 
-            controle.EditUsuario(usuario);
+            //controle.EditUsuario(usuario);
 
-            Usuario teste = controle.GetUsuario(usuario);
+            //Usuario teste = controle.GetUsuario(usuario);
 
-            //Usuario teste = dbUser.ConsultaUsuario(usuario);
+            Usuario teste = dbUser.ConsultaUsuario(usuario);
             if (teste.Senha == usuario.Senha)
             {
             Console.WriteLine(teste.Nome);

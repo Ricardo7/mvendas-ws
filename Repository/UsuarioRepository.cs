@@ -54,7 +54,7 @@ namespace Repository
 
             var colecao = db.GetCollection<Usuario>("usuarios");
 
-            var filtro = Builders<Usuario>.Filter.Where(u => u.Login == usuario.Login);
+            var filtro = Builders<Usuario>.Filter.Where(u => u.Email == usuario.Email);
 
             var retorno = colecao.Find(filtro).FirstOrDefault();
 
@@ -74,7 +74,7 @@ namespace Repository
 
             var colecao = db.GetCollection<Usuario>("usuarios");
 
-            var filtro = Builders<Usuario>.Filter.Eq(u => u.Login, usuario.Login);
+            var filtro = Builders<Usuario>.Filter.Eq(u => u.Email, usuario.Email);
 
             var alteracao = Builders<Usuario>.Update.Set(u => u.Senha, usuario.Senha);
 
@@ -92,18 +92,12 @@ namespace Repository
 
             var colecao = db.GetCollection<Usuario>("usuarios");
 
-            var filtro = Builders<Usuario>.Filter.Eq(u => u.Login, usuario.Login);
+            var filtro = Builders<Usuario>.Filter.Eq(u => u.Email, usuario.Email);
 
-            var alteracao = Builders<Usuario>.Update.Set(u => u.Posicao, usuario.Posicao);
-
-            //Ainda não fiz funfar pra atualizar a classe toda de uma vez...
-            //colecao.ReplaceOne(filtro, usuario, new UpdateOptions { IsUpsert = true });
+            var alteracao = Builders<Usuario>.Update.Set(u => u.Nome, usuario.Nome).Set(u => u.Ativo, usuario.Ativo);
 
             colecao.UpdateOne(filtro, alteracao);
 
-        }
-
-
-
+        }        
     }
 }
