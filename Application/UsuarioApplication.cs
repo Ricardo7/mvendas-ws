@@ -18,9 +18,10 @@ namespace Application
             dbUser = new UsuarioRepository();
         }
 
-        public Boolean ValidarSenha(Usuario usuario)
+        public Usuario ValidarSenha(Usuario usuario)
         {
             Usuario consulta;
+
 
             try
             {
@@ -28,23 +29,23 @@ namespace Application
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
 
             try
             {
                 if (usuario.Senha == consulta.Senha)
                 {
-                    return true;
+                    return consulta;
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
         }
 

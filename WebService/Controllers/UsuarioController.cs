@@ -43,14 +43,35 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Usuario/ValidarUsuario")]
-        public bool ValidarUsuario(string email, string senha)
+        public object ValidarUsuario(string email, string senha)
         {
+            
             Usuario usuarioConsulta = new Usuario
             {
                 Email = email,
                 Senha =  senha
             };
-            return usuarioApplication.ValidarSenha(usuarioConsulta);
+
+            Usuario usuario = usuarioApplication.ValidarSenha(usuarioConsulta);
+
+            if (usuario != null)
+            {
+                //Converte o objeto interno em um DTO
+                UsuarioDTO usuarioDTO = new UsuarioDTO();
+                usuarioDTO.Nome = usuario.Nome;
+                usuarioDTO.Email = usuario.Email;
+                usuarioDTO.Senha = usuario.Senha;
+                usuarioDTO.Ativo = usuario.Ativo;
+                usuarioDTO.Token = "aaFF231";
+
+                return RetornoController.MontaRetorno(200,"SUCCESS","",usuarioDTO);
+
+            }
+            else
+            {
+                return RetornoController.MontaRetorno(401, "ERROR", "", null);
+            }
+
         }
 
         [HttpGet]
