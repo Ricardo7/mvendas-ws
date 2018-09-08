@@ -6,8 +6,6 @@ using System.Net.Http;
 using System.Web.Http;
 using Application;
 using Domain;
-using MongoDB.Driver;
-using MongoDB.Bson;
 using System.Threading.Tasks;
 using WebService.Models;
 

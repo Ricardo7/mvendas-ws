@@ -14,6 +14,8 @@ namespace Test
     {
         static void Main(string[] args)
         {
+            /*
+
             Usuario usuario = new Usuario
             {
                 ID = 1,
@@ -51,6 +53,47 @@ namespace Test
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
+
+            */
+
+            Cliente cliente = new Cliente
+            {
+                ID = 1,
+                Cnpj = 123,
+                Razao_Social = "Tabajara Corp",
+                Nome_Fan = "Tabajara Corporation SA",
+                Ativo = 1
+            };
+
+            /*ClienteRepository dbCliente = new ClienteRepository();
+
+            dbCliente.AddCliente(cliente);
+
+            List<Usuario> lista;
+            lista = dbUser.GetListaUsuario();
+            Console.WriteLine(lista[0].Nome); */
+
+            ClienteApplication controle = new ClienteApplication();
+
+            controle.AddCliente(cliente);
+
+            Cliente teste = controle.GetCliente(cliente);
+
+            //Cliente teste = dbCliente.ConsultaCliente(cliente);
+
+            if (teste.ID == cliente.ID)
+            {
+                Console.WriteLine(teste.Nome_Fan);
+            }
+            else
+            {
+                Console.WriteLine("Senha Incorreta");
+            }
+
+            // Keep the console window open in debug mode.
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
+
 
 
         }
