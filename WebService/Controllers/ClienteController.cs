@@ -59,9 +59,35 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Cliente/GetListaClientes")]
-        public List<Cliente> GetListaClientes()
+        public List<ClienteDTO> GetListaClientes()
         {
-            return clienteApplication.GetListaClientes();
+            List<Cliente> ListaTemp = clienteApplication.GetListaClientes();
+
+            List<ClienteDTO> ListaRetorno = new List<ClienteDTO>();
+
+            foreach (Cliente cliente in ListaTemp)
+            {
+                ClienteDTO clienteDTO = new ClienteDTO
+                {
+                    ID = cliente.ID,
+                    Segmento = cliente.Segmento,
+                    Cnpj = cliente.Cnpj,
+                    Razao_Social = cliente.Razao_Social,
+                    Nome_Fan = cliente.Nome_Fan,
+                    Ins_Est = cliente.Ins_Est,
+                    Cidade = cliente.Cidade,
+                    Bairro = cliente.Bairro,
+                    Logradouro = cliente.Logradouro,
+                    Numero = cliente.Numero,
+                    Dt_Criacao = cliente.Dt_Criacao,
+                    Dt_Atualizacao = cliente.Dt_Atualizacao,
+                    Status = cliente.Status,
+                    Ativo = cliente.Ativo
+                };
+                ListaRetorno.Add(clienteDTO);
+            }
+
+            return ListaRetorno;
         }
 
         /*
