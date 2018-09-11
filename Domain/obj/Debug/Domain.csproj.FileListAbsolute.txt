@@ -27,8 +27,10 @@ C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\bin\Deb
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\bin\Debug\MongoDB.Bson.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\bin\Debug\MongoDB.Driver.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\bin\Debug\MongoDB.Driver.Core.xml
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\obj\Debug\Domain.csproj.CopyComplete
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\obj\Debug\Domain.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\obj\Debug\Domain.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Domain\bin\Debug\Newtonsoft.Json.xml

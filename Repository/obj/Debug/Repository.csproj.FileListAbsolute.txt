@@ -36,3 +36,5 @@ C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\obj
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\obj\Debug\Repository.csproj.CopyComplete
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\obj\Debug\Repository.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\obj\Debug\Repository.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\bin\Debug\Newtonsoft.Json.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\bin\Debug\Newtonsoft.Json.xml

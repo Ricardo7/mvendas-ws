@@ -59,9 +59,9 @@ namespace Test
             Cliente cliente = new Cliente
             {
                 ID = 1,
-                Cnpj = 123,
-                Razao_Social = "Tabajara Corp",
-                Nome_Fan = "Tabajara Corporation SA",
+                Cnpj = "123",
+                RazaoSocial = "Tabajara Corp",
+                NomeFantasia = "Tabajara Corporation SA",
                 Ativo = 1
             };
 
@@ -83,7 +83,7 @@ namespace Test
 
             if (teste.ID == cliente.ID)
             {
-                Console.WriteLine(teste.Nome_Fan);
+                Console.WriteLine(teste.NomeFantasia);
             }
             else
             {

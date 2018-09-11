@@ -40,7 +40,6 @@ namespace Repository
             var colecao = db.GetCollection<Cliente>("clientes");
 
             colecao.InsertOne(cliente);
-
         }
 
         public Cliente ConsultaCliente(Cliente cliente)
@@ -73,7 +72,7 @@ namespace Repository
 
             var filtro = Builders<Cliente>.Filter.Eq(u => u.ID, cliente.ID);
 
-            var alteracao = Builders<Cliente>.Update.Set(u => u.Ativo, cliente.Ativo).Set(u => u.Status, cliente.Status).Set(u => u.Dt_Atualizacao, cliente.Dt_Atualizacao);
+            var alteracao = Builders<Cliente>.Update.Set(u => u.Ativo, cliente.Ativo).Set(u => u.Status, cliente.Status).Set(u => u.DtAtualizacao, cliente.DtAtualizacao);
 
             colecao.UpdateOne(filtro, alteracao);
         }
@@ -88,7 +87,7 @@ namespace Repository
 
             var filtro = Builders<Cliente>.Filter.Eq(u => u.ID, cliente.ID);
 
-            var alteracao = Builders<Cliente>.Update.Set(u => u.Cidade, cliente.Cidade).Set(u => u.Bairro, cliente.Bairro).Set(u => u.Logradouro, cliente.Logradouro).Set(u => u.Numero, cliente.Numero).Set(u => u.Dt_Atualizacao, cliente.Dt_Atualizacao);
+            var alteracao = Builders<Cliente>.Update.Set(u => u.CidadeCliente, cliente.CidadeCliente).Set(u => u.Bairro, cliente.Bairro).Set(u => u.Logradouro, cliente.Logradouro).Set(u => u.Numero, cliente.Numero).Set(u => u.DtAtualizacao, cliente.DtAtualizacao);
 
             colecao.UpdateOne(filtro, alteracao);
         }

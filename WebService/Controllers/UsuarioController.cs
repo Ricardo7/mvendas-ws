@@ -9,6 +9,7 @@ using Domain;
 using System.Threading.Tasks;
 using WebService.Models;
 
+
 namespace WebService.Controllers
 {
     public class UsuarioController : ApiController
@@ -22,18 +23,19 @@ namespace WebService.Controllers
         }
 
 
+
         [HttpPost]
         [Route ("api/Usuario/AddUsuario")]
-        public bool AddUsuario(UsuarioDTO usuarioDTO)
+        public bool AddUsuario(Usuario usuario)
         {
-            Usuario usuario = new Usuario
+            /*Usuario usuario = new Usuario
             {
                 ID = usuarioDTO.ID,
                 Nome = usuarioDTO.Nome,
                 Email = usuarioDTO.Email,
                 Senha = usuarioDTO.Senha,
                 Ativo = usuarioDTO.Ativo
-            };
+            };*/
 
             
             return usuarioApplication.AddUsuario(usuario);
@@ -86,16 +88,16 @@ namespace WebService.Controllers
 
         [HttpPut]
         [Route("api/Usuario/EditUsuario")]
-        public bool EditUsuario(UsuarioDTO usuarioDTO)
+        public bool EditUsuario(Usuario usuario)
         {
-            Usuario usuario = new Usuario
+            /*Usuario usuario = new Usuario
             {
                 ID = usuarioDTO.ID,
                 Nome = usuarioDTO.Nome,
                 Email = usuarioDTO.Email,
                 Senha = usuarioDTO.Senha,
                 Ativo = usuarioDTO.Ativo
-            };
+            };*/
 
             return usuarioApplication.EditUsuario(usuario);
         }

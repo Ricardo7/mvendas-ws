@@ -22,9 +22,9 @@ namespace WebService.Controllers
 
         [HttpPost]
         [Route("api/Cliente/AddCliente")]
-        public bool AddCliente(ClienteDTO clienteDTO)
+        public bool AddCliente(Cliente cliente)
         {
-            Cliente cliente = new Cliente
+            /*Cliente cliente = new Cliente
             {
                 ID = clienteDTO.ID,
                 Segmento = clienteDTO.Segmento,
@@ -32,7 +32,7 @@ namespace WebService.Controllers
                 Razao_Social = clienteDTO.Razao_Social,
                 Nome_Fan = clienteDTO.Nome_Fan,
                 Ins_Est = clienteDTO.Ins_Est,
-                Cidade = clienteDTO.Cidade,
+                //Cidade_Cliente = clienteDTO.Cidade,
                 Bairro = clienteDTO.Bairro,
                 Logradouro = clienteDTO.Logradouro,
                 Numero = clienteDTO.Numero,
@@ -40,7 +40,7 @@ namespace WebService.Controllers
                 Dt_Atualizacao = clienteDTO.Dt_Atualizacao,
                 Status = clienteDTO.Status,
                 Ativo = clienteDTO.Ativo
-            };
+            };*/
 
             return clienteApplication.AddCliente(cliente);
         }
@@ -59,11 +59,11 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Cliente/GetListaClientes")]
-        public List<ClienteDTO> GetListaClientes()
+        public List<Cliente> GetListaClientes()
         {
             List<Cliente> ListaTemp = clienteApplication.GetListaClientes();
 
-            List<ClienteDTO> ListaRetorno = new List<ClienteDTO>();
+            /*List<ClienteDTO> ListaRetorno = new List<ClienteDTO>();
 
             foreach (Cliente cliente in ListaTemp)
             {
@@ -75,7 +75,7 @@ namespace WebService.Controllers
                     Razao_Social = cliente.Razao_Social,
                     Nome_Fan = cliente.Nome_Fan,
                     Ins_Est = cliente.Ins_Est,
-                    Cidade = cliente.Cidade,
+                   // Cidade = cliente.Cidade_Cliente,
                     Bairro = cliente.Bairro,
                     Logradouro = cliente.Logradouro,
                     Numero = cliente.Numero,
@@ -87,7 +87,8 @@ namespace WebService.Controllers
                 ListaRetorno.Add(clienteDTO);
             }
 
-            return ListaRetorno;
+            return ListaRetorno; */
+            return ListaTemp;
         }
 
         /*
