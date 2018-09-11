@@ -7,7 +7,6 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
-using WebService.Models;
 
 namespace WebService.Controllers
 {

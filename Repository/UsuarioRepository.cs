@@ -94,9 +94,17 @@ namespace Repository
 
             var filtro = Builders<Usuario>.Filter.Eq(u => u.Email, usuario.Email);
 
-            var alteracao = Builders<Usuario>.Update.Set(u => u.Nome, usuario.Nome).Set(u => u.Ativo, usuario.Ativo);
+            //var alteracao = Builders<Usuario>.Update.Set(u => u.Nome, usuario.Nome).Set(u => u.Ativo, usuario.Ativo);
 
-            colecao.UpdateOne(filtro, alteracao);
+            //colecao.UpdateOne(filtro, alteracao);
+
+            var retorno = colecao.Find(filtro).FirstOrDefault();
+
+            usuarioPesquisado = (Usuario)retorno;
+
+            usuario._id = usuarioPesquisado._id;
+
+            colecao.ReplaceOne(filtro, usuario, new UpdateOptions { IsUpsert = true } );
 
         }        
     }

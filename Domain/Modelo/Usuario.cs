@@ -17,5 +17,6 @@ namespace Domain
         public string Email { get; set; }
         public string Senha { get; set; }
         public int Ativo { get; set; }
+        public string Token { get; set; }
     }
 }

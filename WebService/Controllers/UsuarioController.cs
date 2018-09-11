@@ -7,7 +7,6 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
-using WebService.Models;
 
 
 namespace WebService.Controllers
@@ -56,16 +55,7 @@ namespace WebService.Controllers
 
             if (usuario != null)
             {
-                //Converte o objeto interno em um DTO
-                UsuarioDTO usuarioDTO = new UsuarioDTO();
-                usuarioDTO.Nome = usuario.Nome;
-                usuarioDTO.Email = usuario.Email;
-                usuarioDTO.Senha = usuario.Senha;
-                usuarioDTO.Ativo = usuario.Ativo;
-                usuarioDTO.Token = "aaFF231";
-
-                return RetornoController.MontaRetorno(200,"SUCCESS","",usuarioDTO);
-
+                return RetornoController.MontaRetorno(200,"SUCCESS","",usuario);
             }
             else
             {

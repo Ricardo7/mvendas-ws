@@ -14,7 +14,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            /*
+            
 
             Usuario usuario = new Usuario
             {
@@ -26,9 +26,20 @@ namespace Test
 
             };
 
+            Usuario usuario2 = new Usuario {
+                ID = 1,
+                Nome = "Juninho",
+                Email = "juninho_play@fodasse.com",
+                Senha = "senha",
+                Ativo = 2
+
+            };
+
             UsuarioRepository dbUser = new UsuarioRepository();
 
-            dbUser.AddUsuario(usuario);
+            //dbUser.AddUsuario(usuario);
+
+            //dbUser.EditarUsuario(usuario2);
 
             //List<Usuario> lista;
             //lista = dbUser.GetListaUsuario();
@@ -54,8 +65,10 @@ namespace Test
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
 
-            */
+            
 
+
+            /*
             Cliente cliente = new Cliente
             {
                 ID = 1,
@@ -71,7 +84,7 @@ namespace Test
 
             List<Usuario> lista;
             lista = dbUser.GetListaUsuario();
-            Console.WriteLine(lista[0].Nome); */
+            Console.WriteLine(lista[0].Nome); 
 
             ClienteApplication controle = new ClienteApplication();
 
@@ -93,8 +106,8 @@ namespace Test
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
-
-
+            
+    */
 
         }
     }

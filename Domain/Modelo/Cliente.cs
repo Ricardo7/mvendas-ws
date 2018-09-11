@@ -12,7 +12,7 @@ namespace Domain
     {
         [JsonIgnore]
         public ObjectId _id { get; set; }
-
+        [JsonProperty("IDAP")]
         public int ID { get; set; }
         public string Cod { get; set; }
         public string Cnpj { get; set; }

@@ -38,3 +38,24 @@ C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\obj
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\obj\Debug\Repository.pdb
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\bin\Debug\Newtonsoft.Json.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Repository\bin\Debug\Newtonsoft.Json.xml
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\Repository.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\Repository.pdb
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\DnsClient.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\Domain.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\MongoDB.Bson.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\MongoDB.Driver.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\System.Buffers.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\Newtonsoft.Json.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\Domain.pdb
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\DnsClient.xml
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\MongoDB.Bson.xml
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\MongoDB.Driver.xml
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\MongoDB.Driver.Core.xml
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\bin\Debug\Newtonsoft.Json.xml
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\obj\Debug\Repository.csproj.CopyComplete
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\obj\Debug\Repository.dll
+C:\Users\MAHADO7\Documents\GitHub\mvendas-ws\Repository\obj\Debug\Repository.pdb
