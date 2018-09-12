@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using MongoDB.Bson;
 using Domain;
 using Repository;
 using Application;
@@ -15,36 +16,31 @@ namespace Test
         static void Main(string[] args)
         {
 
-            PopulaLocais popula = new PopulaLocais();
-            popula.Popula();
+            //PopulaLocais popula = new PopulaLocais();
+            //popula.Popula();
 
 
 
 
 
-            /*
-            Usuario usuario = new Usuario
-            {
+
+            Usuario usuario = new Usuario {
+                _id = ObjectId.GenerateNewId(),
                 ID = 1,
                 Nome = "Juninho",
                 Email = "juninho_play@fodasse.com",
                 Senha = "senha",
                 Ativo = 1
+                
 
             };
 
-            Usuario usuario2 = new Usuario {
-                ID = 1,
-                Nome = "Juninho",
-                Email = "juninho_play@fodasse.com",
-                Senha = "senha",
-                Ativo = 2
+            Console.WriteLine(usuario._id.ToString());
 
-            };
 
             UsuarioRepository dbUser = new UsuarioRepository();
 
-            //dbUser.AddUsuario(usuario);
+            dbUser.AddUsuario(usuario);
 
             //dbUser.EditarUsuario(usuario2);
 
@@ -62,7 +58,8 @@ namespace Test
             if (teste.Senha == usuario.Senha)
             {
             Console.WriteLine(teste.Nome);
-             }
+            Console.WriteLine(teste._id.ToString());
+            }
             else
             {
                   Console.WriteLine("Senha Incorreta");
