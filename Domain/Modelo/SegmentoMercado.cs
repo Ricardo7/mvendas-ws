@@ -12,6 +12,9 @@ namespace Domain
     {
         [JsonIgnore]
         public ObjectId _id { get; set; }
+        [JsonProperty("ID")]
+        public int IDAP { get; set; }
+        [JsonProperty("IDWS")]
         public int ID { get; set; }
         public string Descricao { get; set; }
     }

@@ -13,6 +13,8 @@ namespace Domain
         [JsonIgnore]
         public ObjectId _id { get; set; }
         [JsonProperty("IDAP")]
+        public int IDAP { get; set; }
+        [JsonProperty("IDWS")]
         public int ID { get; set; }
         public string Cod { get; set; }
         public string Cnpj { get; set; }
@@ -27,9 +29,11 @@ namespace Domain
         public int Numero { get; set; }
         public int Status { get; set; }
         public int Ativo { get; set; }
-        public DateTime DtCadastro { get; set; }
-        public DateTime DtAtualizacao { get; set; }
+        public string DtCadastro { get; set; }
+        public string DtAtualizacao { get; set; }
+        [JsonProperty("Cidade")]
         public Cidade CidadeCliente { get; set; }
+        [JsonProperty("SegmentoMercado")]
         public SegmentoMercado SegmentoMercadoCliente { get; set; }
 
     }

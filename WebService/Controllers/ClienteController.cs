@@ -21,27 +21,15 @@ namespace WebService.Controllers
 
         [HttpPost]
         [Route("api/Cliente/AddCliente")]
-        public bool AddCliente(Cliente cliente)
+        public object AddCliente(Cliente cliente)
         {
-            /*Cliente cliente = new Cliente
-            {
-                ID = clienteDTO.ID,
-                Segmento = clienteDTO.Segmento,
-                Cnpj = clienteDTO.Cnpj,
-                Razao_Social = clienteDTO.Razao_Social,
-                Nome_Fan = clienteDTO.Nome_Fan,
-                Ins_Est = clienteDTO.Ins_Est,
-                //Cidade_Cliente = clienteDTO.Cidade,
-                Bairro = clienteDTO.Bairro,
-                Logradouro = clienteDTO.Logradouro,
-                Numero = clienteDTO.Numero,
-                Dt_Criacao = clienteDTO.Dt_Criacao,
-                Dt_Atualizacao = clienteDTO.Dt_Atualizacao,
-                Status = clienteDTO.Status,
-                Ativo = clienteDTO.Ativo
-            };*/
+            Cliente clienteCadastrado = clienteApplication.AddCliente(cliente);
 
-            return clienteApplication.AddCliente(cliente);
+            if (clienteCadastrado != null) {
+                return RetornoController.MontaRetorno(200, "SUCCESS", "", clienteCadastrado);
+            } else {
+                return RetornoController.MontaRetorno(401, "ERROR", "", null);
+            }
         }
 
         [HttpGet]
@@ -52,7 +40,6 @@ namespace WebService.Controllers
             {
                 ID = id,
             };
-
             return clienteApplication.GetCliente(clienteConsulta);
         }
 
@@ -61,51 +48,8 @@ namespace WebService.Controllers
         public List<Cliente> GetListaClientes()
         {
             List<Cliente> ListaTemp = clienteApplication.GetListaClientes();
-
-            /*List<ClienteDTO> ListaRetorno = new List<ClienteDTO>();
-
-            foreach (Cliente cliente in ListaTemp)
-            {
-                ClienteDTO clienteDTO = new ClienteDTO
-                {
-                    ID = cliente.ID,
-                    Segmento = cliente.Segmento,
-                    Cnpj = cliente.Cnpj,
-                    Razao_Social = cliente.Razao_Social,
-                    Nome_Fan = cliente.Nome_Fan,
-                    Ins_Est = cliente.Ins_Est,
-                   // Cidade = cliente.Cidade_Cliente,
-                    Bairro = cliente.Bairro,
-                    Logradouro = cliente.Logradouro,
-                    Numero = cliente.Numero,
-                    Dt_Criacao = cliente.Dt_Criacao,
-                    Dt_Atualizacao = cliente.Dt_Atualizacao,
-                    Status = cliente.Status,
-                    Ativo = cliente.Ativo
-                };
-                ListaRetorno.Add(clienteDTO);
-            }
-
-            return ListaRetorno; */
             return ListaTemp;
         }
-
-        /*
-        [HttpPut]
-        [Route("api/Usuario/EditUsuario")]
-        public bool EditUsuario(UsuarioDTO usuarioDTO)
-        {
-            Usuario usuario = new Usuario
-            {
-                ID = usuarioDTO.ID,
-                Nome = usuarioDTO.Nome,
-                Email = usuarioDTO.Email,
-                Senha = usuarioDTO.Senha,
-                Ativo = usuarioDTO.Ativo
-            };
-
-            return usuarioApplication.EditUsuario(usuario);
-        }*/
 
     }
 }

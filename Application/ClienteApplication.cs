@@ -45,27 +45,33 @@ namespace Application
             }
         }
 
-        public Boolean AddCliente(Cliente cliente)
+        public Cliente AddCliente(Cliente cliente)
         {
+            Cliente consultaExiste = new Cliente(); ;
             try
             {
-                Cliente consultaExiste;
+                consultaExiste = new Cliente();
                 consultaExiste = dbCliente.ConsultaCliente(cliente);
-
+                
                 if (consultaExiste == null)
                 {
                     dbCliente.AddCliente(cliente);
-                    return true;
+                    Cliente cadastrado;
+                    cadastrado = dbCliente.ConsultaCliente(cliente);
+
+                    return cadastrado;
                 }
                 else
                 {
-                    return false;
+                    return consultaExiste;
                 }
+
+
 
             }
             catch (Exception)
             {
-                return false;
+                return consultaExiste;
             }
         }
 

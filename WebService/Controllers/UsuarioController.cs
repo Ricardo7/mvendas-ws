@@ -21,22 +21,10 @@ namespace WebService.Controllers
             usuarioApplication = new UsuarioApplication();
         }
 
-
-
         [HttpPost]
         [Route ("api/Usuario/AddUsuario")]
         public bool AddUsuario(Usuario usuario)
         {
-            /*Usuario usuario = new Usuario
-            {
-                ID = usuarioDTO.ID,
-                Nome = usuarioDTO.Nome,
-                Email = usuarioDTO.Email,
-                Senha = usuarioDTO.Senha,
-                Ativo = usuarioDTO.Ativo
-            };*/
-
-            
             return usuarioApplication.AddUsuario(usuario);
         }
 
@@ -44,7 +32,8 @@ namespace WebService.Controllers
         [Route("api/Usuario/ValidarUsuario")]
         public object ValidarUsuario(string email, string senha)
         {
-            
+            //var abc = Convert.ToString(Request.Headers["X-Auth-Token"));
+
             Usuario usuarioConsulta = new Usuario
             {
                 Email = email,
