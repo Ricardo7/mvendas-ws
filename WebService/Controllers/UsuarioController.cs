@@ -54,6 +54,17 @@ namespace WebService.Controllers
         }
 
         [HttpGet]
+        [Route("api/Usuario/ValidarUsuarioToken")]
+        public object ValidarUsuarioToken()
+        {
+            //string token = Request.Headers.Authorization;
+            //Método utilizado para validar se o usuário está valido, utilizando o Token para isto.
+            
+            return RetornoController.MontaRetorno(200, "SUCCESS", "", null);
+            
+        }
+
+        [HttpGet]
         [Route("api/Usuario/GetUsuario")]
         public Usuario GetUsuario(string email)
         {
