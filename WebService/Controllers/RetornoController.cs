@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -13,15 +14,39 @@ namespace WebService.Controllers
          * Monta o objeto Json padrão de retorno da API
          * 
          */
-        public static object MontaRetorno(int Cod, String Status, String Message, Object Data) 
+        public static UsuarioDTO MontaRetornoUsuario(int Cod, String Status, String Message, Usuario usuario) 
         {
-            return new
-            {
-                cod = Cod,
-                status = Status,
-                message = Message,
-                data = Data
-            };
+
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+
+            usuarioDTO.Cod = Cod;
+            usuarioDTO.Status = Status;
+            usuarioDTO.Message = Message;
+            usuarioDTO.usuario = usuario;
+
+            return usuarioDTO;
+
         }
+
+
+        /**
+         * Monta o objeto Json padrão de retorno da API
+         * 
+         */
+        public static ClienteDTO MontaRetornoCliente(int Cod, String Status, String Message, Cliente cliente)
+        {
+
+            ClienteDTO clienteDTO = new ClienteDTO();
+
+            clienteDTO.Cod = Cod;
+            clienteDTO.Status = Status;
+            clienteDTO.Message = Message;
+            clienteDTO.cliente = cliente;
+
+            return clienteDTO;
+
+        }
+
+
     }
 }

@@ -21,15 +21,16 @@ namespace WebService.Controllers
 
         [HttpPost]
         [Route("api/Cliente/AddCliente")]
-        public object AddCliente(Cliente cliente)
+        public ClienteDTO AddCliente(Cliente cliente)
         {
             Cliente clienteCadastrado = clienteApplication.AddCliente(cliente);
-
+            
             if (clienteCadastrado != null) {
-                return RetornoController.MontaRetorno(200, "SUCCESS", "", clienteCadastrado);
+                return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteCadastrado);
             } else {
-                return RetornoController.MontaRetorno(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoCliente(401, "ERROR", "", null);
             }
+            
         }
 
         [HttpGet]

@@ -30,7 +30,7 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Usuario/ValidarUsuario")]
-        public object ValidarUsuario(string email, string senha)
+        public UsuarioDTO ValidarUsuario(string email, string senha)
         {
             //var abc = Convert.ToString(Request.Headers["X-Auth-Token"));
 
@@ -44,23 +44,23 @@ namespace WebService.Controllers
 
             if (usuario != null)
             {
-                return RetornoController.MontaRetorno(200,"SUCCESS","",usuario);
+                return RetornoController.MontaRetornoUsuario(200,"SUCCESS","",usuario);
             }
             else
             {
-                return RetornoController.MontaRetorno(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoUsuario(401, "ERROR", "", null);
             }
 
         }
 
         [HttpGet]
         [Route("api/Usuario/ValidarUsuarioToken")]
-        public object ValidarUsuarioToken()
+        public UsuarioDTO ValidarUsuarioToken()
         {
             //string token = Request.Headers.Authorization;
             //Método utilizado para validar se o usuário está valido, utilizando o Token para isto.
             
-            return RetornoController.MontaRetorno(200, "SUCCESS", "", null);
+            return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", null);
             
         }
 

@@ -18,14 +18,12 @@ namespace Test {
 
             Pais brasil = new Pais {
                 ID = 1,
-                IDAP = 1,
                 Descricao = "Brasil",
                 Sigla = "BR"
             };
 
             Estado sP = new Estado {
                 ID = 1,
-                IDAP = 1,
                 Descricao = "São Paulo",
                 Sigla = "SP",
                 Pais_Estado = brasil
@@ -33,7 +31,6 @@ namespace Test {
 
             Estado rS = new Estado {
                 ID = 2,
-                IDAP = 2,
                 Descricao = "Rio Grande do Sul",
                 Sigla = "RS",
                 Pais_Estado = brasil
