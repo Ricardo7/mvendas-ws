@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Domain
 {
-    class Produto
+    public class Produto
     {
         [JsonIgnore]
         public ObjectId _id { get; set; }

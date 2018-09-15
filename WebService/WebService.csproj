@@ -203,12 +203,25 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocaisController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\RetornoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CidadeDTO.cs" />
+    <Compile Include="Models\ClienteDTO.cs" />
+    <Compile Include="Models\EstadoDTO.cs" />
+    <Compile Include="Models\ListaCidadesDTO.cs" />
+    <Compile Include="Models\ListaClientesDTO.cs" />
+    <Compile Include="Models\ListaEstadosDTO.cs" />
+    <Compile Include="Models\ListaPaisesDTO.cs" />
+    <Compile Include="Models\ListaProdutosDTO.cs" />
+    <Compile Include="Models\ListaUsuariosDTO.cs" />
+    <Compile Include="Models\PaisDTO.cs" />
+    <Compile Include="Models\ProdutoDTO.cs" />
+    <Compile Include="Models\UsuarioDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -267,7 +280,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
