@@ -21,23 +21,42 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Locais/GetListaPaises")]
-        public List<Pais> GetListaPaises()
+        public ListaPaisesDTO GetListaPaises()
         {
-            return locaisApplication.GetListaPaises();
+            List<Pais> paises = locaisApplication.GetListaPaises();
+
+            if (paises != null) {
+                return RetornoController.MontaRetornoListaPaises(200, "SUCCESS", "", paises);
+            } else {
+                return RetornoController.MontaRetornoListaPaises(401, "ERROR", "", null);
+            }
+
         }
 
         [HttpGet]
         [Route("api/Locais/GetListaEstados")]
-        public List<Estado> GetListaEstados(Pais pais)
+        public ListaEstadosDTO GetListaEstados(Pais pais)
         {
-            return locaisApplication.GetListaEstados(pais);
+            List<Estado> estados = locaisApplication.GetListaEstados(pais);
+
+            if (estados != null) {
+                return RetornoController.MontaRetornoListaEstados(200, "SUCCESS", "", estados);
+            } else {
+                return RetornoController.MontaRetornoListaEstados(401, "ERROR", "", null);
+            }
         }
 
         [HttpGet]
         [Route("api/Locais/GetListaCidadess")]
-        public List<Cidade> GetListaCidades(Estado estado)
+        public ListaCidadesDTO GetListaCidades(Estado estado)
         {
-            return locaisApplication.GetListaCidades(estado);
+            List<Cidade> cidades = locaisApplication.GetListaCidades(estado);
+
+            if (cidades != null) {
+                return RetornoController.MontaRetornoListaCidades(200, "SUCCESS", "", cidades);
+            } else {
+                return RetornoController.MontaRetornoListaCidades(401, "ERROR", "", null);
+            }
         }
     }
 }
