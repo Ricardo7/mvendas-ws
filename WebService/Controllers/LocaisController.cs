@@ -47,7 +47,7 @@ namespace WebService.Controllers
         }
 
         [HttpGet]
-        [Route("api/Locais/GetListaCidadess")]
+        [Route("api/Locais/GetListaCidades")]
         public ListaCidadesDTO GetListaCidades(Estado estado)
         {
             List<Cidade> cidades = locaisApplication.GetListaCidades(estado);

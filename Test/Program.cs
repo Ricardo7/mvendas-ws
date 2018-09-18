@@ -19,7 +19,7 @@ namespace Test
             PopulaLocais popula = new PopulaLocais();
             popula.Popula();
 
-
+            Produto produto = new Produto();
 
 
             /*
