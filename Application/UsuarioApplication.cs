@@ -62,27 +62,28 @@ namespace Application
             }
         }
 
-        public Boolean AddUsuario(Usuario usuario)
+        public Usuario AddUsuario(Usuario usuario)
         {
+            Usuario nulo = new Usuario();
             try
             {
                 Usuario consultaExiste;
                 consultaExiste = dbUser.ConsultaUsuario(usuario);
-                
+
                 if (consultaExiste == null)
                 {
                     dbUser.AddUsuario(usuario);
-                    return true;
+                    return dbUser.ConsultaUsuario(usuario);
                 }
                 else
                 {
-                    return false;
+                    return nulo;
                 }
                
             }
             catch (Exception)
             {
-                return false;
+                return nulo;
             }
         }
 

@@ -35,21 +35,35 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Cliente/GetCliente")]
-        public Cliente GetCliente(int id)
+        public ClienteDTO GetCliente(string id)
         {
             Cliente clienteConsulta = new Cliente
             {
                 ID = id,
             };
-            return clienteApplication.GetCliente(clienteConsulta);
+
+            Cliente clienteRetorno = clienteApplication.GetCliente(clienteConsulta);
+
+            if (clienteRetorno != null) {
+                return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteRetorno);
+            } else {
+                return RetornoController.MontaRetornoCliente(401, "ERROR", "", null);
+            }
+
         }
 
         [HttpGet]
         [Route("api/Cliente/GetListaClientes")]
-        public List<Cliente> GetListaClientes()
+        public ListaClientesDTO GetListaClientes()
         {
             List<Cliente> ListaTemp = clienteApplication.GetListaClientes();
-            return ListaTemp;
+
+            if (ListaTemp != null) {
+                return RetornoController.MontaRetornoListaClientes(200, "SUCCESS", "", ListaTemp);
+            } else {
+                return RetornoController.MontaRetornoListaClientes(401, "ERROR", "", null);
+            }
+
         }
 
     }

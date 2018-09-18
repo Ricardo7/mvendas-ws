@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using Domain;
+using MongoDB.Bson;
 
 
 namespace Repository
@@ -34,6 +35,10 @@ namespace Repository
 
         public void AddUsuario(Usuario usuario)
         {
+            //Gerar ID para a classe
+            ObjectId identidade = ObjectId.GenerateNewId();
+            usuario.ID = identidade.ToString();
+            usuario._id = identidade;
             var conexao = new MongoClient(Conexao.CONEXAO);
 
             var db = conexao.GetDatabase(Conexao.DB);

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace Repository
 {
@@ -76,6 +77,11 @@ namespace Repository
 
         public void AddPais(Pais pais)
         {
+            //Gerar ID para a classe
+            ObjectId identidade = ObjectId.GenerateNewId();
+            pais.ID = identidade.ToString();
+            pais._id = identidade;
+
             var conexao = new MongoClient(Conexao.CONEXAO);
 
             var db = conexao.GetDatabase(Conexao.DB);
@@ -87,6 +93,11 @@ namespace Repository
 
         public void AddEstado(Estado estado)
         {
+            //Gerar ID para a classe
+            ObjectId identidade = ObjectId.GenerateNewId();
+            estado.ID = identidade.ToString();
+            estado._id = identidade;
+
             var conexao = new MongoClient(Conexao.CONEXAO);
 
             var db = conexao.GetDatabase(Conexao.DB);
@@ -98,6 +109,11 @@ namespace Repository
 
         public void AddCidade(Cidade cidade)
         {
+            //Gerar ID para a classe
+            ObjectId identidade = ObjectId.GenerateNewId();
+            cidade.ID = identidade.ToString();
+            cidade._id = identidade;
+
             var conexao = new MongoClient(Conexao.CONEXAO);
 
             var db = conexao.GetDatabase(Conexao.DB);

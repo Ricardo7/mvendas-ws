@@ -15,7 +15,7 @@ namespace Domain
         [JsonProperty("IDAP")]
         public int IDAP { get; set; }
         [JsonProperty("IDWS")]
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Cod { get; set; }
         public string Cnpj { get; set; }
         public string RazaoSocial { get; set; }

@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using Newtonsoft.Json;
 
-namespace Domain
-{
-    public class Usuario
-    {
+namespace Domain {
+
+    public class Imagem {
+
         [JsonIgnore]
         public ObjectId _id { get; set; }
+        [JsonProperty("IDWS")]
         public string ID { get; set; }
         public string Nome { get; set; }
-        public string Email { get; set; }
-        public string Senha { get; set; }
-        public int Ativo { get; set; }
-        public string Token { get; set; }
+        public int Principal { get; set; }
+        public string Caminho { get; set; }
+        public int Tamanho { get; set; }
+        public string DtCriacao { get; set; }
+        public string DtAtualizacao { get; set; }
+
     }
 }

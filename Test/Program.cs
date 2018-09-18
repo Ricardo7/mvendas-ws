@@ -16,17 +16,16 @@ namespace Test
         static void Main(string[] args)
         {
 
-            //PopulaLocais popula = new PopulaLocais();
-            //popula.Popula();
+            PopulaLocais popula = new PopulaLocais();
+            popula.Popula();
 
 
 
 
-
+            /*
 
             Usuario usuario = new Usuario {
                 _id = ObjectId.GenerateNewId(),
-                ID = 1,
                 Nome = "Juninho",
                 Email = "juninho_play@fodasse.com",
                 Senha = "senha",

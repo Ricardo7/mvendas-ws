@@ -25,7 +25,7 @@ namespace Application {
             }
         }
 
-        public List<Produto> GetListaProdutoss() {
+        public List<Produto> GetListaProdutos() {
             try {
                 return dbProduto.GetListaProdutos();
             } catch (Exception) {
@@ -35,7 +35,7 @@ namespace Application {
             }
         }
 
-        public Produto Addproduto(Produto produto) {
+        public Produto AddProduto(Produto produto) {
             Produto consultaExiste = new Produto(); ;
             try {
                 consultaExiste = new Produto();

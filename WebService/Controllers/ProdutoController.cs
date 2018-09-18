@@ -18,32 +18,49 @@ namespace WebService.Controllers
             produtoApplication = new ProdutoApplication();
         }
 
-        /*
         [HttpPost]
         [Route("api/Produto/AddProduto")]
-        public ProdutoDTO AddUsuario(ProdutoDTO produtoDTO) {
+        public ProdutoDTO Addproduto(Produto produto) {
+            Produto produtoCadastrado = produtoApplication.AddProduto(produto);
 
-            return usuarioApplication.AddUsuario(usuario);
+            if (produtoCadastrado != null) {
+                return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoCadastrado);
+            } else {
+                return RetornoController.MontaRetornoProduto(401, "ERROR", "", null);
+            }
+
         }
 
         [HttpGet]
-        [Route("api/Usuario/GetUsuario")]
-        public Usuario GetUsuario(string email) {
-            Usuario usuarioConsulta = new Usuario {
-                Email = email,
+        [Route("api/Produto/GetProduto")]
+        public ProdutoDTO GetProduto(string id) {
+            Produto produtoConsulta = new Produto {
+                ID = id,
             };
 
-            return usuarioApplication.GetUsuario(usuarioConsulta);
+            Produto produtoRetorno = produtoApplication.GetProduto(produtoConsulta);
+
+            if (produtoRetorno != null) {
+                return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoRetorno);
+            } else {
+                return RetornoController.MontaRetornoProduto(401, "ERROR", "", null);
+            }
+
         }
 
-        [HttpPut]
-        [Route("api/Usuario/EditUsuario")]
-        public bool EditUsuario(Usuario usuario) {
+        [HttpGet]
+        [Route("api/Produto/GetListaProdutos")]
+        public ListaProdutosDTO GetListaProdutos() {
+            List<Produto> ListaTemp = produtoApplication.GetListaProdutos();
 
+            if (ListaTemp != null) {
+                return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", ListaTemp);
+            } else {
+                return RetornoController.MontaRetornoListaProdutos(401, "ERROR", "", null);
+            }
 
-            return usuarioApplication.EditUsuario(usuario);
-        }*/
-    
+        }
+
     }
 
 }

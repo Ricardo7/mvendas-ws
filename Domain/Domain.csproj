@@ -65,6 +65,7 @@
     <Compile Include="Locais\Pais.cs" />
     <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Locais\Estado.cs" />
+    <Compile Include="Modelo\Imagem.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Produto.cs" />
     <Compile Include="Modelo\SegmentoMercado.cs" />

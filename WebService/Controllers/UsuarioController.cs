@@ -23,9 +23,15 @@ namespace WebService.Controllers
 
         [HttpPost]
         [Route ("api/Usuario/AddUsuario")]
-        public bool AddUsuario(Usuario usuario)
+        public UsuarioDTO AddUsuario(Usuario usuario)
         {
-            return usuarioApplication.AddUsuario(usuario);
+            Usuario usuarioAdicionado = usuarioApplication.AddUsuario(usuario);
+
+            if (usuarioAdicionado != null) {
+                return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
+            } else {
+                return RetornoController.MontaRetornoUsuario(401, "ERROR", "", null);
+            }
         }
 
         [HttpGet]
@@ -66,14 +72,20 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Usuario/GetUsuario")]
-        public Usuario GetUsuario(string email)
+        public UsuarioDTO GetUsuario(string email)
         {
             Usuario usuarioConsulta = new Usuario
             {
                 Email = email,
             };
 
-            return usuarioApplication.GetUsuario(usuarioConsulta);
+            Usuario usuario = usuarioApplication.GetUsuario(usuarioConsulta);
+
+            if (usuario != null) {
+                return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
+            } else {
+                return RetornoController.MontaRetornoUsuario(401, "ERROR", "", null);
+            }
         }
 
         [HttpPut]
