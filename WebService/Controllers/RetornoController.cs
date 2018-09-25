@@ -156,7 +156,7 @@ namespace WebService.Controllers {
 
         }
 
-        public static ListaCidadesDTO MontaRetornoListaCidadess(int Cod, String Status, String Message, List<Cidade> cidades) {
+        public static ListaCidadesDTO MontaRetornoListaCidades(int Cod, String Status, String Message, List<Cidade> cidades) {
 
             ListaCidadesDTO cidadesDTO = new ListaCidadesDTO();
 
