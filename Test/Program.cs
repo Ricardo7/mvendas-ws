@@ -16,10 +16,19 @@ namespace Test
         static void Main(string[] args)
         {
 
+            /*
             PopulaLocais popula = new PopulaLocais();
             popula.Popula();
 
             Produto produto = new Produto();
+            */
+            
+            /*
+            String teste1 = "2018-01-01 00:00:01";
+            String teste2 = "2018-01-01 00:00:03";
+
+            Console.WriteLine("RRRRR"+teste1.CompareTo(teste2));
+            */
 
 
             /*
@@ -67,24 +76,27 @@ namespace Test
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
-
+            */
             
 
 
             /*
             Cliente cliente = new Cliente
             {
-                ID = 1,
+                ID = "1",
                 Cnpj = "123",
                 RazaoSocial = "Tabajara Corp",
                 NomeFantasia = "Tabajara Corporation SA",
-                Ativo = 1
+                Ativo = 1,
+                DtCadastro = "2018-03-03 20:00:00",
+                DtAtualizacao = "2018-03-03 20:00:00"
             };
 
-            /*ClienteRepository dbCliente = new ClienteRepository();
+            ClienteRepository dbCliente = new ClienteRepository();
 
             dbCliente.AddCliente(cliente);
-
+            */
+            /*
             List<Usuario> lista;
             lista = dbUser.GetListaUsuario();
             Console.WriteLine(lista[0].Nome); 
@@ -109,8 +121,8 @@ namespace Test
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
-            
-    */
+            */           
+    
 
         }
     }

@@ -46,11 +46,11 @@ namespace Application
             }
         }
 
-        public List<Cidade> GetListaCidades(Estado estado)
+        public List<Cidade> GetListaCidades()
         {
             try
             {
-                return dbLocais.GetListaCidades(estado);
+                return dbLocais.GetListaCidades();
             }
             catch (Exception)
             {

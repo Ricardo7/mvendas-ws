@@ -33,8 +33,8 @@ namespace Domain
         public string DtAtualizacao { get; set; }
         [JsonProperty("Cidade")]
         public Cidade CidadeCliente { get; set; }
-        [JsonProperty("SegmentoMercado")]
-        public SegmentoMercado SegmentoMercadoCliente { get; set; }
+        //[JsonProperty("SegmentoMercado")]
+        //public SegmentoMercado SegmentoMercadoCliente { get; set; }
 
     }
 }

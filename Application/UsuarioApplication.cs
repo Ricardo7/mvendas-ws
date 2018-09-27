@@ -12,7 +12,7 @@ namespace Application
     public class UsuarioApplication
     {
         private UsuarioRepository dbUser;
-
+        
         public UsuarioApplication()
         {
             dbUser = new UsuarioRepository();
@@ -26,6 +26,7 @@ namespace Application
             try
             {
                 consulta = dbUser.ConsultaUsuario(usuario);
+                
             }
             catch (Exception)
             {

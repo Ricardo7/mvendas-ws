@@ -56,7 +56,7 @@ namespace Test {
                 Sigla = "CMP",
                 Estado_Cidade = sP
             };
-
+            /*
             dbLocais.AddPais(brasil);
             dbLocais.AddEstado(rS);
             dbLocais.AddEstado(sP);
@@ -64,6 +64,7 @@ namespace Test {
             dbLocais.AddCidade(poa);
             dbLocais.AddCidade(saoPaulo);
             dbLocais.AddCidade(campinas);
+            */
 
         }
 
