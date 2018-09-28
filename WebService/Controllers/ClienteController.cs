@@ -66,5 +66,18 @@ namespace WebService.Controllers
 
         }
 
+        [HttpGet]
+        [Route("api/Cliente/GetListaClientesAtualizados")]
+        public ListaClientesDTO GetListaClientesAtualizados(string dataAt) {
+            List<Cliente> ListaTemp = clienteApplication.GetListaClientesAtualizados(dataAt);
+
+            if (ListaTemp != null) {
+                return RetornoController.MontaRetornoListaClientes(200, "SUCCESS", "", ListaTemp);
+            } else {
+                return RetornoController.MontaRetornoListaClientes(401, "ERROR", "", null);
+            }
+
+        }
+
     }
 }

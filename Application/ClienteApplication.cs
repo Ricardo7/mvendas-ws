@@ -45,6 +45,16 @@ namespace Application
             }
         }
 
+        public List<Cliente> GetListaClientesAtualizados(string data) {
+            try {
+                return dbCliente.GetListaClientesAtualizados(data);
+            } catch (Exception) {
+                List<Cliente> ListaClientesvazio = new List<Cliente>();
+
+                return ListaClientesvazio;
+            }
+        }
+
         public Cliente AddCliente(Cliente cliente)
         {
             Cliente consultaExiste = new Cliente(); ;

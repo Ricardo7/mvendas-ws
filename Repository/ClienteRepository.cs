@@ -31,6 +31,26 @@ namespace Repository
 
         }
 
+        public List<Cliente> GetListaClientesAtualizados(string data) {
+
+            List<Cliente> listaClientes = new List<Cliente>();
+
+            var conexao = new MongoClient(Conexao.CONEXAO);
+
+            var db = conexao.GetDatabase(Conexao.DB);
+
+            var colecao = db.GetCollection<Cliente>("clientes");
+
+            var filtro = Builders<Cliente>.Filter.Gt(u => u.DtAtualizacao, data);
+
+            var clientes = colecao.Find(filtro).ToList();
+
+            listaClientes = clientes;
+
+            return listaClientes;
+
+        }
+
         public void AddCliente(Cliente cliente)
         {
             var conexao = new MongoClient(Conexao.CONEXAO);
