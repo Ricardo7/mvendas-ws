@@ -32,11 +32,11 @@ namespace Application
             }
         }
 
-        public List<Estado> GetListaEstados(Pais pais)
+        public List<Estado> GetListaEstados(String siglaPais)
         {
             try
             {
-                return dbLocais.GetListaEstados(pais);
+                return dbLocais.GetListaEstados(siglaPais);
             }
             catch (Exception)
             {
@@ -46,11 +46,11 @@ namespace Application
             }
         }
 
-        public List<Cidade> GetListaCidades()
+        public List<Cidade> GetListaCidades(String siglaEstado)
         {
             try
             {
-                return dbLocais.GetListaCidades();
+                return dbLocais.GetListaCidades(siglaEstado);
             }
             catch (Exception)
             {

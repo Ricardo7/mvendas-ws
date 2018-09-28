@@ -33,7 +33,7 @@ namespace Repository
 
         }
 
-        public List<Estado> GetListaEstados(Pais pais)
+        public List<Estado> GetListaEstados(String siglaPais)
         {
 
             List<Estado> listaEstados = new List<Estado>();
@@ -44,7 +44,7 @@ namespace Repository
 
             var colecao = db.GetCollection<Estado>("estados");
 
-            var filtro = Builders<Estado>.Filter.Where(u => u.Pais_Estado.Sigla == pais.Sigla);
+            var filtro = Builders<Estado>.Filter.Where(u => u.Pais_Estado.Sigla == siglaPais);
 
             var estados = colecao.Find(filtro).ToList();
 
@@ -54,7 +54,7 @@ namespace Repository
 
         }
 
-        public List<Cidade> GetListaCidades()
+        public List<Cidade> GetListaCidades(String siglaEstado)
         {
 
             List<Cidade> listaCidades = new List<Cidade>();
@@ -65,7 +65,7 @@ namespace Repository
 
             var colecao = db.GetCollection<Cidade>("cidades");
 
-            var filtro = Builders<Cidade>.Filter.Empty;
+            var filtro = Builders<Cidade>.Filter.Where(u => u.Estado_Cidade.Sigla == siglaEstado);
 
             var cidades = colecao.Find(filtro).ToList();
 

@@ -35,9 +35,9 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Locais/GetListaEstados")]
-        public ListaEstadosDTO GetListaEstados(Pais pais)
+        public ListaEstadosDTO GetListaEstados(String siglaPais)
         {
-            List<Estado> estados = locaisApplication.GetListaEstados(pais);
+            List<Estado> estados = locaisApplication.GetListaEstados(siglaPais);
 
             if (estados != null) {
                 return RetornoController.MontaRetornoListaEstados(200, "SUCCESS", "", estados);
@@ -48,9 +48,9 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Locais/GetListaCidades")]
-        public ListaCidadesDTO GetListaCidades()
+        public ListaCidadesDTO GetListaCidades(String siglaEstado)
         {
-            List<Cidade> cidades = locaisApplication.GetListaCidades();
+            List<Cidade> cidades = locaisApplication.GetListaCidades(siglaEstado);
 
             if (cidades != null) {
                 return RetornoController.MontaRetornoListaCidades(200, "SUCCESS", "", cidades);
