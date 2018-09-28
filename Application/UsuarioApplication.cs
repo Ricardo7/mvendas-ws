@@ -102,19 +102,15 @@ namespace Application
             }
         }
 
-        //public Boolean CastID(Usuario usuario)
-        // {
+        public List<Usuario> GetListaUsuarios() {
+            try {
+                return dbUser.GetListaUsuario();
+            } catch (Exception) {
+                List<Usuario> ListaUsuariosVazio = new List<Usuario>();
 
-        //    Usuario consulta;
-        //    consulta = dbUser.ConsultaUsuario(usuario);
-
-        //    string ID;
-        //    ID = consulta._id.ToString();
-
-        //    consulta._id = ID;
-
-        //     return true;
-        // }
+                return ListaUsuariosVazio;
+            }
+        }
 
     }
 }

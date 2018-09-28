@@ -107,6 +107,20 @@ namespace WebService.Controllers
             return usuarioApplication.EditUsuario(usuario);
         }
 
+        [HttpGet]
+        [Route("api/Usuario/ListaUsuarios")]
+        public ListaUsuariosDTO ListaUsuarios() {
+
+            List<Usuario> lista = usuarioApplication.GetListaUsuarios();
+
+            if (lista != null) {
+                return RetornoController.MontaRetornoListaUsuario(200, "SUCCESS", "", lista);
+            } else {
+                return RetornoController.MontaRetornoListaUsuario(401, "ERROR", "", null);
+            }
+
+        }
+
 
     }
 }
