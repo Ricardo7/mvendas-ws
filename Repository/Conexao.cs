@@ -7,7 +7,7 @@ using MongoDB.Driver;
 
 namespace Repository
 {
-    static class Conexao
+    public static class Conexao
     {
 
         public const string CONEXAO = "mongodb://localhost:27017";
