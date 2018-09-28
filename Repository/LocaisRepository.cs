@@ -54,7 +54,7 @@ namespace Repository
 
         }
 
-        public List<Cidade> GetListaCidades(Estado estado)
+        public List<Cidade> GetListaCidades()
         {
 
             List<Cidade> listaCidades = new List<Cidade>();
@@ -65,7 +65,7 @@ namespace Repository
 
             var colecao = db.GetCollection<Cidade>("cidades");
 
-            var filtro = Builders<Cidade>.Filter.Where(u => u.Estado_Cidade.Sigla == estado.Sigla);
+            var filtro = Builders<Cidade>.Filter.Empty;
 
             var cidades = colecao.Find(filtro).ToList();
 

@@ -38,6 +38,9 @@ namespace WebService.Controllers
         [Route("api/Usuario/ValidarUsuario")]
         public UsuarioDTO ValidarUsuario(string email, string senha)
         {
+            
+            GeraLog.Debug("email: "+email);
+            GeraLog.Debug("senha: "+senha);
             //var abc = Convert.ToString(Request.Headers["X-Auth-Token"));
 
             Usuario usuarioConsulta = new Usuario
