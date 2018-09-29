@@ -151,8 +151,8 @@ namespace WebService.Controllers
 
         [HttpGet]
         [Route("api/Locais/GetListaCidadesAtualizadas")]
-        public ListaCidadesDTO GetListaCidadesAtualizadas(String siglaEstado) {
-            List<Cidade> cidades = locaisApplication.GetListaCidadesAtualizadas(siglaEstado);
+        public ListaCidadesDTO GetListaCidadesAtualizadas(String dataAt) {
+            List<Cidade> cidades = locaisApplication.GetListaCidadesAtualizadas(dataAt);
 
             if (cidades != null) {
                 return RetornoController.MontaRetornoListaCidades(200, "SUCCESS", "", cidades);
