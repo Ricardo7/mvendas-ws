@@ -207,6 +207,7 @@
     <Compile Include="Controllers\LocaisController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\RetornoController.cs" />
+    <Compile Include="Controllers\SegmentoMercadoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -220,9 +221,11 @@
     <Compile Include="Models\ListaEstadosDTO.cs" />
     <Compile Include="Models\ListaPaisesDTO.cs" />
     <Compile Include="Models\ListaProdutosDTO.cs" />
+    <Compile Include="Models\ListaSegmentosMercadoDTO.cs" />
     <Compile Include="Models\ListaUsuariosDTO.cs" />
     <Compile Include="Models\PaisDTO.cs" />
     <Compile Include="Models\ProdutoDTO.cs" />
+    <Compile Include="Models\SegmentoMercadoDTO.cs" />
     <Compile Include="Models\UsuarioDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

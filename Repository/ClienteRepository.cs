@@ -5,13 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using Domain;
+using MongoDB.Bson;
 
-namespace Repository
-{
-    public class ClienteRepository
-    {
-        public List<Cliente> GetListaClientes()
-        {
+namespace Repository {
+    public class ClienteRepository {
+        public List<Cliente> GetListaClientes() {
 
             List<Cliente> listaClientes = new List<Cliente>();
 
@@ -51,8 +49,13 @@ namespace Repository
 
         }
 
-        public void AddCliente(Cliente cliente)
-        {
+        public Cliente AddCliente(Cliente cliente) {
+
+            //Gerar ID para a classe
+            ObjectId identidade = ObjectId.GenerateNewId();
+            cliente.ID = identidade.ToString();
+            cliente._id = identidade;
+
             var conexao = new MongoClient(Conexao.CONEXAO);
 
             var db = conexao.GetDatabase(Conexao.DB);
@@ -60,10 +63,11 @@ namespace Repository
             var colecao = db.GetCollection<Cliente>("clientes");
 
             colecao.InsertOne(cliente);
+
+            return cliente;
         }
 
-        public Cliente ConsultaCliente(Cliente cliente)
-        {
+        public Cliente ConsultaCliente(Cliente cliente) {
             Cliente clientePesquisado = new Cliente();
 
             var conexao = new MongoClient(Conexao.CONEXAO);
@@ -82,8 +86,7 @@ namespace Repository
 
         }
 
-        public void AlterarStatusCliente(Cliente cliente)
-        {
+        public void AlterarStatusCliente(Cliente cliente) {
             var conexao = new MongoClient(Conexao.CONEXAO);
 
             var db = conexao.GetDatabase(Conexao.DB);
@@ -97,8 +100,7 @@ namespace Repository
             colecao.UpdateOne(filtro, alteracao);
         }
 
-        public void AlterarEnderecoCliente(Cliente cliente)
-        {
+        public void AlterarEnderecoCliente(Cliente cliente) {
             var conexao = new MongoClient(Conexao.CONEXAO);
 
             var db = conexao.GetDatabase(Conexao.DB);

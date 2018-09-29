@@ -17,5 +17,7 @@ namespace Domain
         [JsonProperty("IDWS")]
         public string ID { get; set; }
         public string Descricao { get; set; }
+        public string DtCadastro { get; set; }
+        public string DtAtualizacao { get; set; }
     }
 }

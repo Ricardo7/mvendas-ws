@@ -7,38 +7,27 @@ using Repository;
 using Domain;
 using MongoDB.Driver;
 
-namespace Application
-{
-    public class ClienteApplication
-    {
-        private ClienteRepository dbCliente;
+namespace Application {
+    public class ClienteApplication {
+        private ClienteRepository dbCliente; 
 
-        public ClienteApplication()
-        {
+        public ClienteApplication() {
             dbCliente = new ClienteRepository();
         }
 
-        public Cliente GetCliente(Cliente cliente)
-        {
-            try
-            {
+        public Cliente GetCliente(Cliente cliente) {
+            try {
                 return dbCliente.ConsultaCliente(cliente);
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 Cliente vazio = new Cliente();
                 return vazio;
             }
         }
 
-        public List<Cliente> GetListaClientes()
-        {
-            try
-            {
+        public List<Cliente> GetListaClientes() {
+            try {
                 return dbCliente.GetListaClientes();
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 List<Cliente> ListaClientesvazio = new List<Cliente>();
 
                 return ListaClientesvazio;
@@ -55,58 +44,39 @@ namespace Application
             }
         }
 
-        public Cliente AddCliente(Cliente cliente)
-        {
+        public Cliente AddCliente(Cliente cliente) {
             Cliente consultaExiste = new Cliente(); ;
-            try
-            {
+            try {
                 consultaExiste = new Cliente();
                 consultaExiste = dbCliente.ConsultaCliente(cliente);
-                
-                if (consultaExiste == null)
-                {
-                    dbCliente.AddCliente(cliente);
-                    Cliente cadastrado;
-                    cadastrado = dbCliente.ConsultaCliente(cliente);
+
+                if (consultaExiste == null) {
+                    Cliente cadastrado = dbCliente.AddCliente(cliente);
 
                     return cadastrado;
-                }
-                else
-                {
+                } else {
                     return consultaExiste;
                 }
-
-
-
-            }
-            catch (Exception)
-            {
+                
+            } catch (Exception) {
                 return consultaExiste;
             }
         }
 
-        public Boolean AlterarStatusCliente(Cliente cliente)
-        {
-            try
-            {
+        public Boolean AlterarStatusCliente(Cliente cliente) {
+            try {
                 dbCliente.AlterarStatusCliente(cliente);
                 return true;
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 return false;
             }
         }
 
-        public Boolean AlterarEnderecoCliente(Cliente cliente)
-        {
-            try
-            {
+        public Boolean AlterarEnderecoCliente(Cliente cliente) {
+            try {
                 dbCliente.AlterarEnderecoCliente(cliente);
                 return true;
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 return false;
             }
         }

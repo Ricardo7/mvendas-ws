@@ -65,6 +65,32 @@ namespace WebService.Controllers {
 
         }
 
+        public static SegmentoMercadoDTO MontaRetornoSegmentoMercado(int Cod, String Status, String Message, SegmentoMercado segmentoMercado) {
+
+            SegmentoMercadoDTO segmentoMercadoDTO = new SegmentoMercadoDTO();
+
+            segmentoMercadoDTO.Cod = Cod;
+            segmentoMercadoDTO.Status = Status;
+            segmentoMercadoDTO.Message = Message;
+            segmentoMercadoDTO.segmentoMercado = segmentoMercado;
+
+            return segmentoMercadoDTO;
+
+        }
+
+        public static ListaSegmentosMercadoDTO MontaRetornoListaSegmentosMercado(int Cod, String Status, String Message, List<SegmentoMercado> segmentosMercado) {
+
+            ListaSegmentosMercadoDTO listaSegmentosMercadoDTO = new ListaSegmentosMercadoDTO();
+
+            listaSegmentosMercadoDTO.Cod = Cod;
+            listaSegmentosMercadoDTO.Status = Status;
+            listaSegmentosMercadoDTO.Message = Message;
+            listaSegmentosMercadoDTO.segmentosMercado = segmentosMercado;
+
+            return listaSegmentosMercadoDTO;
+
+        }
+
         public static ProdutoDTO MontaRetornoProduto(int Cod, String Status, String Message, Produto produto) {
 
             ProdutoDTO produtoDTO = new ProdutoDTO();

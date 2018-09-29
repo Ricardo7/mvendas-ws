@@ -18,5 +18,7 @@ namespace Domain
         public string Sigla { get; set; }
         [JsonProperty("Estado")]
         public Estado Estado_Cidade { get; set; }
+        public string DtCadastro { get; set; }
+        public string DtAtualizacao { get; set; }
     }
 }

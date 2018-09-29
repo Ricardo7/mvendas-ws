@@ -15,11 +15,11 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            TesteAdd teste = new TesteAdd();
-            teste.Add();
+            //TesteAdd teste = new TesteAdd();
+            //teste.Add();
 
-            //PopulaLocais popula = new PopulaLocais();
-            // popula.Popula();
+            PopulaLocais popula = new PopulaLocais();
+            popula.Popula();
 
             //Produto produto = new Produto();
 
