@@ -69,7 +69,7 @@ namespace Repository {
             return condicaoPagamento;
         }
 
-        public CondicaoPagamento ConsultaCondicaoPagamento(CondicaoPagamento condicaoPagamento) {
+        public CondicaoPagamento ConsultaCondicaoPagamento(string id) {
             CondicaoPagamento condicaoPagamentoPesquisado = new CondicaoPagamento();
 
             var conexao = new MongoClient(Conexao.CONEXAO);
@@ -78,8 +78,8 @@ namespace Repository {
 
             var colecao = db.GetCollection<CondicaoPagamento>("condicoesPagamento");
 
-            var filtro = Builders<CondicaoPagamento>.Filter.Where(u => u.ID == condicaoPagamento.ID);
-
+            var filtro = Builders<CondicaoPagamento>.Filter.Where(u => u.ID == id);
+            
             var retorno = colecao.Find(filtro).FirstOrDefault();
 
             condicaoPagamentoPesquisado = (CondicaoPagamento)retorno;

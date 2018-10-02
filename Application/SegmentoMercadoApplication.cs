@@ -47,7 +47,6 @@ namespace Application {
         public SegmentoMercado AddSegmentoMercado(SegmentoMercado segmentoMercado) {
             SegmentoMercado consultaExiste = new SegmentoMercado(); ;
             try {
-                consultaExiste = new SegmentoMercado();
                 //consultaExiste = dbSegmento.ConsultaSegmentoMercado(segmentoMercado.ID);
 
                 if (consultaExiste == null) {

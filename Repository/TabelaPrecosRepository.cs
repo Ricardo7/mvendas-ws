@@ -69,7 +69,7 @@ namespace Repository {
             return tabelaPrecos;
         }
 
-        public TabelaPrecos ConsultaTabelaPrecos(TabelaPrecos tabelaPrecos) {
+        public TabelaPrecos ConsultaTabelaPrecos(string id) {
             TabelaPrecos tabelaPrecosPesquisado = new TabelaPrecos();
 
             var conexao = new MongoClient(Conexao.CONEXAO);
@@ -78,7 +78,7 @@ namespace Repository {
 
             var colecao = db.GetCollection<TabelaPrecos>("tabelasPrecos");
 
-            var filtro = Builders<TabelaPrecos>.Filter.Where(u => u.ID == tabelaPrecos.ID);
+            var filtro = Builders<TabelaPrecos>.Filter.Where(u => u.ID == id);
 
             var retorno = colecao.Find(filtro).FirstOrDefault();
 

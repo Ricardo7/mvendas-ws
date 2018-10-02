@@ -9,7 +9,7 @@ using MongoDB.Bson;
 
 
 namespace Repository {
-    class PedidoRepository {
+    public class PedidoRepository {
 
         public List<Pedido> GetListaPedidos() {
 
@@ -70,7 +70,7 @@ namespace Repository {
             return pedido;
         }
 
-        public Pedido ConsultaPedido(Pedido pedido) {
+        public Pedido ConsultaPedido(string id) {
             Pedido pedidoPesquisado = new Pedido();
 
             var conexao = new MongoClient(Conexao.CONEXAO);
@@ -79,7 +79,7 @@ namespace Repository {
 
             var colecao = db.GetCollection<Pedido>("pedidos");
 
-            var filtro = Builders<Pedido>.Filter.Where(u => u.ID == pedido.ID);
+            var filtro = Builders<Pedido>.Filter.Where(u => u.ID == id);
 
             var retorno = colecao.Find(filtro).FirstOrDefault();
 

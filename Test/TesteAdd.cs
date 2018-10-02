@@ -74,8 +74,8 @@ namespace Test {
 
             Pedido pedido = new Pedido() {
                 CondicaoPagamentoPedido = condicaoPagamento,
-                DataAtualizacao = "2018-01-01 00:00:00",
-                DataCriacao = "2018-01-01 00:00:00",
+                DtAtualizacao = "2018-01-01 00:00:00",
+                DtCriacao = "2018-01-01 00:00:00",
                 Situacao = 1,
                 ListaItemPedido = listaItensPedido,
                 TabelaPrecosPedido = tabelaPrecos,

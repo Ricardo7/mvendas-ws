@@ -5,7 +5,7 @@ using System.Web;
 using Domain;
 using Newtonsoft.Json;
 
-namespace WebService.Models {
+namespace WebService {
     public class TabelaPrecosDTO {
         [JsonProperty("cod")]
         public int Cod { get; set; }

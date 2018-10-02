@@ -195,5 +195,83 @@ namespace WebService.Controllers {
 
         }
 
+        public static CondicaoPagamentoDTO MontaRetornoCondicaoPagamento(int Cod, String Status, String Message, CondicaoPagamento classe) {
+
+            CondicaoPagamentoDTO classeDTO = new CondicaoPagamentoDTO();
+
+            classeDTO.Cod = Cod;
+            classeDTO.Status = Status;
+            classeDTO.Message = Message;
+            classeDTO.condicaoPagamento = classe;
+
+            return classeDTO;
+
+        }
+
+        public static ListaCondicoesPagamentoDTO MontaRetornoListaCondicaoPagamento(int Cod, String Status, String Message, List<CondicaoPagamento> lista) {
+
+            ListaCondicoesPagamentoDTO listaDTO = new ListaCondicoesPagamentoDTO();
+
+            listaDTO.Cod = Cod;
+            listaDTO.Status = Status;
+            listaDTO.Message = Message;
+            listaDTO.condicoesPagamento = lista;
+
+            return listaDTO;
+
+        }
+
+        public static PedidoDTO MontaRetornoPedido(int Cod, String Status, String Message, Pedido classe) {
+
+            PedidoDTO classeDTO = new PedidoDTO();
+
+            classeDTO.Cod = Cod;
+            classeDTO.Status = Status;
+            classeDTO.Message = Message;
+            classeDTO.pedido = classe;
+
+            return classeDTO;
+
+        }
+
+        public static ListaPedidosDTO MontaRetornoListaPedidos(int Cod, String Status, String Message, List<Pedido> lista) {
+
+            ListaPedidosDTO listaDTO = new ListaPedidosDTO();
+
+            listaDTO.Cod = Cod;
+            listaDTO.Status = Status;
+            listaDTO.Message = Message;
+            listaDTO.pedidos = lista;
+
+            return listaDTO;
+
+        }
+
+        public static TabelaPrecosDTO MontaRetornoTabelaPrecos(int Cod, String Status, String Message, TabelaPrecos classe) {
+
+            TabelaPrecosDTO classeDTO = new TabelaPrecosDTO();
+
+            classeDTO.Cod = Cod;
+            classeDTO.Status = Status;
+            classeDTO.Message = Message;
+            classeDTO.tabelaPrecos = classe;
+
+            return classeDTO;
+
+        }
+
+        public static ListaTabelasPrecosDTO MontaRetornoListaTabelasPrecos(int Cod, String Status, String Message, List<TabelaPrecos> lista) {
+
+            ListaTabelasPrecosDTO listaDTO = new ListaTabelasPrecosDTO();
+
+            listaDTO.Cod = Cod;
+            listaDTO.Status = Status;
+            listaDTO.Message = Message;
+            listaDTO.tabelasPrecos = lista;
+
+            return listaDTO;
+
+        }
+
     }
 }
