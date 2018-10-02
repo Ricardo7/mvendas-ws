@@ -215,17 +215,23 @@
     </Compile>
     <Compile Include="Models\CidadeDTO.cs" />
     <Compile Include="Models\ClienteDTO.cs" />
+    <Compile Include="Models\CondicaoPagamentoDTO.cs" />
     <Compile Include="Models\EstadoDTO.cs" />
     <Compile Include="Models\ListaCidadesDTO.cs" />
     <Compile Include="Models\ListaClientesDTO.cs" />
+    <Compile Include="Models\ListaCondicoesPagamentoDTO.cs" />
     <Compile Include="Models\ListaEstadosDTO.cs" />
     <Compile Include="Models\ListaPaisesDTO.cs" />
+    <Compile Include="Models\ListaPedidosDTO.cs" />
     <Compile Include="Models\ListaProdutosDTO.cs" />
     <Compile Include="Models\ListaSegmentosMercadoDTO.cs" />
+    <Compile Include="Models\ListaTabelasPrecosDTO.cs" />
     <Compile Include="Models\ListaUsuariosDTO.cs" />
     <Compile Include="Models\PaisDTO.cs" />
+    <Compile Include="Models\PedidoDTO.cs" />
     <Compile Include="Models\ProdutoDTO.cs" />
     <Compile Include="Models\SegmentoMercadoDTO.cs" />
+    <Compile Include="Models\TabelaPrecosDTO.cs" />
     <Compile Include="Models\UsuarioDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

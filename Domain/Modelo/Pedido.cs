@@ -14,8 +14,8 @@ namespace Domain
         public ObjectId _id { get; set; }
         public string ID { get; set; }
         public int Situacao { get; set; }
-        public string DataCriacao { get; set; }
-        public string DataAtualizacao { get; set; }
+        public string DtCriacao { get; set; }
+        public string DtAtualizacao { get; set; }
         public List<ItemPedido> ListaItemPedido { get; set; }
         public Cliente ClientePedido { get; set; }
         public CondicaoPagamento CondicaoPagamentoPedido { get; set; }

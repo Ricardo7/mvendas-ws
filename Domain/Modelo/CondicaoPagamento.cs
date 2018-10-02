@@ -16,5 +16,7 @@ namespace Domain {
         public string Cod { get; set; }
         public string Descricao { get; set; }
         public int DescAcr { get; set; }
+        public string DtCriacao { get; set; }
+        public string DtAtualizacao { get; set; }
     }
 }
