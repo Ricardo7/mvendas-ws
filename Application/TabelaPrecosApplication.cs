@@ -47,10 +47,9 @@ namespace Application {
         public TabelaPrecos AddTabelaPrecos(TabelaPrecos tabelaPrecos) {
             TabelaPrecos consultaExiste = new TabelaPrecos(); ;
             try {
-                consultaExiste = new TabelaPrecos();
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     TabelaPrecos cadastrado = dbTabelaPrecos.AddTabelaPrecos(tabelaPrecos);
 
                     return cadastrado;
@@ -67,10 +66,9 @@ namespace Application {
         public TabelaPrecos EditaTabelaPrecos(TabelaPrecos tabelaPrecos) {
             TabelaPrecos consultaExiste = new TabelaPrecos(); ;
             try {
-                consultaExiste = new TabelaPrecos();
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     TabelaPrecos editado = dbTabelaPrecos.EditarTabelaPrecos(tabelaPrecos);
 
                     return editado;

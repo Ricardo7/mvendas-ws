@@ -87,7 +87,7 @@ namespace Repository
 
         }
 
-        public void EditarUsuario(Usuario usuario)
+        public Usuario EditarUsuario(Usuario usuario)
         {
             Usuario usuarioPesquisado = new Usuario();
 
@@ -110,6 +110,8 @@ namespace Repository
             usuario._id = usuarioPesquisado._id;
 
             colecao.ReplaceOne(filtro, usuario, new UpdateOptions { IsUpsert = true } );
+
+            return usuario;
 
         }        
     }

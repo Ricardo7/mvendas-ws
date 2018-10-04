@@ -21,9 +21,10 @@ namespace WebService.Controllers
         [HttpPost]
         [Route("api/Pedido/AddPedido")]
         public PedidoDTO AddPedido(Pedido pedido) {
+
             Pedido pedidoCadastrado = pedidoApplication.AddPedido(pedido);
 
-            if (pedidoCadastrado != null) {
+            if (pedidoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoPedido(200, "SUCCESS", "", pedidoCadastrado);
             } else {
                 return RetornoController.MontaRetornoPedido(401, "ERROR", "", null);
@@ -36,7 +37,7 @@ namespace WebService.Controllers
         public PedidoDTO EditaPedido(Pedido pedido) {
             Pedido pedidoCadastrado = pedidoApplication.EditaPedido(pedido);
 
-            if (pedidoCadastrado != null) {
+            if (pedidoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoPedido(200, "SUCCESS", "", pedidoCadastrado);
             } else {
                 return RetornoController.MontaRetornoPedido(401, "ERROR", "", null);
@@ -50,7 +51,7 @@ namespace WebService.Controllers
 
             Pedido pedidoRetorno = pedidoApplication.GetPedido(id);
 
-            if (pedidoRetorno != null) {
+            if (pedidoRetorno.ID != null) {
                 return RetornoController.MontaRetornoPedido(200, "SUCCESS", "", pedidoRetorno);
             } else {
                 return RetornoController.MontaRetornoPedido(401, "ERROR", "", null);
@@ -63,7 +64,7 @@ namespace WebService.Controllers
         public ListaPedidosDTO GetListaPedidos() {
             List<Pedido> ListaTemp = pedidoApplication.GetListaPedido();
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaPedidos(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaPedidos(401, "ERROR", "", null);
@@ -76,7 +77,7 @@ namespace WebService.Controllers
         public ListaPedidosDTO GetListaPedidosAtualizados(string dataAt) {
             List<Pedido> ListaTemp = pedidoApplication.GetListaPedidosAtualizados(dataAt);
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaPedidos(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaPedidos(401, "ERROR", "", null);

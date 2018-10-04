@@ -49,7 +49,7 @@ namespace Application {
             try {
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     Pedido cadastrado = dbPedido.AddPedido(pedido);
 
                     return cadastrado;
@@ -66,10 +66,9 @@ namespace Application {
         public Pedido EditaPedido(Pedido pedido) {
             Pedido consultaExiste = new Pedido(); ;
             try {
-                consultaExiste = new Pedido();
-                //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
+                //consultaExiste = dbPedido.EditarPedido(pedido);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     Pedido editado = dbPedido.EditarPedido(pedido);
 
                     return editado;

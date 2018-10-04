@@ -23,7 +23,7 @@ namespace WebService.Controllers
         public TabelaPrecosDTO AddTabelaPrecos(TabelaPrecos tabelaPrecos) {
             TabelaPrecos tabelaPrecosCadastrado = tabelaPrecosApplication.AddTabelaPrecos(tabelaPrecos);
 
-            if (tabelaPrecosCadastrado != null) {
+            if (tabelaPrecosCadastrado.ID != null) {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "SUCCESS", "", tabelaPrecosCadastrado);
             } else {
                 return RetornoController.MontaRetornoTabelaPrecos(401, "ERROR", "", null);
@@ -36,7 +36,7 @@ namespace WebService.Controllers
         public TabelaPrecosDTO EditaTabelaPrecos(TabelaPrecos tabelaPrecos) {
             TabelaPrecos tabelaPrecosCadastrado = tabelaPrecosApplication.EditaTabelaPrecos(tabelaPrecos);
 
-            if (tabelaPrecosCadastrado != null) {
+            if (tabelaPrecosCadastrado.ID != null) {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "SUCCESS", "", tabelaPrecosCadastrado);
             } else {
                 return RetornoController.MontaRetornoTabelaPrecos(401, "ERROR", "", null);
@@ -50,7 +50,7 @@ namespace WebService.Controllers
 
             TabelaPrecos tabelaPrecosRetorno = tabelaPrecosApplication.GetTabelaPrecos(id);
 
-            if (tabelaPrecosRetorno != null) {
+            if (tabelaPrecosRetorno.ID != null) {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "SUCCESS", "", tabelaPrecosRetorno);
             } else {
                 return RetornoController.MontaRetornoTabelaPrecos(401, "ERROR", "", null);
@@ -63,7 +63,7 @@ namespace WebService.Controllers
         public ListaTabelasPrecosDTO GetListaTabelaPrecos() {
             List<TabelaPrecos> ListaTemp = tabelaPrecosApplication.GetListaTabelasPrecos();
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaTabelasPrecos(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaTabelasPrecos(401, "ERROR", "", null);
@@ -76,7 +76,7 @@ namespace WebService.Controllers
         public ListaTabelasPrecosDTO GetListaTabelaPrecosAtualizados(string dataAt) {
             List<TabelaPrecos> ListaTemp = tabelaPrecosApplication.GetListaTabelasPrecosAtualizados(dataAt);
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaTabelasPrecos(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaTabelasPrecos(401, "ERROR", "", null);

@@ -86,6 +86,30 @@ namespace Repository {
 
         }
 
+        public Cliente EditarCliente(Cliente cliente) {
+            Cliente clientePesquisado = new Cliente();
+
+            var conexao = new MongoClient(Conexao.CONEXAO);
+
+            var db = conexao.GetDatabase(Conexao.DB);
+
+            var colecao = db.GetCollection<Cliente>("clientes");
+
+            var filtro = Builders<Cliente>.Filter.Eq(u => u.ID, cliente.ID);
+
+            var retorno = colecao.Find(filtro).FirstOrDefault();
+
+            clientePesquisado = (Cliente)retorno;
+
+            cliente._id = clientePesquisado._id;
+            cliente.ID = clientePesquisado.ID;
+
+            colecao.ReplaceOne(filtro, cliente, new UpdateOptions { IsUpsert = true });
+
+            return cliente;
+
+        }
+
         public void AlterarStatusCliente(Cliente cliente) {
             var conexao = new MongoClient(Conexao.CONEXAO);
 

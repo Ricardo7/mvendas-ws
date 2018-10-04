@@ -49,7 +49,7 @@ namespace Application {
             try {
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     CondicaoPagamento cadastrado = dbCondicao.AddCondicaoPagamento(condicaoPagamento);
 
                     return cadastrado;
@@ -68,7 +68,7 @@ namespace Application {
             try {
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     CondicaoPagamento editado = dbCondicao.EditarCondicaoPagamento(condicaoPagamento);
 
                     return editado;

@@ -48,10 +48,9 @@ namespace Application {
         public Produto AddProduto(Produto produto) {
             Produto consultaExiste = new Produto(); ;
             try {
-                consultaExiste = new Produto();
                 consultaExiste = dbProduto.ConsultaProduto(produto);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     Produto cadastrado = dbProduto.AddProduto(produto);
                     return cadastrado;
 
@@ -67,10 +66,9 @@ namespace Application {
         public Produto EditarProduto(Produto produto) {
             Produto consultaExiste = new Produto(); ;
             try {
-                consultaExiste = new Produto();
                 consultaExiste = dbProduto.ConsultaProduto(produto);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     Produto editado = dbProduto.EditarProduto(produto);
                     return editado;
 

@@ -23,7 +23,7 @@ namespace WebService.Controllers
         public ProdutoDTO AddProduto(Produto produto) {
             Produto produtoCadastrado = produtoApplication.AddProduto(produto);
 
-            if (produtoCadastrado != null) {
+            if (produtoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoCadastrado);
             } else {
                 return RetornoController.MontaRetornoProduto(401, "ERROR", "", null);
@@ -36,7 +36,7 @@ namespace WebService.Controllers
         public ProdutoDTO Editaproduto(Produto produto) {
             Produto produtoCadastrado = produtoApplication.EditarProduto(produto);
 
-            if (produtoCadastrado != null) {
+            if (produtoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoCadastrado);
             } else {
                 return RetornoController.MontaRetornoProduto(401, "ERROR", "", null);
@@ -53,7 +53,7 @@ namespace WebService.Controllers
 
             Produto produtoRetorno = produtoApplication.GetProduto(produtoConsulta);
 
-            if (produtoRetorno != null) {
+            if (produtoRetorno.ID != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoRetorno);
             } else {
                 return RetornoController.MontaRetornoProduto(401, "ERROR", "", null);
@@ -66,7 +66,7 @@ namespace WebService.Controllers
         public ListaProdutosDTO GetListaProdutos() {
             List<Produto> ListaTemp = produtoApplication.GetListaProdutos();
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaProdutos(401, "ERROR", "", null);
@@ -79,7 +79,7 @@ namespace WebService.Controllers
         public ListaProdutosDTO GetListaAtualizados(string dataAt) {
             List<Produto> ListaTemp = produtoApplication.GetListaProdutosAtualizados(dataAt);
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaProdutos(401, "ERROR", "", null);

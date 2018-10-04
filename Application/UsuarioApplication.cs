@@ -71,7 +71,7 @@ namespace Application
                 Usuario consultaExiste;
                 consultaExiste = dbUser.ConsultaUsuario(usuario);
 
-                if (consultaExiste == null)
+                if (consultaExiste.ID == null)
                 {
                     dbUser.AddUsuario(usuario);
                     return dbUser.ConsultaUsuario(usuario);
@@ -89,16 +89,15 @@ namespace Application
         }
 
 
-        public Boolean EditUsuario(Usuario usuario)
+        public Usuario EditUsuario(Usuario usuario)
         {
             try
             {
-                  dbUser.EditarUsuario(usuario);
-                  return true;
-            }
-            catch (Exception)
+                return dbUser.EditarUsuario(usuario);
+
+            } catch (Exception)
             {
-                return false;
+                return new Usuario();
             }
         }
 

@@ -111,7 +111,7 @@ namespace Application {
                 consultaExiste = new Pais();
                 //consultaExiste = dbLocais.GetPais(pais.ID);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     Pais cadastrado = dbLocais.AddPais(pais);
 
                     return cadastrado;
@@ -130,7 +130,7 @@ namespace Application {
                 consultaExiste = new Estado();
                 //consultaExiste = dbLocais.GetPais(pais.ID);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     Estado cadastrado = dbLocais.AddEstado(estado);
 
                     return cadastrado;
@@ -149,7 +149,7 @@ namespace Application {
                 consultaExiste = new Cidade();
                 //consultaExiste = dbLocais.GetPais(pais.ID);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     Cidade cadastrado = dbLocais.AddCidade(cidade);
 
                     return cadastrado;

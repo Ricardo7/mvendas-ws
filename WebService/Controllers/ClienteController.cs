@@ -21,7 +21,20 @@ namespace WebService.Controllers {
         public ClienteDTO AddCliente(Cliente cliente) {
             Cliente clienteCadastrado = clienteApplication.AddCliente(cliente);
 
-            if (clienteCadastrado != null) {
+            if (clienteCadastrado.ID != null) {
+                return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteCadastrado);
+            } else {
+                return RetornoController.MontaRetornoCliente(401, "ERROR", "", null);
+            }
+
+        }
+
+        [HttpPut]
+        [Route("api/Cliente/EditaCliente")]
+        public ClienteDTO EditaCliente(Cliente cliente) {
+            Cliente clienteCadastrado = clienteApplication.EditarCliente(cliente);
+
+            if (clienteCadastrado.ID != null) {
                 return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteCadastrado);
             } else {
                 return RetornoController.MontaRetornoCliente(401, "ERROR", "", null);
@@ -38,7 +51,7 @@ namespace WebService.Controllers {
 
             Cliente clienteRetorno = clienteApplication.GetCliente(clienteConsulta);
 
-            if (clienteRetorno != null) {
+            if (clienteRetorno.ID != null) {
                 return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteRetorno);
             } else {
                 return RetornoController.MontaRetornoCliente(401, "ERROR", "", null);
@@ -51,7 +64,7 @@ namespace WebService.Controllers {
         public ListaClientesDTO GetListaClientes() {
             List<Cliente> ListaTemp = clienteApplication.GetListaClientes();
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaClientes(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaClientes(401, "ERROR", "", null);
@@ -64,7 +77,7 @@ namespace WebService.Controllers {
         public ListaClientesDTO GetListaClientesAtualizados(string dataAt) {
             List<Cliente> ListaTemp = clienteApplication.GetListaClientesAtualizados(dataAt);
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaClientes(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaClientes(401, "ERROR", "", null);

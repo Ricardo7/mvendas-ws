@@ -27,7 +27,7 @@ namespace WebService.Controllers
         {
             Usuario usuarioAdicionado = usuarioApplication.AddUsuario(usuario);
 
-            if (usuarioAdicionado != null) {
+            if (usuarioAdicionado.ID != null) {
                 return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
             } else {
                 return RetornoController.MontaRetornoUsuario(401, "ERROR", "", null);
@@ -84,7 +84,7 @@ namespace WebService.Controllers
 
             Usuario usuario = usuarioApplication.GetUsuario(usuarioConsulta);
 
-            if (usuario != null) {
+            if (usuario.ID != null) {
                 return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
             } else {
                 return RetornoController.MontaRetornoUsuario(401, "ERROR", "", null);
@@ -93,18 +93,15 @@ namespace WebService.Controllers
 
         [HttpPut]
         [Route("api/Usuario/EditUsuario")]
-        public bool EditUsuario(Usuario usuario)
+        public UsuarioDTO EditUsuario(Usuario usuario)
         {
-            /*Usuario usuario = new Usuario
-            {
-                ID = usuarioDTO.ID,
-                Nome = usuarioDTO.Nome,
-                Email = usuarioDTO.Email,
-                Senha = usuarioDTO.Senha,
-                Ativo = usuarioDTO.Ativo
-            };*/
+            Usuario usuarioEditado = usuarioApplication.EditUsuario(usuario);
 
-            return usuarioApplication.EditUsuario(usuario);
+            if (usuarioEditado.ID != null) {
+                return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
+            } else {
+                return RetornoController.MontaRetornoUsuario(401, "ERROR", "", null);
+            }
         }
 
         [HttpGet]
@@ -113,7 +110,7 @@ namespace WebService.Controllers
 
             List<Usuario> lista = usuarioApplication.GetListaUsuarios();
 
-            if (lista != null) {
+            if (lista.Count() != 0) {
                 return RetornoController.MontaRetornoListaUsuario(200, "SUCCESS", "", lista);
             } else {
                 return RetornoController.MontaRetornoListaUsuario(401, "ERROR", "", null);

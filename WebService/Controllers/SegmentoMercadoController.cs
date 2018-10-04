@@ -21,7 +21,7 @@ namespace WebService.Controllers {
         public SegmentoMercadoDTO AddSegmentoMercado(SegmentoMercado segmentoMercado) {
             SegmentoMercado segmentoMercadoCadastrado = segmentoMercadoApplication.AddSegmentoMercado(segmentoMercado);
 
-            if (segmentoMercadoCadastrado != null) {
+            if (segmentoMercadoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoSegmentoMercado(200, "SUCCESS", "", segmentoMercadoCadastrado);
             } else {
                 return RetornoController.MontaRetornoSegmentoMercado(401, "ERROR", "", null);
@@ -35,7 +35,7 @@ namespace WebService.Controllers {
 
             SegmentoMercado retorno = segmentoMercadoApplication.GetSegmentoMercado(id);
 
-            if (retorno != null) {
+            if (retorno.ID != null) {
                 return RetornoController.MontaRetornoSegmentoMercado(200, "SUCCESS", "", retorno);
             } else {
                 return RetornoController.MontaRetornoSegmentoMercado(401, "ERROR", "", null);
@@ -48,7 +48,7 @@ namespace WebService.Controllers {
         public ListaSegmentosMercadoDTO GetListaSegmentosMercado() {
             List<SegmentoMercado> ListaTemp = segmentoMercadoApplication.GetListaSegmentosMercado();
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaSegmentosMercado(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaSegmentosMercado(401, "ERROR", "", null);
@@ -61,7 +61,7 @@ namespace WebService.Controllers {
         public ListaSegmentosMercadoDTO GetListaSegmentosMercadoAtualizados(string dataAt) {
             List<SegmentoMercado> ListaTemp = segmentoMercadoApplication.GetListaSegmentosMercadoAtualizados(dataAt);
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaSegmentosMercado(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaSegmentosMercado(401, "ERROR", "", null);

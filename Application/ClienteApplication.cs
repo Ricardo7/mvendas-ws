@@ -50,7 +50,7 @@ namespace Application {
                 consultaExiste = new Cliente();
                 consultaExiste = dbCliente.ConsultaCliente(cliente);
 
-                if (consultaExiste == null) {
+                if (consultaExiste.ID == null) {
                     Cliente cadastrado = dbCliente.AddCliente(cliente);
 
                     return cadastrado;
@@ -58,6 +58,24 @@ namespace Application {
                     return consultaExiste;
                 }
                 
+            } catch (Exception) {
+                return consultaExiste;
+            }
+        }
+
+        public Cliente EditarCliente(Cliente cliente) {
+            Cliente consultaExiste = new Cliente(); ;
+            try {
+                consultaExiste = dbCliente.ConsultaCliente(cliente);
+
+                if (consultaExiste.ID == null) {
+                    Cliente editado = dbCliente.EditarCliente(cliente);
+                    return editado;
+
+                } else {
+                    return consultaExiste;
+                }
+
             } catch (Exception) {
                 return consultaExiste;
             }

@@ -22,7 +22,7 @@ namespace WebService.Controllers
         public CondicaoPagamentoDTO AddCondicaoPagamento(CondicaoPagamento condicaoPagamento) {
             CondicaoPagamento condicaoPagamentoCadastrado = condicaoPagamentoApplication.AddCondicaoPagamento(condicaoPagamento);
 
-            if (condicaoPagamentoCadastrado != null) {
+            if (condicaoPagamentoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", condicaoPagamentoCadastrado);
             } else {
                 return RetornoController.MontaRetornoCondicaoPagamento(401, "ERROR", "", null);
@@ -35,7 +35,7 @@ namespace WebService.Controllers
         public CondicaoPagamentoDTO EditaCondicaoPagamento(CondicaoPagamento condicaoPagamento) {
             CondicaoPagamento condicaoPagamentoCadastrado = condicaoPagamentoApplication.EditaCondicaoPagamento(condicaoPagamento);
 
-            if (condicaoPagamentoCadastrado != null) {
+            if (condicaoPagamentoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", condicaoPagamentoCadastrado);
             } else {
                 return RetornoController.MontaRetornoCondicaoPagamento(401, "ERROR", "", null);
@@ -47,10 +47,10 @@ namespace WebService.Controllers
         [Route("api/CondicaoPagamento/GetCondicaoPagamento")]
         public CondicaoPagamentoDTO GetCondicaoPagamento(string id) {
 
-            CondicaoPagamento tabelaPrecosRetorno = condicaoPagamentoApplication.GetCondicaoPagamento(id);
+            CondicaoPagamento condicaoPagamentoRetorno = condicaoPagamentoApplication.GetCondicaoPagamento(id);
 
-            if (tabelaPrecosRetorno != null) {
-                return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", tabelaPrecosRetorno);
+            if (condicaoPagamentoRetorno.ID != null) {
+                return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", condicaoPagamentoRetorno);
             } else {
                 return RetornoController.MontaRetornoCondicaoPagamento(401, "ERROR", "", null);
             }
@@ -62,7 +62,7 @@ namespace WebService.Controllers
         public ListaCondicoesPagamentoDTO GetListaCondicaoPagamento() {
             List<CondicaoPagamento> ListaTemp = condicaoPagamentoApplication.GetListaCondicoesPagamento();
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaCondicaoPagamento(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaCondicaoPagamento(401, "ERROR", "", null);
@@ -75,7 +75,7 @@ namespace WebService.Controllers
         public ListaCondicoesPagamentoDTO GetListaCondicaoPagamentoAtualizados(string dataAt) {
             List<CondicaoPagamento> ListaTemp = condicaoPagamentoApplication.GetListaCondicoesPagamentoAtualizados(dataAt);
 
-            if (ListaTemp != null) {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaCondicaoPagamento(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaCondicaoPagamento(401, "ERROR", "", null);
