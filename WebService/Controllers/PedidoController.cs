@@ -27,7 +27,7 @@ namespace WebService.Controllers
             if (pedidoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoPedido(200, "SUCCESS", "", pedidoCadastrado);
             } else {
-                return RetornoController.MontaRetornoPedido(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoPedido(200, "ERROR", "", null);
             }
 
         }
@@ -40,7 +40,7 @@ namespace WebService.Controllers
             if (pedidoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoPedido(200, "SUCCESS", "", pedidoCadastrado);
             } else {
-                return RetornoController.MontaRetornoPedido(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoPedido(200, "ERROR", "", null);
             }
 
         }
@@ -54,7 +54,7 @@ namespace WebService.Controllers
             if (pedidoRetorno.ID != null) {
                 return RetornoController.MontaRetornoPedido(200, "SUCCESS", "", pedidoRetorno);
             } else {
-                return RetornoController.MontaRetornoPedido(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoPedido(200, "ERROR", "", null);
             }
 
         }
@@ -67,7 +67,7 @@ namespace WebService.Controllers
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaPedidos(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaPedidos(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaPedidos(200, "ERROR", "", null);
             }
 
         }
@@ -80,7 +80,7 @@ namespace WebService.Controllers
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaPedidos(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaPedidos(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaPedidos(200, "ERROR", "", null);
             }
 
         }

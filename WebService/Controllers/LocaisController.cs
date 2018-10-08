@@ -27,7 +27,7 @@ namespace WebService.Controllers
             if (paisCadastrado.ID != null) {
                 return RetornoController.MontaRetornoPais(200, "SUCCESS", "", paisCadastrado);
             } else {
-                return RetornoController.MontaRetornoPais(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoPais(200, "ERROR", "", null);
             }
 
         }
@@ -41,7 +41,7 @@ namespace WebService.Controllers
             if (paises.Count() != 0) {
                 return RetornoController.MontaRetornoListaPaises(200, "SUCCESS", "", paises);
             } else {
-                return RetornoController.MontaRetornoListaPaises(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaPaises(200, "ERROR", "", null);
             }
 
         }
@@ -54,7 +54,7 @@ namespace WebService.Controllers
             if (paises.Count() != 0) {
                 return RetornoController.MontaRetornoListaPaises(200, "SUCCESS", "", paises);
             } else {
-                return RetornoController.MontaRetornoListaPaises(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaPaises(200, "ERROR", "", null);
             }
 
         }
@@ -67,7 +67,7 @@ namespace WebService.Controllers
             if (pais.ID != null) {
                 return RetornoController.MontaRetornoPais(200, "SUCCESS", "", pais);
             } else {
-                return RetornoController.MontaRetornoPais(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoPais(200, "ERROR", "", null);
             }
 
         }
@@ -80,7 +80,7 @@ namespace WebService.Controllers
             if (estadoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoEstado(200, "SUCCESS", "", estadoCadastrado);
             } else {
-                return RetornoController.MontaRetornoEstado(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoEstado(200, "ERROR", "", null);
             }
 
         }
@@ -94,7 +94,7 @@ namespace WebService.Controllers
             if (estados.Count() != 0 != null) {
                 return RetornoController.MontaRetornoListaEstados(200, "SUCCESS", "", estados);
             } else {
-                return RetornoController.MontaRetornoListaEstados(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaEstados(200, "ERROR", "", null);
             }
         }
 
@@ -106,7 +106,7 @@ namespace WebService.Controllers
             if (estados.Count() != 0) {
                 return RetornoController.MontaRetornoListaEstados(200, "SUCCESS", "", estados);
             } else {
-                return RetornoController.MontaRetornoListaEstados(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaEstados(200, "ERROR", "", null);
             }
         }
 
@@ -118,7 +118,7 @@ namespace WebService.Controllers
             if (estado.ID != null) {
                 return RetornoController.MontaRetornoEstado(200, "SUCCESS", "", estado);
             } else {
-                return RetornoController.MontaRetornoEstado(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoEstado(200, "ERROR", "", null);
             }
 
         }
@@ -131,7 +131,7 @@ namespace WebService.Controllers
             if (cidadeCadastrado.ID != null) {
                 return RetornoController.MontaRetornoCidade(200, "SUCCESS", "", cidadeCadastrado);
             } else {
-                return RetornoController.MontaRetornoCidade(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoCidade(200, "ERROR", "", null);
             }
 
         }
@@ -145,7 +145,7 @@ namespace WebService.Controllers
             if (cidades.Count() != 0) {
                 return RetornoController.MontaRetornoListaCidades(200, "SUCCESS", "", cidades);
             } else {
-                return RetornoController.MontaRetornoListaCidades(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaCidades(200, "ERROR", "", null);
             }
         }
 
@@ -157,7 +157,7 @@ namespace WebService.Controllers
             if (cidades.Count() != 0) {
                 return RetornoController.MontaRetornoListaCidades(200, "SUCCESS", "", cidades);
             } else {
-                return RetornoController.MontaRetornoListaCidades(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaCidades(200, "ERROR", "", null);
             }
         }
 
@@ -169,7 +169,7 @@ namespace WebService.Controllers
             if (cidade.ID != null) {
                 return RetornoController.MontaRetornoCidade(200, "SUCCESS", "", cidade);
             } else {
-                return RetornoController.MontaRetornoCidade(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoCidade(200, "ERROR", "", null);
             }
 
         }

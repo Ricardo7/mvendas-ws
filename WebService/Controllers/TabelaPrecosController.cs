@@ -26,7 +26,7 @@ namespace WebService.Controllers
             if (tabelaPrecosCadastrado.ID != null) {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "SUCCESS", "", tabelaPrecosCadastrado);
             } else {
-                return RetornoController.MontaRetornoTabelaPrecos(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoTabelaPrecos(200, "ERROR", "", null);
             }
 
         }
@@ -39,7 +39,7 @@ namespace WebService.Controllers
             if (tabelaPrecosCadastrado.ID != null) {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "SUCCESS", "", tabelaPrecosCadastrado);
             } else {
-                return RetornoController.MontaRetornoTabelaPrecos(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoTabelaPrecos(200, "ERROR", "", null);
             }
 
         }
@@ -53,7 +53,7 @@ namespace WebService.Controllers
             if (tabelaPrecosRetorno.ID != null) {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "SUCCESS", "", tabelaPrecosRetorno);
             } else {
-                return RetornoController.MontaRetornoTabelaPrecos(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoTabelaPrecos(200, "ERROR", "", null);
             }
 
         }
@@ -66,7 +66,7 @@ namespace WebService.Controllers
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaTabelasPrecos(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaTabelasPrecos(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaTabelasPrecos(200, "ERROR", "", null);
             }
 
         }
@@ -79,7 +79,7 @@ namespace WebService.Controllers
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaTabelasPrecos(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaTabelasPrecos(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaTabelasPrecos(200, "ERROR", "", null);
             }
 
         }
