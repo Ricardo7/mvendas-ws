@@ -25,7 +25,7 @@ namespace WebService.Controllers
             if (condicaoPagamentoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", condicaoPagamentoCadastrado);
             } else {
-                return RetornoController.MontaRetornoCondicaoPagamento(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoCondicaoPagamento(200, "ERROR", "", null);
             }
 
         }
@@ -38,7 +38,7 @@ namespace WebService.Controllers
             if (condicaoPagamentoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", condicaoPagamentoCadastrado);
             } else {
-                return RetornoController.MontaRetornoCondicaoPagamento(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoCondicaoPagamento(200, "ERROR", "", null);
             }
 
         }
@@ -52,7 +52,7 @@ namespace WebService.Controllers
             if (condicaoPagamentoRetorno.ID != null) {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", condicaoPagamentoRetorno);
             } else {
-                return RetornoController.MontaRetornoCondicaoPagamento(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoCondicaoPagamento(200, "ERROR", "", null);
             }
 
         }
@@ -65,7 +65,7 @@ namespace WebService.Controllers
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaCondicaoPagamento(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaCondicaoPagamento(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaCondicaoPagamento(200, "ERROR", "", null);
             }
 
         }
@@ -78,7 +78,7 @@ namespace WebService.Controllers
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaCondicaoPagamento(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaCondicaoPagamento(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaCondicaoPagamento(200, "ERROR", "", null);
             }
 
         }

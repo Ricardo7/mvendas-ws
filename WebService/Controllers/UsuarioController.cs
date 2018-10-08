@@ -30,7 +30,7 @@ namespace WebService.Controllers
             if (usuarioAdicionado.ID != null) {
                 return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
             } else {
-                return RetornoController.MontaRetornoUsuario(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoUsuario(200, "ERROR", "", null);
             }
         }
 
@@ -87,7 +87,7 @@ namespace WebService.Controllers
             if (usuario.ID != null) {
                 return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
             } else {
-                return RetornoController.MontaRetornoUsuario(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoUsuario(200, "ERROR", "", null);
             }
         }
 
@@ -100,7 +100,7 @@ namespace WebService.Controllers
             if (usuarioEditado.ID != null) {
                 return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
             } else {
-                return RetornoController.MontaRetornoUsuario(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoUsuario(200, "ERROR", "", null);
             }
         }
 
@@ -113,7 +113,7 @@ namespace WebService.Controllers
             if (lista.Count() != 0) {
                 return RetornoController.MontaRetornoListaUsuario(200, "SUCCESS", "", lista);
             } else {
-                return RetornoController.MontaRetornoListaUsuario(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaUsuario(200, "ERROR", "", null);
             }
 
         }

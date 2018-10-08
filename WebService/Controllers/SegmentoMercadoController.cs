@@ -24,7 +24,7 @@ namespace WebService.Controllers {
             if (segmentoMercadoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoSegmentoMercado(200, "SUCCESS", "", segmentoMercadoCadastrado);
             } else {
-                return RetornoController.MontaRetornoSegmentoMercado(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoSegmentoMercado(200, "ERROR", "", null);
             }
 
         }
@@ -38,7 +38,7 @@ namespace WebService.Controllers {
             if (retorno.ID != null) {
                 return RetornoController.MontaRetornoSegmentoMercado(200, "SUCCESS", "", retorno);
             } else {
-                return RetornoController.MontaRetornoSegmentoMercado(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoSegmentoMercado(200, "ERROR", "", null);
             }
 
         }
@@ -51,7 +51,7 @@ namespace WebService.Controllers {
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaSegmentosMercado(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaSegmentosMercado(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaSegmentosMercado(200, "ERROR", "", null);
             }
 
         }
@@ -64,7 +64,7 @@ namespace WebService.Controllers {
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaSegmentosMercado(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaSegmentosMercado(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaSegmentosMercado(200, "ERROR", "", null);
             }
 
         }

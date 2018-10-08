@@ -26,7 +26,7 @@ namespace WebService.Controllers
             if (produtoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoCadastrado);
             } else {
-                return RetornoController.MontaRetornoProduto(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoProduto(200, "ERROR", "", null);
             }
 
         }
@@ -39,7 +39,7 @@ namespace WebService.Controllers
             if (produtoCadastrado.ID != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoCadastrado);
             } else {
-                return RetornoController.MontaRetornoProduto(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoProduto(200, "ERROR", "", null);
             }
 
         }
@@ -56,7 +56,7 @@ namespace WebService.Controllers
             if (produtoRetorno.ID != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoRetorno);
             } else {
-                return RetornoController.MontaRetornoProduto(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoProduto(200, "ERROR", "", null);
             }
 
         }
@@ -69,7 +69,7 @@ namespace WebService.Controllers
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaProdutos(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaProdutos(200, "ERROR", "", null);
             }
 
         }
@@ -82,7 +82,7 @@ namespace WebService.Controllers
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaProdutos(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaProdutos(200, "ERROR", "", null);
             }
 
         }
