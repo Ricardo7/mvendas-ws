@@ -24,7 +24,7 @@ namespace WebService.Controllers {
             if (clienteCadastrado.ID != null) {
                 return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteCadastrado);
             } else {
-                return RetornoController.MontaRetornoCliente(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoCliente(200, "ERROR", "", null);
             }
 
         }
@@ -37,7 +37,7 @@ namespace WebService.Controllers {
             if (clienteCadastrado.ID != null) {
                 return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteCadastrado);
             } else {
-                return RetornoController.MontaRetornoCliente(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoCliente(200, "ERROR", "", null);
             }
 
         }
@@ -54,7 +54,7 @@ namespace WebService.Controllers {
             if (clienteRetorno.ID != null) {
                 return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteRetorno);
             } else {
-                return RetornoController.MontaRetornoCliente(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoCliente(200, "ERROR", "", null);
             }
 
         }
@@ -67,7 +67,7 @@ namespace WebService.Controllers {
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaClientes(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaClientes(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaClientes(200, "ERROR", "", null);
             }
 
         }
@@ -80,7 +80,7 @@ namespace WebService.Controllers {
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaClientes(200, "SUCCESS", "", ListaTemp);
             } else {
-                return RetornoController.MontaRetornoListaClientes(401, "ERROR", "", null);
+                return RetornoController.MontaRetornoListaClientes(200, "ERROR", "", null);
             }
 
         }
