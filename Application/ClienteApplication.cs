@@ -48,9 +48,9 @@ namespace Application {
             Cliente consultaExiste = new Cliente(); ;
             try {
                 consultaExiste = new Cliente();
-                consultaExiste = dbCliente.ConsultaCliente(cliente);
+               // consultaExiste = dbCliente.ConsultaCliente(cliente);
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null && consultaExiste.ID == null) {
                     Cliente cadastrado = dbCliente.AddCliente(cliente);
 
                     return cadastrado;

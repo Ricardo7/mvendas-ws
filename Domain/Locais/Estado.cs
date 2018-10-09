@@ -13,7 +13,8 @@ namespace Domain
         [JsonIgnore]
         public ObjectId _id { get; set; }
 
-        [JsonProperty("ID")]
+        //[JsonProperty("ID")]
+        [JsonIgnore]
         public int IDAP { get; set; }
         [JsonProperty("IDWS")]
         public string ID { get; set; }
@@ -21,7 +22,9 @@ namespace Domain
         public string Sigla { get; set; }
         [JsonProperty("Pais")]
         public Pais Pais_Estado { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string DtCadastro { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string DtAtualizacao { get; set; }
     }
 }
