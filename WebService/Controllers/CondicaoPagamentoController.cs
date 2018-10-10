@@ -22,7 +22,7 @@ namespace WebService.Controllers
         public CondicaoPagamentoDTO AddCondicaoPagamento(CondicaoPagamento condicaoPagamento) {
             CondicaoPagamento condicaoPagamentoCadastrado = condicaoPagamentoApplication.AddCondicaoPagamento(condicaoPagamento);
 
-            if (condicaoPagamentoCadastrado.ID != null) {
+            if (condicaoPagamentoCadastrado != null) {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", condicaoPagamentoCadastrado);
             } else {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "ERROR", "", null);
@@ -35,7 +35,7 @@ namespace WebService.Controllers
         public CondicaoPagamentoDTO EditaCondicaoPagamento(CondicaoPagamento condicaoPagamento) {
             CondicaoPagamento condicaoPagamentoCadastrado = condicaoPagamentoApplication.EditaCondicaoPagamento(condicaoPagamento);
 
-            if (condicaoPagamentoCadastrado.ID != null) {
+            if (condicaoPagamentoCadastrado != null) {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", condicaoPagamentoCadastrado);
             } else {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "ERROR", "", null);
@@ -49,7 +49,7 @@ namespace WebService.Controllers
 
             CondicaoPagamento condicaoPagamentoRetorno = condicaoPagamentoApplication.GetCondicaoPagamento(id);
 
-            if (condicaoPagamentoRetorno.ID != null) {
+            if (condicaoPagamentoRetorno != null) {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "SUCCESS", "", condicaoPagamentoRetorno);
             } else {
                 return RetornoController.MontaRetornoCondicaoPagamento(200, "ERROR", "", null);

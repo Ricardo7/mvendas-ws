@@ -7,97 +7,67 @@ using Repository;
 using Domain;
 using MongoDB.Driver;
 
-namespace Application
-{
-    public class UsuarioApplication
-    {
+namespace Application {
+    public class UsuarioApplication {
         private UsuarioRepository dbUser;
-        
-        public UsuarioApplication()
-        {
+
+        public UsuarioApplication() {
             dbUser = new UsuarioRepository();
         }
 
-        public Usuario ValidarSenha(Usuario usuario)
-        {
+        public Usuario ValidarSenha(Usuario usuario) {
             Usuario consulta;
 
 
-            try
-            {
+            try {
                 consulta = dbUser.ConsultaUsuario(usuario);
-                
-            }
-            catch (Exception)
-            {
+
+            } catch (Exception) {
                 return null;
             }
 
-            try
-            {
-                if (usuario.Senha == consulta.Senha)
-                {
+            try {
+                if (usuario.Senha == consulta.Senha) {
                     return consulta;
-                }
-                else
-                {
+                } else {
                     return null;
                 }
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 return null;
             }
         }
 
-        public Usuario GetUsuario(Usuario usuario)
-        {
-            try
-            {
+        public Usuario GetUsuario(Usuario usuario) {
+            try {
                 return dbUser.ConsultaUsuario(usuario);
-            }
-            catch (Exception)
-            {
-                Usuario vazio = new Usuario();
-                return vazio;
+            } catch (Exception) {
+                return null;
             }
         }
 
-        public Usuario AddUsuario(Usuario usuario)
-        {
-            Usuario nulo = new Usuario();
-            try
-            {
+        public Usuario AddUsuario(Usuario usuario) {
+            try {
                 Usuario consultaExiste;
                 consultaExiste = dbUser.ConsultaUsuario(usuario);
 
-                if (consultaExiste.ID == null)
-                {
-                    dbUser.AddUsuario(usuario);
-                    return dbUser.ConsultaUsuario(usuario);
+                if (consultaExiste == null) {
+                    return dbUser.AddUsuario(usuario);                     
+                } else {
+                    return null;
                 }
-                else
-                {
-                    return nulo;
-                }
-               
-            }
-            catch (Exception)
-            {
-                return nulo;
+
+            } catch (Exception) {
+                return null;
             }
         }
 
 
-        public Usuario EditUsuario(Usuario usuario)
-        {
-            try
-            {
+        public Usuario EditUsuario(Usuario usuario) {
+            try {
                 return dbUser.EditarUsuario(usuario);
 
-            } catch (Exception)
-            {
-                return new Usuario();
+            } catch (Exception) {
+                return null;
             }
         }
 

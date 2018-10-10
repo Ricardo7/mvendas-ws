@@ -20,8 +20,7 @@ namespace Application {
             try {
                 return dbProduto.ConsultaProduto(produto);
             } catch (Exception) {
-                Produto vazio = new Produto();
-                return vazio;
+                return null;
             }
         }
 
@@ -46,38 +45,38 @@ namespace Application {
         }
 
         public Produto AddProduto(Produto produto) {
-            Produto consultaExiste = new Produto(); ;
+            Produto consultaExiste;
             try {
                 consultaExiste = dbProduto.ConsultaProduto(produto);
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     Produto cadastrado = dbProduto.AddProduto(produto);
                     return cadastrado;
 
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
                 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
         }
 
         public Produto EditarProduto(Produto produto) {
-            Produto consultaExiste = new Produto(); ;
+            Produto consultaExiste;
             try {
                 consultaExiste = dbProduto.ConsultaProduto(produto);
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     Produto editado = dbProduto.EditarProduto(produto);
                     return editado;
 
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
         }
 

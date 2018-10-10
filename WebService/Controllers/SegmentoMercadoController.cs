@@ -21,7 +21,7 @@ namespace WebService.Controllers {
         public SegmentoMercadoDTO AddSegmentoMercado(SegmentoMercado segmentoMercado) {
             SegmentoMercado segmentoMercadoCadastrado = segmentoMercadoApplication.AddSegmentoMercado(segmentoMercado);
 
-            if (segmentoMercadoCadastrado.ID != null) {
+            if (segmentoMercadoCadastrado != null) {
                 return RetornoController.MontaRetornoSegmentoMercado(200, "SUCCESS", "", segmentoMercadoCadastrado);
             } else {
                 return RetornoController.MontaRetornoSegmentoMercado(200, "ERROR", "", null);
@@ -35,7 +35,7 @@ namespace WebService.Controllers {
 
             SegmentoMercado retorno = segmentoMercadoApplication.GetSegmentoMercado(id);
 
-            if (retorno.ID != null) {
+            if (retorno != null) {
                 return RetornoController.MontaRetornoSegmentoMercado(200, "SUCCESS", "", retorno);
             } else {
                 return RetornoController.MontaRetornoSegmentoMercado(200, "ERROR", "", null);

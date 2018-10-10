@@ -45,20 +45,20 @@ namespace Application {
         }
 
         public SegmentoMercado AddSegmentoMercado(SegmentoMercado segmentoMercado) {
-            SegmentoMercado consultaExiste = new SegmentoMercado(); ;
+            SegmentoMercado consultaExiste;
             try {
                 //consultaExiste = dbSegmento.ConsultaSegmentoMercado(segmentoMercado.ID);
-
+                consultaExiste = null;
                 if (consultaExiste == null) {
                     SegmentoMercado cadastrado = dbSegmento.AddSegmentoMercado(segmentoMercado);
 
                     return cadastrado;
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
         }
     }

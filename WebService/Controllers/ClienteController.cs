@@ -21,10 +21,10 @@ namespace WebService.Controllers {
         public ClienteDTO AddCliente(Cliente cliente) {
             Cliente clienteCadastrado = clienteApplication.AddCliente(cliente);
 
-            if (clienteCadastrado.ID != null) {
+            if (clienteCadastrado != null) {
                 return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteCadastrado);
             } else {
-                return RetornoController.MontaRetornoCliente(200, "ERROR", "", null);
+                return RetornoController.MontaRetornoCliente(200, "ERROR", "CNPJ já cadastrado", null);
             }
 
         }
@@ -34,7 +34,7 @@ namespace WebService.Controllers {
         public ClienteDTO EditaCliente(Cliente cliente) {
             Cliente clienteCadastrado = clienteApplication.EditarCliente(cliente);
 
-            if (clienteCadastrado.ID != null) {
+            if (clienteCadastrado != null) {
                 return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteCadastrado);
             } else {
                 return RetornoController.MontaRetornoCliente(200, "ERROR", "", null);
@@ -51,7 +51,7 @@ namespace WebService.Controllers {
 
             Cliente clienteRetorno = clienteApplication.GetCliente(clienteConsulta);
 
-            if (clienteRetorno.ID != null) {
+            if (clienteRetorno != null) {
                 return RetornoController.MontaRetornoCliente(200, "SUCCESS", "", clienteRetorno);
             } else {
                 return RetornoController.MontaRetornoCliente(200, "ERROR", "", null);

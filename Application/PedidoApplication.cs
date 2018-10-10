@@ -48,17 +48,18 @@ namespace Application {
             Pedido consultaExiste = new Pedido(); ;
             try {
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
+                consultaExiste = null;
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     Pedido cadastrado = dbPedido.AddPedido(pedido);
 
                     return cadastrado;
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
 
         }
@@ -67,17 +68,18 @@ namespace Application {
             Pedido consultaExiste = new Pedido(); ;
             try {
                 //consultaExiste = dbPedido.EditarPedido(pedido);
+                consultaExiste = null;
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     Pedido editado = dbPedido.EditarPedido(pedido);
 
                     return editado;
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
         }
     }

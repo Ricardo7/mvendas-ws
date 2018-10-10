@@ -108,57 +108,57 @@ namespace Application {
         public Pais AddPais(Pais pais) {
             Pais consultaExiste = new Pais(); ;
             try {
-                consultaExiste = new Pais();
+                consultaExiste = null;
                 //consultaExiste = dbLocais.GetPais(pais.ID);
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     Pais cadastrado = dbLocais.AddPais(pais);
 
                     return cadastrado;
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
                 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
         }
 
         public Estado AddEstado(Estado estado) {
             Estado consultaExiste = new Estado(); ;
             try {
-                consultaExiste = new Estado();
+                consultaExiste = null;
                 //consultaExiste = dbLocais.GetPais(pais.ID);
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     Estado cadastrado = dbLocais.AddEstado(estado);
 
                     return cadastrado;
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
         }
 
         public Cidade AddCidade(Cidade cidade) {
             Cidade consultaExiste = new Cidade(); ;
             try {
-                consultaExiste = new Cidade();
+                consultaExiste = null;
                 //consultaExiste = dbLocais.GetPais(pais.ID);
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     Cidade cadastrado = dbLocais.AddCidade(cidade);
 
                     return cadastrado;
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
         }
 

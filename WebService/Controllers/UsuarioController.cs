@@ -27,7 +27,7 @@ namespace WebService.Controllers
         {
             Usuario usuarioAdicionado = usuarioApplication.AddUsuario(usuario);
 
-            if (usuarioAdicionado.ID != null) {
+            if (usuarioAdicionado != null) {
                 return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
             } else {
                 return RetornoController.MontaRetornoUsuario(200, "ERROR", "", null);
@@ -84,7 +84,7 @@ namespace WebService.Controllers
 
             Usuario usuario = usuarioApplication.GetUsuario(usuarioConsulta);
 
-            if (usuario.ID != null) {
+            if (usuario != null) {
                 return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
             } else {
                 return RetornoController.MontaRetornoUsuario(200, "ERROR", "", null);
@@ -97,7 +97,7 @@ namespace WebService.Controllers
         {
             Usuario usuarioEditado = usuarioApplication.EditUsuario(usuario);
 
-            if (usuarioEditado.ID != null) {
+            if (usuarioEditado != null) {
                 return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
             } else {
                 return RetornoController.MontaRetornoUsuario(200, "ERROR", "", null);

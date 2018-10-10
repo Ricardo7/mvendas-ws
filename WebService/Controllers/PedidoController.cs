@@ -24,7 +24,7 @@ namespace WebService.Controllers
 
             Pedido pedidoCadastrado = pedidoApplication.AddPedido(pedido);
 
-            if (pedidoCadastrado.ID != null) {
+            if (pedidoCadastrado != null) {
                 return RetornoController.MontaRetornoPedido(200, "SUCCESS", "", pedidoCadastrado);
             } else {
                 return RetornoController.MontaRetornoPedido(200, "ERROR", "", null);
@@ -37,7 +37,7 @@ namespace WebService.Controllers
         public PedidoDTO EditaPedido(Pedido pedido) {
             Pedido pedidoCadastrado = pedidoApplication.EditaPedido(pedido);
 
-            if (pedidoCadastrado.ID != null) {
+            if (pedidoCadastrado != null) {
                 return RetornoController.MontaRetornoPedido(200, "SUCCESS", "", pedidoCadastrado);
             } else {
                 return RetornoController.MontaRetornoPedido(200, "ERROR", "", null);
@@ -51,7 +51,7 @@ namespace WebService.Controllers
 
             Pedido pedidoRetorno = pedidoApplication.GetPedido(id);
 
-            if (pedidoRetorno.ID != null) {
+            if (pedidoRetorno != null) {
                 return RetornoController.MontaRetornoPedido(200, "SUCCESS", "", pedidoRetorno);
             } else {
                 return RetornoController.MontaRetornoPedido(200, "ERROR", "", null);

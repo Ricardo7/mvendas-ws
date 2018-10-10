@@ -23,7 +23,7 @@ namespace WebService.Controllers
         public TabelaPrecosDTO AddTabelaPrecos(TabelaPrecos tabelaPrecos) {
             TabelaPrecos tabelaPrecosCadastrado = tabelaPrecosApplication.AddTabelaPrecos(tabelaPrecos);
 
-            if (tabelaPrecosCadastrado.ID != null) {
+            if (tabelaPrecosCadastrado != null) {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "SUCCESS", "", tabelaPrecosCadastrado);
             } else {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "ERROR", "", null);
@@ -36,7 +36,7 @@ namespace WebService.Controllers
         public TabelaPrecosDTO EditaTabelaPrecos(TabelaPrecos tabelaPrecos) {
             TabelaPrecos tabelaPrecosCadastrado = tabelaPrecosApplication.EditaTabelaPrecos(tabelaPrecos);
 
-            if (tabelaPrecosCadastrado.ID != null) {
+            if (tabelaPrecosCadastrado != null) {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "SUCCESS", "", tabelaPrecosCadastrado);
             } else {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "ERROR", "", null);
@@ -50,7 +50,7 @@ namespace WebService.Controllers
 
             TabelaPrecos tabelaPrecosRetorno = tabelaPrecosApplication.GetTabelaPrecos(id);
 
-            if (tabelaPrecosRetorno.ID != null) {
+            if (tabelaPrecosRetorno != null) {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "SUCCESS", "", tabelaPrecosRetorno);
             } else {
                 return RetornoController.MontaRetornoTabelaPrecos(200, "ERROR", "", null);

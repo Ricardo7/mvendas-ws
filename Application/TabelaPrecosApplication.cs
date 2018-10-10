@@ -45,20 +45,21 @@ namespace Application {
         }
 
         public TabelaPrecos AddTabelaPrecos(TabelaPrecos tabelaPrecos) {
-            TabelaPrecos consultaExiste = new TabelaPrecos(); ;
+            TabelaPrecos consultaExiste;
             try {
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
+                consultaExiste = null;
 
                 if (consultaExiste.ID == null) {
                     TabelaPrecos cadastrado = dbTabelaPrecos.AddTabelaPrecos(tabelaPrecos);
 
                     return cadastrado;
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
 
         }
@@ -67,17 +68,18 @@ namespace Application {
             TabelaPrecos consultaExiste = new TabelaPrecos(); ;
             try {
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
+                consultaExiste = null;
 
                 if (consultaExiste.ID == null) {
                     TabelaPrecos editado = dbTabelaPrecos.EditarTabelaPrecos(tabelaPrecos);
 
                     return editado;
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
         }
     }

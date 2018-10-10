@@ -45,39 +45,40 @@ namespace Application {
         }
 
         public Cliente AddCliente(Cliente cliente) {
-            Cliente consultaExiste = new Cliente(); ;
+            Cliente consultaExiste;
             try {
-                consultaExiste = new Cliente();
-               // consultaExiste = dbCliente.ConsultaCliente(cliente);
+                consultaExiste = dbCliente.ConsultaCnpjExiste(cliente);
 
-                if (consultaExiste == null && consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     Cliente cadastrado = dbCliente.AddCliente(cliente);
 
                     return cadastrado;
                 } else {
-                    return consultaExiste;
+                    //throw new Exception("Cliente já cadastrado");
+                    return null;
                 }
                 
-            } catch (Exception) {
-                return consultaExiste;
+            } catch {
+                //throw ex.Message;
+                return null;
             }
         }
 
         public Cliente EditarCliente(Cliente cliente) {
-            Cliente consultaExiste = new Cliente(); ;
+            Cliente consultaExiste;
             try {
                 consultaExiste = dbCliente.ConsultaCliente(cliente);
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste != null) {
                     Cliente editado = dbCliente.EditarCliente(cliente);
                     return editado;
 
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
         }
 

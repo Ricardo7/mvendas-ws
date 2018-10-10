@@ -21,3 +21,26 @@ C:\mais_vendas\mvendas-ws-local\Application\obj\Release\Application.dll
 C:\mais_vendas\mvendas-ws-local\Application\obj\Release\Application.pdb
 C:\mais_vendas\mvendas-ws-local\Application\bin\Release\Newtonsoft.Json.dll
 C:\mais_vendas\mvendas-ws-local\Application\bin\Release\Newtonsoft.Json.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\Application.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\Application.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\DnsClient.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\Domain.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\MongoDB.Bson.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\MongoDB.Driver.Core.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\MongoDB.Driver.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\Repository.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\System.Buffers.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\Newtonsoft.Json.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\Domain.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\Repository.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\DnsClient.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\MongoDB.Bson.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\MongoDB.Driver.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\MongoDB.Driver.Core.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\bin\Release\Newtonsoft.Json.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\obj\Release\Application.csprojAssemblyReference.cache
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\obj\Release\Application.csproj.CoreCompileInputs.cache
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\obj\Release\Application.csproj.CopyComplete
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\obj\Release\Application.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\Application\obj\Release\Application.pdb

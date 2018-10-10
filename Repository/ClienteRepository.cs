@@ -86,6 +86,25 @@ namespace Repository {
 
         }
 
+        public Cliente ConsultaCnpjExiste(Cliente cliente) {
+            Cliente clientePesquisado = new Cliente();
+
+            var conexao = new MongoClient(Conexao.CONEXAO);
+
+            var db = conexao.GetDatabase(Conexao.DB);
+
+            var colecao = db.GetCollection<Cliente>("clientes");
+
+            var filtro = Builders<Cliente>.Filter.Where(u => u.Cnpj == cliente.Cnpj);
+
+            var retorno = colecao.Find(filtro).FirstOrDefault();
+
+            clientePesquisado = (Cliente)retorno;
+
+            return clientePesquisado;
+
+        }
+
         public Cliente EditarCliente(Cliente cliente) {
             Cliente clientePesquisado = new Cliente();
 

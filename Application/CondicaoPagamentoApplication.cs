@@ -48,17 +48,18 @@ namespace Application {
             CondicaoPagamento consultaExiste = new CondicaoPagamento(); ;
             try {
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
+                consultaExiste = null;
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     CondicaoPagamento cadastrado = dbCondicao.AddCondicaoPagamento(condicaoPagamento);
 
                     return cadastrado;
                 } else {
-                    return consultaExiste;
+                    return null;
                 }
 
             } catch (Exception) {
-                return consultaExiste;
+                return null;
             }
 
         }
@@ -67,8 +68,9 @@ namespace Application {
             CondicaoPagamento consultaExiste = new CondicaoPagamento(); ;
             try {
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
+                consultaExiste = null;
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     CondicaoPagamento editado = dbCondicao.EditarCondicaoPagamento(condicaoPagamento);
 
                     return editado;

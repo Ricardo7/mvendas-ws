@@ -33,7 +33,7 @@ namespace Repository
 
         }
 
-        public void AddUsuario(Usuario usuario)
+        public Usuario AddUsuario(Usuario usuario)
         {
             //Gerar ID para a classe
             ObjectId identidade = ObjectId.GenerateNewId();
@@ -46,6 +46,8 @@ namespace Repository
             var colecao = db.GetCollection<Usuario>("usuarios");
 
             colecao.InsertOne(usuario);
+
+            return usuario;
 
         }
 

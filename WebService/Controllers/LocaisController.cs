@@ -24,7 +24,7 @@ namespace WebService.Controllers
         public PaisDTO AddPais(Pais pais) {
             Pais paisCadastrado = locaisApplication.AddPais(pais);
 
-            if (paisCadastrado.ID != null) {
+            if (paisCadastrado != null) {
                 return RetornoController.MontaRetornoPais(200, "SUCCESS", "", paisCadastrado);
             } else {
                 return RetornoController.MontaRetornoPais(200, "ERROR", "", null);
@@ -64,7 +64,7 @@ namespace WebService.Controllers
         public PaisDTO GetPais(string id) {
             Pais pais = locaisApplication.GetPais(id);
 
-            if (pais.ID != null) {
+            if (pais != null) {
                 return RetornoController.MontaRetornoPais(200, "SUCCESS", "", pais);
             } else {
                 return RetornoController.MontaRetornoPais(200, "ERROR", "", null);
@@ -77,7 +77,7 @@ namespace WebService.Controllers
         public EstadoDTO AddEstado(Estado estado) {
             Estado estadoCadastrado = locaisApplication.AddEstado(estado);
 
-            if (estadoCadastrado.ID != null) {
+            if (estadoCadastrado != null) {
                 return RetornoController.MontaRetornoEstado(200, "SUCCESS", "", estadoCadastrado);
             } else {
                 return RetornoController.MontaRetornoEstado(200, "ERROR", "", null);
@@ -91,7 +91,7 @@ namespace WebService.Controllers
         {
             List<Estado> estados = locaisApplication.GetListaEstados(siglaPais);
 
-            if (estados.Count() != 0 != null) {
+            if (estados.Count() != 0 ) {
                 return RetornoController.MontaRetornoListaEstados(200, "SUCCESS", "", estados);
             } else {
                 return RetornoController.MontaRetornoListaEstados(200, "ERROR", "", null);
@@ -115,7 +115,7 @@ namespace WebService.Controllers
         public EstadoDTO GetEstado(string id) {
             Estado estado = locaisApplication.GetEstado(id);
 
-            if (estado.ID != null) {
+            if (estado != null) {
                 return RetornoController.MontaRetornoEstado(200, "SUCCESS", "", estado);
             } else {
                 return RetornoController.MontaRetornoEstado(200, "ERROR", "", null);
@@ -128,7 +128,7 @@ namespace WebService.Controllers
         public CidadeDTO AddCidade(Cidade cidade) {
             Cidade cidadeCadastrado = locaisApplication.AddCidade(cidade);
 
-            if (cidadeCadastrado.ID != null) {
+            if (cidadeCadastrado != null) {
                 return RetornoController.MontaRetornoCidade(200, "SUCCESS", "", cidadeCadastrado);
             } else {
                 return RetornoController.MontaRetornoCidade(200, "ERROR", "", null);
@@ -166,7 +166,7 @@ namespace WebService.Controllers
         public CidadeDTO GetCidade(string id) {
             Cidade cidade = locaisApplication.GetCidade(id);
 
-            if (cidade.ID != null) {
+            if (cidade != null) {
                 return RetornoController.MontaRetornoCidade(200, "SUCCESS", "", cidade);
             } else {
                 return RetornoController.MontaRetornoCidade(200, "ERROR", "", null);

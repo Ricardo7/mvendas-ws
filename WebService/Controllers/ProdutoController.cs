@@ -23,7 +23,7 @@ namespace WebService.Controllers
         public ProdutoDTO AddProduto(Produto produto) {
             Produto produtoCadastrado = produtoApplication.AddProduto(produto);
 
-            if (produtoCadastrado.ID != null) {
+            if (produtoCadastrado != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoCadastrado);
             } else {
                 return RetornoController.MontaRetornoProduto(200, "ERROR", "", null);
@@ -36,7 +36,7 @@ namespace WebService.Controllers
         public ProdutoDTO Editaproduto(Produto produto) {
             Produto produtoCadastrado = produtoApplication.EditarProduto(produto);
 
-            if (produtoCadastrado.ID != null) {
+            if (produtoCadastrado != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoCadastrado);
             } else {
                 return RetornoController.MontaRetornoProduto(200, "ERROR", "", null);
@@ -53,7 +53,7 @@ namespace WebService.Controllers
 
             Produto produtoRetorno = produtoApplication.GetProduto(produtoConsulta);
 
-            if (produtoRetorno.ID != null) {
+            if (produtoRetorno != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoRetorno);
             } else {
                 return RetornoController.MontaRetornoProduto(200, "ERROR", "", null);
