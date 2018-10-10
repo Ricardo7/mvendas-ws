@@ -18,9 +18,9 @@ namespace Domain
         public string Descricao { get; set; }
         public string Observacao { get; set; }
         public List<Imagem> Imagens { get; set; }
-        [JsonIgnore]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string DtCadastro { get; set; }
-        [JsonIgnore]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string DtAtualizacao { get; set; }
 
     }

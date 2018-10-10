@@ -50,7 +50,7 @@ namespace Application {
                 //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
                 consultaExiste = null;
 
-                if (consultaExiste.ID == null) {
+                if (consultaExiste == null) {
                     TabelaPrecos cadastrado = dbTabelaPrecos.AddTabelaPrecos(tabelaPrecos);
 
                     return cadastrado;

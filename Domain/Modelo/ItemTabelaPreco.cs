@@ -15,6 +15,7 @@ namespace Domain {
         public string ID { get; set; }
         public double VlrUnitario { get; set; }
         public double MaxDesconto { get; set; }
+        [JsonProperty("Produto")]
         public Produto ProdutoTabelaPreco { get; set; }
     }
 }
