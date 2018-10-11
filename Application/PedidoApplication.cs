@@ -51,6 +51,9 @@ namespace Application {
                 consultaExiste = null;
 
                 if (consultaExiste == null) {
+                    //Altera o Status do pedido para sinalizar que já foi sincronizado
+                    pedido.Status = 2;
+
                     Pedido cadastrado = dbPedido.AddPedido(pedido);
 
                     return cadastrado;

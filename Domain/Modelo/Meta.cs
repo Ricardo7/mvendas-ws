@@ -16,5 +16,9 @@ namespace Domain {
         public string ID { get; set; }
         public double Estimado { get; set; }
         public double Realizado { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string DtCriacao { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string DtAtualizacao { get; set; }
     }
 }

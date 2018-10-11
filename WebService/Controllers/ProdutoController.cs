@@ -80,6 +80,7 @@ namespace WebService.Controllers
             List<Produto> ListaTemp = produtoApplication.GetListaProdutosAtualizados(dataAt);
 
             if (ListaTemp.Count() != 0) {
+                
                 return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", ListaTemp);
             } else {
                 return RetornoController.MontaRetornoListaProdutos(200, "ERROR", "", null);
