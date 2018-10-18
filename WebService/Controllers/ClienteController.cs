@@ -7,6 +7,7 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
+using System.Web.Http.Cors;
 
 namespace WebService.Controllers {
     public class ClienteController : ApiController {
@@ -15,9 +16,10 @@ namespace WebService.Controllers {
         public ClienteController() {
             clienteApplication = new ClienteApplication();
         }
-
+        
         [HttpPost]
         [Route("api/Cliente/AddCliente")]
+        //[EnableCors(origins: "*", methods: "*", headers: "*")]
         public ClienteDTO AddCliente(Cliente cliente) {
             Cliente clienteCadastrado = clienteApplication.AddCliente(cliente);
 

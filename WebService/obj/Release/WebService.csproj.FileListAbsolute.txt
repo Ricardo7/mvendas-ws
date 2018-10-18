@@ -244,3 +244,6 @@ C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\obj
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\obj\Release\WebService.csproj.CopyComplete
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\obj\Release\WebService.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\obj\Release\WebService.pdb
+C:\mais_vendas\mvendas-ws-local\WebService\bin\System.Web.Cors.dll
+C:\mais_vendas\mvendas-ws-local\WebService\bin\System.Web.Http.Cors.dll
+C:\mais_vendas\mvendas-ws-local\WebService\bin\System.Web.Http.Cors.xml
