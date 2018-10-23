@@ -17,7 +17,6 @@ namespace Domain
         public string Cod { get; set; }
         public string Descricao { get; set; }
         public string Observacao { get; set; }
-        public List<Imagem> Imagens { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string DtCadastro { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
