@@ -47,11 +47,8 @@ namespace WebService.Controllers
         [HttpGet]
         [Route("api/Produto/GetProduto")]
         public ProdutoDTO GetProduto(string id) {
-            Produto produtoConsulta = new Produto {
-                ID = id,
-            };
 
-            Produto produtoRetorno = produtoApplication.GetProduto(produtoConsulta);
+            Produto produtoRetorno = produtoApplication.GetProduto(id);
 
             if (produtoRetorno != null) {
                 return RetornoController.MontaRetornoProduto(200, "SUCCESS", "", produtoRetorno);

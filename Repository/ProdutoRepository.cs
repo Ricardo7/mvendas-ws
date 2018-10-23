@@ -69,7 +69,7 @@ namespace Repository {
             return produto;
         }
 
-        public Produto ConsultaProduto(Produto produto) {
+        public Produto ConsultaProduto(string ID) {
             Produto produtoPesquisado = new Produto();
 
             var conexao = new MongoClient(Conexao.CONEXAO);
@@ -78,7 +78,7 @@ namespace Repository {
 
             var colecao = db.GetCollection<Produto>("produtos");
 
-            var filtro = Builders<Produto>.Filter.Where(u => u.ID == produto.ID);
+            var filtro = Builders<Produto>.Filter.Where(u => u.ID == ID);
 
             var retorno = colecao.Find(filtro).FirstOrDefault();
 

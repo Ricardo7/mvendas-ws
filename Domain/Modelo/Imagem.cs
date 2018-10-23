@@ -15,9 +15,7 @@ namespace Domain {
         [JsonProperty("ID")]
         public string ID { get; set; }
         public string ProdutoID { get; set; }
-        public string Nome { get; set; }
-        public string Caminho { get; set; }
-        public int Tamanho { get; set; }
+        public string Base64 { get; set; }
         public string DtCriacao { get; set; }
         public string DtAtualizacao { get; set; }
 

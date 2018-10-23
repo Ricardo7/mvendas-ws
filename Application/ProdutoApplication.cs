@@ -16,9 +16,9 @@ namespace Application {
             dbProduto = new ProdutoRepository();
         }
 
-        public Produto GetProduto(Produto produto) {
+        public Produto GetProduto(string ID) {
             try {
-                return dbProduto.ConsultaProduto(produto);
+                return dbProduto.ConsultaProduto(ID);
             } catch (Exception) {
                 return null;
             }
@@ -47,7 +47,7 @@ namespace Application {
         public Produto AddProduto(Produto produto) {
             Produto consultaExiste;
             try {
-                consultaExiste = dbProduto.ConsultaProduto(produto);
+                consultaExiste = dbProduto.ConsultaProduto(produto.ID);
 
                 if (consultaExiste == null) {
                     Produto cadastrado = dbProduto.AddProduto(produto);
@@ -65,7 +65,7 @@ namespace Application {
         public Produto EditarProduto(Produto produto) {
             Produto consultaExiste;
             try {
-                consultaExiste = dbProduto.ConsultaProduto(produto);
+                consultaExiste = dbProduto.ConsultaProduto(produto.ID);
 
                 if (consultaExiste == null) {
                     Produto editado = dbProduto.EditarProduto(produto);
