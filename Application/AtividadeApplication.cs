@@ -108,5 +108,23 @@ namespace Application {
                 return null;
             }
         }
+
+        public bool RemoveAtividade(string ID) {
+            Atividade consultaExiste;
+            try {
+                consultaExiste = dbAtividade.ConsultaAtividade(ID);
+
+                if (consultaExiste != null) {
+ 
+                    return dbAtividade.RemoveAtividade(ID);
+
+                } else {
+                    return false;
+                }
+
+            } catch (Exception) {
+                return false;
+            }
+        }
     }
 }

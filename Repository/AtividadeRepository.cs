@@ -172,5 +172,20 @@ namespace Repository {
 
         }
 
+        public bool RemoveAtividade(string ID) {
+            Atividade AtividadePesquisada = new Atividade();
+
+            var conexao = new MongoClient(Conexao.CONEXAO);
+
+            var db = conexao.GetDatabase(Conexao.DB);
+
+            var colecao = db.GetCollection<Atividade>("atividades");
+
+            var retorno = colecao.DeleteOne(m => m.ID == ID);
+
+            return true;
+
+        }
+
     }
 }

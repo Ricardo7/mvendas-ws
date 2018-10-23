@@ -30,6 +30,20 @@ namespace WebService.Controllers {
 
         }
 
+        [HttpDelete]
+        [Route("api/Atividade/RemoveAtividade")]
+        public AtividadeDTO RemoveAtividade(string id) {
+
+            bool deucerto = atividadeApplication.RemoveAtividade(id);
+
+            if (deucerto != false) {
+                return RetornoController.MontaRetornoAtividade(200, "SUCCESS", "", null);
+            } else {
+                return RetornoController.MontaRetornoAtividade(200, "ERROR", "", null);
+            }
+
+        }
+
         [HttpPut]
         [Route("api/Atividade/EditaAtividade")]
         public AtividadeDTO EditaAtividade(Atividade atividade) {
