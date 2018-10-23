@@ -611,5 +611,6 @@ C:\Users\MAHADO7\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\obj
 C:\Users\MAHADO7\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\obj\Debug\WebService.csproj.CopyComplete
 C:\Users\MAHADO7\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\obj\Debug\WebService.dll
 C:\Users\MAHADO7\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\obj\Debug\WebService.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Cors.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.Cors.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.Cors.xml
