@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtividadeApplication.cs" />
     <Compile Include="ClienteApplication.cs" />
     <Compile Include="CondicaoPagamentoApplication.cs" />
     <Compile Include="LocaisApplication.cs" />

@@ -7,19 +7,17 @@ using MongoDB.Bson;
 using Newtonsoft.Json;
 
 namespace Domain {
-
-    public class Imagem {
-
+    public class Atividade {
         [JsonIgnore]
         public ObjectId _id { get; set; }
         [JsonProperty("ID")]
         public string ID { get; set; }
-        public string ProdutoID { get; set; }
-        public string Nome { get; set; }
-        public string Caminho { get; set; }
-        public int Tamanho { get; set; }
-        public string DtCriacao { get; set; }
+        public string Assunto { get; set; }
+        public string Observacao { get; set; }
+        public string ClienteID { get; set; }
+        public string UsuarioID { get; set; }
+        public string DtAtividade { get; set; }
+        public string DtCadastro { get; set; }
         public string DtAtualizacao { get; set; }
-
     }
 }

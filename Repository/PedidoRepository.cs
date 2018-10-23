@@ -113,6 +113,26 @@ namespace Repository {
 
         }
 
+        public List<Pedido> GetListaPedidosCliente(string IDCliente) {
+
+            List<Pedido> listaPedidos = new List<Pedido>();
+
+            var conexao = new MongoClient(Conexao.CONEXAO);
+
+            var db = conexao.GetDatabase(Conexao.DB);
+
+            var colecao = db.GetCollection<Pedido>("pedidos");
+
+            var filtro = Builders<Pedido>.Filter.Where(u => u.ClientePedido.ID == IDCliente);
+
+            var pedidos = colecao.Find(filtro).ToList();
+
+            listaPedidos = pedidos;
+
+            return listaPedidos;
+
+        }
+
 
     }
 }

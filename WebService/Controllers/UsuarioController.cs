@@ -91,6 +91,19 @@ namespace WebService.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/Usuario/GetUsuarioID")]
+        public UsuarioDTO GetUsuarioID(string ID) {
+
+            Usuario usuario = usuarioApplication.GetUsuarioID(ID);
+
+            if (usuario != null) {
+                return RetornoController.MontaRetornoUsuario(200, "SUCCESS", "", usuario);
+            } else {
+                return RetornoController.MontaRetornoUsuario(200, "ERROR", "", null);
+            }
+        }
+
         [HttpPut]
         [Route("api/Usuario/EditUsuario")]
         public UsuarioDTO EditUsuario(Usuario usuario)

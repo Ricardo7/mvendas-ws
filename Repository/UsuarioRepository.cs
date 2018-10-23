@@ -71,6 +71,25 @@ namespace Repository
 
         }
 
+        public Usuario ConsultaUsuarioID(string ID) {
+            Usuario usuarioPesquisado = new Usuario();
+
+            var conexao = new MongoClient(Conexao.CONEXAO);
+
+            var db = conexao.GetDatabase(Conexao.DB);
+
+            var colecao = db.GetCollection<Usuario>("usuarios");
+
+            var filtro = Builders<Usuario>.Filter.Where(u => u.ID == ID);
+
+            var retorno = colecao.Find(filtro).FirstOrDefault();
+
+            usuarioPesquisado = (Usuario)retorno;
+
+            return usuarioPesquisado;
+
+        }
+
         public void EditarSenhaUsuario(Usuario usuario)
         {
             Usuario usuarioPesquisado = new Usuario();

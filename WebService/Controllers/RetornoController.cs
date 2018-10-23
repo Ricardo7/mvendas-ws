@@ -273,5 +273,57 @@ namespace WebService.Controllers {
 
         }
 
+        public static AtividadeDTO MontaRetornoAtividade(int Cod, String Status, String Message, Atividade classe) {
+
+            AtividadeDTO classeDTO = new AtividadeDTO();
+
+            classeDTO.Cod = Cod;
+            classeDTO.Status = Status;
+            classeDTO.Message = Message;
+            classeDTO.aticidade = classe;
+
+            return classeDTO;
+
+        }
+
+        public static ListaAtividadesDTO MontaRetornoListaAtividades(int Cod, String Status, String Message, List<Atividade> lista) {
+
+            ListaAtividadesDTO listaDTO = new ListaAtividadesDTO();
+
+            listaDTO.Cod = Cod;
+            listaDTO.Status = Status;
+            listaDTO.Message = Message;
+            listaDTO.atividades = lista;
+
+            return listaDTO;
+
+        }
+
+        public static ImagemDTO MontaRetornoImagem(int Cod, String Status, String Message, Imagem classe) {
+
+            ImagemDTO classeDTO = new ImagemDTO();
+
+            classeDTO.Cod = Cod;
+            classeDTO.Status = Status;
+            classeDTO.Message = Message;
+            classeDTO.imagem = classe;
+
+            return classeDTO;
+
+        }
+
+        public static ListaImagensDTO MontaRetornoListaImagens(int Cod, String Status, String Message, List<Imagem> lista) {
+
+            ListaImagensDTO listaDTO = new ListaImagensDTO();
+
+            listaDTO.Cod = Cod;
+            listaDTO.Status = Status;
+            listaDTO.Message = Message;
+            listaDTO.imagens = lista;
+
+            return listaDTO;
+
+        }
+
     }
 }

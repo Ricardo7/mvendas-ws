@@ -6,7 +6,7 @@ using Domain;
 using Newtonsoft.Json;
 
 namespace WebService {
-    public class ClienteDTO {
+    public class ImagemDTO {
         [JsonProperty("cod")]
         public int Cod { get; set; }
         [JsonProperty("status")]
@@ -14,7 +14,6 @@ namespace WebService {
         [JsonProperty("message")]
         public string Message { get; set; }
         [JsonProperty("data")]
-        public Cliente cliente { get; set; }
-
+        public Imagem imagem { get; set; }
     }
 }

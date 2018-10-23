@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Locais\Cidade.cs" />
     <Compile Include="Locais\Pais.cs" />
+    <Compile Include="Modelo\Atividade.cs" />
     <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Locais\Estado.cs" />
     <Compile Include="Modelo\CondicaoPagamento.cs" />

@@ -59,6 +59,9 @@
     <Reference Include="MongoDB.Driver.Core, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Driver.Core.2.7.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
@@ -95,9 +98,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -207,10 +207,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AtividadeController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CondicaoPagamentoController.cs" />
     <Compile Include="Controllers\GeraLog.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagemController.cs" />
     <Compile Include="Controllers\LocaisController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
@@ -222,14 +224,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AtividadeDTO.cs" />
     <Compile Include="Models\CidadeDTO.cs" />
     <Compile Include="Models\ClienteDTO.cs" />
     <Compile Include="Models\CondicaoPagamentoDTO.cs" />
     <Compile Include="Models\EstadoDTO.cs" />
+    <Compile Include="Models\ImagemDTO.cs" />
+    <Compile Include="Models\ListaAtividadesDTO.cs" />
     <Compile Include="Models\ListaCidadesDTO.cs" />
     <Compile Include="Models\ListaClientesDTO.cs" />
     <Compile Include="Models\ListaCondicoesPagamentoDTO.cs" />
     <Compile Include="Models\ListaEstadosDTO.cs" />
+    <Compile Include="Models\ListaImagensDTO.cs" />
     <Compile Include="Models\ListaPaisesDTO.cs" />
     <Compile Include="Models\ListaPedidosDTO.cs" />
     <Compile Include="Models\ListaProdutosDTO.cs" />

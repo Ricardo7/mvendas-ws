@@ -45,6 +45,14 @@ namespace Application {
             }
         }
 
+        public Usuario GetUsuarioID(string ID) {
+            try {
+                return dbUser.ConsultaUsuarioID(ID);
+            } catch (Exception) {
+                return null;
+            }
+        }
+
         public Usuario AddUsuario(Usuario usuario) {
             try {
                 Usuario consultaExiste;

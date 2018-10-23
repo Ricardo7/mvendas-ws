@@ -55,8 +55,8 @@ namespace Test {
             db.AddCondicaoPagamento(condicaoPagamento);
 
             ItemPedido itemPedido = new ItemPedido() {
-                DataAtualizacao = "2018-01-01 00:00:00",
-                DataCriacao = "2018-01-01 00:00:00",
+                DtAtualizacao = "2018-01-01 00:00:00",
+                DtCadastro = "2018-01-01 00:00:00",
                 VlrDesconto = 5,
                 VlrUnitario = 56,
                 VlrTotal = 554,
