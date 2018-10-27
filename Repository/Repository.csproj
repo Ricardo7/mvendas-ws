@@ -62,6 +62,7 @@
     <Compile Include="ClienteRepository.cs" />
     <Compile Include="CondicaoPagamentoRepository.cs" />
     <Compile Include="Conexao.cs" />
+    <Compile Include="ConfiguracoesRepository.cs" />
     <Compile Include="ImagemRepository.cs" />
     <Compile Include="LocaisRepository.cs" />
     <Compile Include="PedidoRepository.cs" />

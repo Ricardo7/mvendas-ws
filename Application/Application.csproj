@@ -61,6 +61,7 @@
     <Compile Include="AtividadeApplication.cs" />
     <Compile Include="ClienteApplication.cs" />
     <Compile Include="CondicaoPagamentoApplication.cs" />
+    <Compile Include="ConfiguracoesApplication.cs" />
     <Compile Include="ImagemApplication.cs" />
     <Compile Include="LocaisApplication.cs" />
     <Compile Include="PedidoApplication.cs" />

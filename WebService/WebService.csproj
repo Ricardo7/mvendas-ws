@@ -210,6 +210,7 @@
     <Compile Include="Controllers\AtividadeController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CondicaoPagamentoController.cs" />
+    <Compile Include="Controllers\ConfiguracoesController.cs" />
     <Compile Include="Controllers\GeraLog.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagemController.cs" />
@@ -228,6 +229,7 @@
     <Compile Include="Models\CidadeDTO.cs" />
     <Compile Include="Models\ClienteDTO.cs" />
     <Compile Include="Models\CondicaoPagamentoDTO.cs" />
+    <Compile Include="Models\ConfiguracoesDTO.cs" />
     <Compile Include="Models\EstadoDTO.cs" />
     <Compile Include="Models\ImagemDTO.cs" />
     <Compile Include="Models\ListaAtividadesDTO.cs" />

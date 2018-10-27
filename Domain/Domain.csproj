@@ -67,6 +67,7 @@
     <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Locais\Estado.cs" />
     <Compile Include="Modelo\CondicaoPagamento.cs" />
+    <Compile Include="Modelo\Configuracoes.cs" />
     <Compile Include="Modelo\Imagem.cs" />
     <Compile Include="Modelo\ItemPedido.cs" />
     <Compile Include="Modelo\ItemTabelaPreco.cs" />

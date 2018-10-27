@@ -192,10 +192,8 @@ C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Repository.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Buffers.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Net.Http.Formatting.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Helpers.dll
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.WebHost.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Mvc.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Optimization.dll
@@ -247,3 +245,6 @@ C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\obj
 C:\mais_vendas\mvendas-ws-local\WebService\bin\System.Web.Cors.dll
 C:\mais_vendas\mvendas-ws-local\WebService\bin\System.Web.Http.Cors.dll
 C:\mais_vendas\mvendas-ws-local\WebService\bin\System.Web.Http.Cors.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Cors.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.Cors.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.Cors.xml

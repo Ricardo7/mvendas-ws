@@ -325,5 +325,18 @@ namespace WebService.Controllers {
 
         }
 
+        public static ConfiguracoesDTO MontaRetornoConfiguracoes(int Cod, String Status, String Message, Configuracoes classe) {
+
+            ConfiguracoesDTO classeDTO = new ConfiguracoesDTO();
+
+            classeDTO.Cod = Cod;
+            classeDTO.Status = Status;
+            classeDTO.Message = Message;
+            classeDTO.configuracoes = classe;
+
+            return classeDTO;
+
+        }
+
     }
 }
