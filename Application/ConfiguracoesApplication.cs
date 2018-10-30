@@ -56,7 +56,7 @@ namespace Application {
             try {
                 consultaExiste = dbConfiguracoes.ConsultaConfiguracoes(configuracoes.ID);
 
-                if (consultaExiste == null) {
+                if (consultaExiste != null) {
                     Configuracoes editado = dbConfiguracoes.EditarConfiguracoes(configuracoes);
                     return editado;
 

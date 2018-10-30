@@ -81,10 +81,10 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/Application.dll">
-      <publishTime>10/27/2018 17:16:14</publishTime>
+      <publishTime>10/29/2018 21:16:48</publishTime>
     </File>
     <File Include="bin/Application.pdb">
-      <publishTime>10/27/2018 17:16:14</publishTime>
+      <publishTime>10/29/2018 21:16:48</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>08/22/2018 20:00:24</publishTime>
@@ -363,10 +363,10 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>01/23/2014 14:57:34</publishTime>
     </File>
     <File Include="bin/WebService.dll">
-      <publishTime>10/27/2018 17:16:15</publishTime>
+      <publishTime>10/29/2018 21:16:49</publishTime>
     </File>
     <File Include="bin/WebService.pdb">
-      <publishTime>10/27/2018 17:16:15</publishTime>
+      <publishTime>10/29/2018 21:16:49</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>08/22/2018 20:00:13</publishTime>
