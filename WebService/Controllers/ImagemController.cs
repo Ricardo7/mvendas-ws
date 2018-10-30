@@ -20,7 +20,14 @@ namespace WebService.Controllers {
         [HttpPost]
         [Route("api/Imagem/AddImagem")]
         public ImagemDTO AddImagem(Imagem imagem) {
-            Imagem imagemCadastrado = imagemApplication.AddImagem(imagem);
+            Imagem imagemCadastrado = null;
+            try
+            {
+                imagemCadastrado = imagemApplication.AddImagem(imagem);
+            }catch (Exception ex)
+            {
+                return RetornoController.MontaRetornoImagem(200, "ERROR", ex.Message, null);
+            }
 
             if (imagemCadastrado != null) {
                 return RetornoController.MontaRetornoImagem(200, "SUCCESS", "", imagemCadastrado);

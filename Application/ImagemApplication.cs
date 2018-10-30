@@ -59,9 +59,10 @@ namespace Application {
                 Imagem cadastrado = dbImagem.AddImagem(imagem);
                 return cadastrado;
 
-            } catch (Exception) {
-                return null;
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
+
         }
 
         public Imagem EditarImagem(Imagem imagem) {

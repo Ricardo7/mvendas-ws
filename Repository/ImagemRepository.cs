@@ -70,20 +70,25 @@ namespace Repository {
         }
 
         public Imagem AddImagem(Imagem imagem) {
+            try
+            {
+                //Gerar ID para a classe
+                ObjectId identidade = ObjectId.GenerateNewId();
+                imagem.ID = identidade.ToString();
+                imagem._id = identidade;
 
-            //Gerar ID para a classe
-            ObjectId identidade = ObjectId.GenerateNewId();
-            imagem.ID = identidade.ToString();
-            imagem._id = identidade;
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var colecao = db.GetCollection<Imagem>("imagens");
 
-            var colecao = db.GetCollection<Imagem>("imagens");
-
-            colecao.InsertOne(imagem);
-
+                colecao.InsertOne(imagem);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return imagem;
         }
 
