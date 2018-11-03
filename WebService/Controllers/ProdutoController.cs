@@ -85,6 +85,26 @@ namespace WebService.Controllers
 
         }
 
+        [HttpGet]
+        [Route("api/Produto/GetListaProdutosSugeridos")]
+        public ListaProdutosDTO GetListaProdutosSugeridos()
+        {
+            /*
+            List<Produto> ListaTemp = produtoApplication.GetListaProdutos();
+
+            if (ListaTemp.Count() != 0)
+            {
+                return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", ListaTemp);
+            }
+            else
+            {
+                return RetornoController.MontaRetornoListaProdutos(200, "ERROR", "", null);
+            }
+            */
+            return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", null);
+
+        }
+
     }
 
 }

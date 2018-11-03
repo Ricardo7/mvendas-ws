@@ -10,13 +10,18 @@ namespace Domain {
     public class Atividade {
         [JsonIgnore]
         public ObjectId _id { get; set; }
-        [JsonProperty("ID")]
+        [JsonProperty("IDAP")]
+        public int IDAP { get; set; }
+        [JsonProperty("IDWS")]
         public string ID { get; set; }
         public string Assunto { get; set; }
         public string Observacao { get; set; }
-        public string ClienteID { get; set; }
-        public string UsuarioID { get; set; }
-        public string DtAtividade { get; set; }
+        [JsonProperty("Cliente")]
+        public Cliente ClienteAtividade { get; set; }
+        [JsonProperty("Usuario")]
+        public Usuario UsuarioAtividade { get; set; }
+        public string DataAtividade { get; set; }
+        public string HoraAtividade { get; set; }
         public string DtCadastro { get; set; }
         public string DtAtualizacao { get; set; }
     }

@@ -280,7 +280,7 @@ namespace WebService.Controllers {
             classeDTO.Cod = Cod;
             classeDTO.Status = Status;
             classeDTO.Message = Message;
-            classeDTO.aticidade = classe;
+            classeDTO.atividade = classe;
 
             return classeDTO;
 

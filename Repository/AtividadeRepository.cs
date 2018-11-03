@@ -40,7 +40,7 @@ namespace Repository {
 
             var colecao = db.GetCollection<Atividade>("atividades");
 
-            var filtro = Builders<Atividade>.Filter.Where(u => u.UsuarioID == usuarioID);
+            var filtro = Builders<Atividade>.Filter.Where(u => u.UsuarioAtividade.ID == usuarioID);
 
             var retorno = colecao.Find(filtro).ToList();
 
@@ -60,7 +60,7 @@ namespace Repository {
 
             var colecao = db.GetCollection<Atividade>("atividades");
 
-            var filtro = Builders<Atividade>.Filter.Where(u => u.ClienteID == clienteID);
+            var filtro = Builders<Atividade>.Filter.Where(u => u.ClienteAtividade.ID == clienteID);
 
             var retorno = colecao.Find(filtro).ToList();
 
@@ -81,7 +81,7 @@ namespace Repository {
             var colecao = db.GetCollection<Atividade>("atividades");
 
             //ainda em desenvoclimento kkkk
-            var filtro = Builders<Atividade>.Filter.Where(u => u.ClienteID == clienteID);
+            var filtro = Builders<Atividade>.Filter.Where(u => u.ClienteAtividade.ID == clienteID);
 
             var retorno = colecao.Find(filtro).ToList();
 

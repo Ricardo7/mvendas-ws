@@ -14,6 +14,6 @@ namespace WebService {
         [JsonProperty("message")]
         public string Message { get; set; }
         [JsonProperty("data")]
-        public Atividade aticidade { get; set; }
+        public Atividade atividade { get; set; }
     }
 }

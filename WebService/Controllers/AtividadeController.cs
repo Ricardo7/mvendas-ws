@@ -135,5 +135,25 @@ namespace WebService.Controllers {
             }
 
         }
+
+        [HttpGet]
+        [Route("api/Atividade/GetListaAtividadesSugeridas")]
+        public ListaAtividadesDTO GetListaAtividadesSugeridas(string data, string usuarioID)
+        {
+            /*
+            List<Atividade> ListaTemp = atividadeApplication.GetListaAtividades();
+
+            if (ListaTemp.Count() != 0)
+            {
+                return RetornoController.MontaRetornoListaAtividades(200, "SUCCESS", "", ListaTemp);
+            }
+            else
+            {
+                return RetornoController.MontaRetornoListaAtividades(200, "ERROR", "", null);
+            }
+            */
+            return RetornoController.MontaRetornoListaAtividades(200, "SUCCESS", "", null);
+
+        }
     }
 }
