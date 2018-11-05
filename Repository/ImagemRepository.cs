@@ -134,5 +134,20 @@ namespace Repository {
             return imagem;
 
         }
+
+        public bool RemoveImagem(string ID) {
+            Imagem Pesquisado = new Imagem();
+
+            var conexao = new MongoClient(Conexao.CONEXAO);
+
+            var db = conexao.GetDatabase(Conexao.DB);
+
+            var colecao = db.GetCollection<Imagem>("imagens");
+
+            var retorno = colecao.DeleteOne(m => m.ID == ID);
+
+            return true;
+
+        }
     }
 }

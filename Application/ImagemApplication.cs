@@ -83,5 +83,23 @@ namespace Application {
             }
         }
 
+        public bool RemoveImagem(string ID) {
+            Imagem consultaExiste;
+            try {
+                consultaExiste = dbImagem.ConsultaImagem(ID);
+
+                if (consultaExiste != null) {
+
+                    return dbImagem.RemoveImagem(ID);
+
+                } else {
+                    return false;
+                }
+
+            } catch (Exception) {
+                return false;
+            }
+        }
+
     }
 }
