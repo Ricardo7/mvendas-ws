@@ -32,19 +32,27 @@ namespace Repository {
 
         public List<TabelaPrecos> GetListaTabelasPrecosAtualizadas(string data) {
 
-            List<TabelaPrecos> tabelasPrecos = new List<TabelaPrecos>();
+            List<TabelaPrecos> tabelasPrecos = null;
+            try
+            {
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                tabelasPrecos = new List<TabelaPrecos>();
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var colecao = db.GetCollection<TabelaPrecos>("tabelasPrecos");
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var filtro = Builders<TabelaPrecos>.Filter.Gt(u => u.DtAtualizacao, data);
+                var colecao = db.GetCollection<TabelaPrecos>("tabelasPrecos");
 
-            var retorno = colecao.Find(filtro).ToList();
+                var filtro = Builders<TabelaPrecos>.Filter.Gt(u => u.DtAtualizacao, data);
 
-            tabelasPrecos = retorno;
+                var retorno = colecao.Find(filtro).ToList();
+
+                tabelasPrecos = retorno;
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
             return tabelasPrecos;
 

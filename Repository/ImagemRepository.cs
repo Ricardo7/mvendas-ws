@@ -135,7 +135,8 @@ namespace Repository {
 
         }
 
-        public bool RemoveImagem(string ID) {
+        public bool RemoveImagem(string ID)
+        {
             Imagem Pesquisado = new Imagem();
 
             var conexao = new MongoClient(Conexao.CONEXAO);

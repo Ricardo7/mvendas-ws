@@ -104,20 +104,21 @@ namespace WebService.Controllers {
             }
 
         }
-
+        
         [HttpDelete]
         [Route("api/Imagem/RemoveImagem")]
         public ImagemDTO RemoveImagem(string id) {
 
-            bool deucerto = imagemApplication.RemoveImagem(id);
+            bool executou = imagemApplication.RemoveImagem(id);
 
-            if (deucerto != false) {
+            if (executou != false) {
                 return RetornoController.MontaRetornoImagem(200, "SUCCESS", "", null);
             } else {
                 return RetornoController.MontaRetornoImagem(200, "ERROR", "", null);
             }
 
         }
+        
 
     }
 }

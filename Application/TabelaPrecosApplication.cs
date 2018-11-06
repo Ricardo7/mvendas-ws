@@ -35,13 +35,16 @@ namespace Application {
         }
 
         public List<TabelaPrecos> GetListaTabelasPrecosAtualizados(string data) {
+
             try {
                 return dbTabelaPrecos.GetListaTabelasPrecosAtualizadas(data);
-            } catch (Exception) {
-                List<TabelaPrecos> ListaVazio = new List<TabelaPrecos>();
-
-                return ListaVazio;
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
+
+            List<TabelaPrecos> ListaVazio = new List<TabelaPrecos>();
+
+            return ListaVazio;
         }
 
         public TabelaPrecos AddTabelaPrecos(TabelaPrecos tabelaPrecos) {

@@ -74,12 +74,22 @@ namespace WebService.Controllers
         [HttpGet]
         [Route("api/TabelaPrecos/GetListaTabelaPrecosAtualizados")]
         public ListaTabelasPrecosDTO GetListaTabelaPrecosAtualizados(string dataAt) {
-            List<TabelaPrecos> ListaTemp = tabelaPrecosApplication.GetListaTabelasPrecosAtualizados(dataAt);
+            try
+            {
+                List<TabelaPrecos> ListaTemp = tabelaPrecosApplication.GetListaTabelasPrecosAtualizados(dataAt);
 
-            if (ListaTemp.Count() != 0) {
-                return RetornoController.MontaRetornoListaTabelasPrecos(200, "SUCCESS", "", ListaTemp);
-            } else {
-                return RetornoController.MontaRetornoListaTabelasPrecos(200, "ERROR", "", null);
+
+                if (ListaTemp.Count() != 0)
+                {
+                    return RetornoController.MontaRetornoListaTabelasPrecos(200, "SUCCESS", "", ListaTemp);
+                }
+                else
+                {
+                    return RetornoController.MontaRetornoListaTabelasPrecos(200, "ERROR", "", null);
+                }
+            }
+            catch (Exception ex){
+                return RetornoController.MontaRetornoListaTabelasPrecos(200, "ERROR", ex.Message, null);
             }
 
         }
