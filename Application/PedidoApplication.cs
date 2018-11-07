@@ -47,19 +47,25 @@ namespace Application {
         public Pedido AddPedido(Pedido pedido) {
             Pedido consultaExiste = new Pedido(); ;
             try {
-                //consultaExiste = dbTabelaPrecos.ConsultaSegmentoMercado(segmentoMercado.ID);
-                consultaExiste = null;
 
-                if (consultaExiste == null) {
-                    //Altera o Status do pedido para sinalizar que já foi sincronizado
-                    pedido.Status = 2;
-
-                    Pedido cadastrado = dbPedido.AddPedido(pedido);
-
-                    return cadastrado;
+                //Faz a conta do Numero dos pedidos
+                List<Pedido> listaPed = dbPedido.GetListaPedidos();
+                if (listaPed.Count() == 0) {
+                    pedido.Numero = 1;
                 } else {
-                    return null;
+                    listaPed.OrderBy(x => x.Numero);
+                    Pedido temp = listaPed.LastOrDefault();
+                    pedido.Numero = temp.Numero + 1;
                 }
+
+                //Altera o Status do pedido para sinalizar que já foi sincronizado
+                pedido.Status = 2;
+
+                //Salva o Pedido na base
+                Pedido cadastrado = dbPedido.AddPedido(pedido);
+
+                return cadastrado;
+
 
             } catch (Exception) {
                 return null;
@@ -111,7 +117,7 @@ namespace Application {
                     foreach (Produto teste in ListaProdutos) {
                         if (teste.ID == produto.ID) {
                             existe = 1;
-                        } 
+                        }
                     }
 
                     if (existe == 0) {

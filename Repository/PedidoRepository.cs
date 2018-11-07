@@ -65,6 +65,8 @@ namespace Repository {
 
             var colecao = db.GetCollection<Pedido>("pedidos");
 
+
+
             colecao.InsertOne(pedido);
 
             return pedido;
