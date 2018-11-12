@@ -40,7 +40,16 @@ namespace WebService.Controllers {
         [HttpPut]
         [Route("api/Imagem/EditaImagem")]
         public ImagemDTO Editaimagem(Imagem imagem) {
-            Imagem imagemCadastrado = imagemApplication.EditarImagem(imagem);
+            Imagem imagemCadastrado;
+
+            try
+            {
+                imagemCadastrado = imagemApplication.EditarImagem(imagem);
+            }
+            catch (Exception ex)
+            {
+                return RetornoController.MontaRetornoImagem(200, "ERROR", ex.Message, null);
+            }
 
             if (imagemCadastrado != null) {
                 return RetornoController.MontaRetornoImagem(200, "SUCCESS", "", imagemCadastrado);

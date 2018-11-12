@@ -70,16 +70,21 @@ namespace Application {
             try {
                 consultaExiste = dbImagem.ConsultaImagem(imagem.ID);
 
-                if (consultaExiste == null) {
-                    Imagem editado = dbImagem.EditarImagem(imagem);
-                    return editado;
-
+                if (consultaExiste != null) {
+                    try { 
+                        Imagem editado = dbImagem.EditarImagem(imagem);
+                        return editado;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
                 } else {
-                    return null;
+                    throw new Exception("Objeto não encontrado para atualizar");
                 }
 
-            } catch (Exception) {
-                return null;
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
         }
         

@@ -93,44 +93,57 @@ namespace Repository {
         }
 
         public Imagem ConsultaImagem(string ID) {
-            Imagem imagemPesquisado = new Imagem();
+            Imagem imagemPesquisado = null;
+            try {
+                imagemPesquisado = new Imagem();
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Imagem>("imagens");
+                var colecao = db.GetCollection<Imagem>("imagens");
 
-            var filtro = Builders<Imagem>.Filter.Where(u => u.ID == ID);
+                var filtro = Builders<Imagem>.Filter.Where(u => u.ID == ID);
 
-            var retorno = colecao.Find(filtro).FirstOrDefault();
+                var retorno = colecao.Find(filtro).FirstOrDefault();
 
-            imagemPesquisado = (Imagem)retorno;
-
+                imagemPesquisado = (Imagem)retorno;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return imagemPesquisado;
 
         }
 
         public Imagem EditarImagem(Imagem imagem) {
-            Imagem imagemPesquisado = new Imagem();
+            Imagem imagemPesquisado =null;
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+            try {
+                imagemPesquisado = new Imagem();
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var colecao = db.GetCollection<Imagem>("imagens");
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var filtro = Builders<Imagem>.Filter.Eq(u => u.ID, imagem.ID);
+                var colecao = db.GetCollection<Imagem>("imagens");
 
-            var retorno = colecao.Find(filtro).FirstOrDefault();
+                var filtro = Builders<Imagem>.Filter.Eq(u => u.ID, imagem.ID);
 
-            imagemPesquisado = (Imagem)retorno;
+                var retorno = colecao.Find(filtro).FirstOrDefault();
 
-            imagem._id = imagemPesquisado._id;
-            imagem.ID = imagemPesquisado.ID;
+                imagemPesquisado = (Imagem)retorno;
 
-            colecao.ReplaceOne(filtro, imagem, new UpdateOptions { IsUpsert = true });
+                imagem._id = imagemPesquisado._id;
+                imagem.ID = imagemPesquisado.ID;
 
+                colecao.ReplaceOne(filtro, imagem, new UpdateOptions { IsUpsert = true });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return imagem;
 
         }
