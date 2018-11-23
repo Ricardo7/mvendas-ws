@@ -7,6 +7,7 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
+using WebService.Filters;
 
 namespace WebService.Controllers
 {
@@ -17,6 +18,7 @@ namespace WebService.Controllers
             condicaoPagamentoApplication = new CondicaoPagamentoApplication();
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/CondicaoPagamento/AddCondicaoPagamento")]
         public CondicaoPagamentoDTO AddCondicaoPagamento(CondicaoPagamento condicaoPagamento) {
@@ -30,6 +32,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpPut]
         [Route("api/CondicaoPagamento/EditaCondicaoPagamento")]
         public CondicaoPagamentoDTO EditaCondicaoPagamento(CondicaoPagamento condicaoPagamento) {
@@ -43,6 +46,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/CondicaoPagamento/GetCondicaoPagamento")]
         public CondicaoPagamentoDTO GetCondicaoPagamento(string id) {
@@ -57,6 +61,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/CondicaoPagamento/GetListaCondicaoPagamento")]
         public ListaCondicoesPagamentoDTO GetListaCondicaoPagamento() {
@@ -70,6 +75,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/CondicaoPagamento/GetListaCondicaoPagamentoAtualizados")]
         public ListaCondicoesPagamentoDTO GetListaCondicaoPagamentoAtualizados(string dataAt) {

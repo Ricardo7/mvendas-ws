@@ -23,13 +23,23 @@ namespace Application {
             }
         }
 
-        public List<Configuracoes> GetListaConfiguracoess() {
-            try {
-                return dbConfiguracoes.GetListaConfiguracoess();
-            } catch (Exception) {
-                List<Configuracoes> ListaConfiguracoessvazio = new List<Configuracoes>();
+        public Configuracoes GetConfiguracao()
+        {
+            try
+            {
+                return dbConfiguracoes.ConsultaConfiguracao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
-                return ListaConfiguracoessvazio;
+        public List<Configuracoes> GetListaConfiguracoes() {
+            try {
+                return dbConfiguracoes.GetListaConfiguracoes();
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
         }
 

@@ -55,17 +55,19 @@ namespace Application {
 
         public Usuario AddUsuario(Usuario usuario) {
             try {
-                Usuario consultaExiste;
+                Usuario consultaExiste=null;
+
                 consultaExiste = dbUser.ConsultaUsuario(usuario);
 
                 if (consultaExiste == null) {
+
                     return dbUser.AddUsuario(usuario);                     
                 } else {
-                    return null;
+                    throw new Exception("Usuário já existe");
                 }
 
-            } catch (Exception) {
-                return null;
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
         }
 

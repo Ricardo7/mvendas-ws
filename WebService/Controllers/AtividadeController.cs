@@ -7,6 +7,7 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
+using WebService.Filters;
 
 namespace WebService.Controllers {
     public class AtividadeController : ApiController {
@@ -16,6 +17,7 @@ namespace WebService.Controllers {
             atividadeApplication = new AtividadeApplication();
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/Atividade/AddAtividade")]
         public AtividadeDTO AddAtividade(Atividade atividade) {
@@ -30,6 +32,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpDelete]
         [Route("api/Atividade/RemoveAtividade")]
         public AtividadeDTO RemoveAtividade(string id) {
@@ -44,6 +47,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpPut]
         [Route("api/Atividade/EditaAtividade")]
         public AtividadeDTO EditaAtividade(Atividade atividade) {
@@ -57,11 +61,18 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Atividade/GetAtividade")]
         public AtividadeDTO GetAtividade(string id) {
+            Atividade atividadeRetorno=null;
 
-            Atividade atividadeRetorno = atividadeApplication.GetAtividade(id);
+            try {
+                atividadeRetorno = atividadeApplication.GetAtividade(id);
+            }catch (Exception ex)
+            {
+                return RetornoController.MontaRetornoAtividade(200, "ERROR", ex.Message, null);
+            }
 
             if (atividadeRetorno != null) {
                 return RetornoController.MontaRetornoAtividade(200, "SUCCESS", "", atividadeRetorno);
@@ -71,10 +82,20 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Atividade/GetListaAtividades")]
-        public ListaAtividadesDTO GetListaAtividades() {
-            List<Atividade> ListaTemp = atividadeApplication.GetListaAtividades();
+        public ListaAtividadesDTO GetListaAtividades(string usuarioID, int origem) {
+            List<Atividade> ListaTemp = null;
+
+            try
+            {
+                ListaTemp = atividadeApplication.GetListaAtividades(usuarioID, origem);
+            }
+            catch (Exception ex)
+            {
+                return RetornoController.MontaRetornoListaAtividades(200, "ERROR", ex.Message, null);
+            }
 
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaAtividades(200, "SUCCESS", "", ListaTemp);
@@ -84,10 +105,19 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Atividade/GetListaAtividadesAtualizados")]
-        public ListaAtividadesDTO GetListaAtividadesAtualizados(string dataAt) {
-            List<Atividade> ListaTemp = atividadeApplication.GetListaAtividadesAtualizados(dataAt);
+        public ListaAtividadesDTO GetListaAtividadesAtualizados(string dataAt,string usuarioID, int origem) {
+            List<Atividade> ListaTemp = null;
+            try
+            {
+                ListaTemp = atividadeApplication.GetListaAtividadesAtualizados(dataAt, usuarioID, origem);
+            }
+            catch (Exception ex)
+            {
+                return RetornoController.MontaRetornoListaAtividades(200, "ERROR", ex.Message, null);
+            }
 
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaAtividades(200, "SUCCESS", "", ListaTemp);
@@ -97,6 +127,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Atividade/GetListaAtividadesUsuario")]
         public ListaAtividadesDTO GetListaAtividadesUsuario(string usuarioID) {
@@ -110,6 +141,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Atividade/GetListaAtividadesCliente")]
         public ListaAtividadesDTO GetListaAtividadesCliente(string clienteID) {
@@ -123,6 +155,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Atividade/GetListaAtividadesClienteUsuario")]
         public ListaAtividadesDTO GetListaAtividadesClienteUsuario(string clienteID, string usuarioID) {
@@ -136,6 +169,31 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
+        [HttpGet]
+        [Route("api/Atividade/GetListaAtividadesClienteCheckin")]
+        public ListaAtividadesDTO GetListaAtividadesClienteCheckin(string usuarioID, string dataIni, string dataFim)
+        {
+            List<Atividade> ListaTemp = null;
+            try
+            {
+               ListaTemp = atividadeApplication.GetListaAtividadesClienteCheckin(usuarioID, dataIni, dataFim);
+            }catch (Exception ex)
+            {
+                return RetornoController.MontaRetornoListaAtividades(200, "ERROR", ex.Message, null);
+            }
+
+            if (ListaTemp.Count() != 0)
+            {
+                return RetornoController.MontaRetornoListaAtividades(200, "SUCCESS", "", ListaTemp);
+            }
+            else
+            {
+                return RetornoController.MontaRetornoListaAtividades(200, "ERROR", "Dados não encontrados", null);
+            }
+        }
+
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Atividade/GetListaAtividadesSugeridas")]
         public ListaAtividadesDTO GetListaAtividadesSugeridas(string data, string usuarioID)

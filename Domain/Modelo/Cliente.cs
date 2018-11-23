@@ -35,6 +35,8 @@ namespace Domain
         public Cidade CidadeCliente { get; set; }
         [JsonProperty("SegmentoMercado")]
         public SegmentoMercado SegmentoMercadoCliente { get; set; }
+        [JsonProperty("Usuario")]
+        public Usuario UsuarioCliente { get; set; }
 
     }
 }

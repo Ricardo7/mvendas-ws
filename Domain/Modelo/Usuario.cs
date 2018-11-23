@@ -11,6 +11,8 @@ namespace Domain{
     public class Usuario {
 
         [JsonIgnore]
+
+
         public ObjectId _id { get; set; }
         [JsonProperty("IDWS")]
         public string ID { get; set; }
@@ -18,6 +20,9 @@ namespace Domain{
         public string Email { get; set; }
         public string Senha { get; set; }
         public int Ativo { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int Tipo { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }
     }
 }

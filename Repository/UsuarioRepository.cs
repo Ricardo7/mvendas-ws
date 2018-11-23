@@ -35,38 +35,49 @@ namespace Repository
 
         public Usuario AddUsuario(Usuario usuario)
         {
-            //Gerar ID para a classe
-            ObjectId identidade = ObjectId.GenerateNewId();
-            usuario.ID = identidade.ToString();
-            usuario._id = identidade;
-            var conexao = new MongoClient(Conexao.CONEXAO);
+            try
+            {
+                //Gerar ID para a classe
+                ObjectId identidade = ObjectId.GenerateNewId();
+                usuario.ID = identidade.ToString();
+                usuario._id = identidade;
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Usuario>("usuarios");
+                var colecao = db.GetCollection<Usuario>("usuarios");
 
-            colecao.InsertOne(usuario);
-
+                colecao.InsertOne(usuario);
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return usuario;
 
         }
 
         public Usuario ConsultaUsuario(Usuario usuario)
         {
-            Usuario usuarioPesquisado = new Usuario();
+            Usuario usuarioPesquisado = null;
+            try
+            {
+                usuarioPesquisado = new Usuario();
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Usuario>("usuarios");
+                var colecao = db.GetCollection<Usuario>("usuarios");
 
-            var filtro = Builders<Usuario>.Filter.Where(u => u.Email == usuario.Email);
+                var filtro = Builders<Usuario>.Filter.Where(u => u.Email == usuario.Email);
 
-            var retorno = colecao.Find(filtro).FirstOrDefault();
+                var retorno = colecao.Find(filtro).FirstOrDefault();
 
-            usuarioPesquisado = (Usuario)retorno;
-
+                usuarioPesquisado = (Usuario)retorno;
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return usuarioPesquisado;
 
         }

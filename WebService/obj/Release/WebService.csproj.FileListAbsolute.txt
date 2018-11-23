@@ -248,3 +248,15 @@ C:\mais_vendas\mvendas-ws-local\WebService\bin\System.Web.Http.Cors.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Cors.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.Cors.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.Cors.xml
+C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.Logging.dll
+C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.Tokens.dll
+C:\mais_vendas\mvendas-ws-local\WebService\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.Logging.pdb
+C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.Logging.xml
+C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.Tokens.pdb
+C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.Tokens.xml
+C:\mais_vendas\mvendas-ws-local\WebService\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\mais_vendas\mvendas-ws-local\WebService\bin\System.IdentityModel.Tokens.Jwt.xml

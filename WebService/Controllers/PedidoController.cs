@@ -7,6 +7,7 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
+using WebService.Filters;
 
 namespace WebService.Controllers
 {
@@ -18,6 +19,7 @@ namespace WebService.Controllers
             pedidoApplication = new PedidoApplication();
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/Pedido/AddPedido")]
         public PedidoDTO AddPedido(Pedido pedido) {
@@ -32,6 +34,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpPut]
         [Route("api/Pedido/EditaPedido")]
         public PedidoDTO EditaPedido(Pedido pedido) {
@@ -45,6 +48,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Pedido/GetPedido")]
         public PedidoDTO GetPedido(string id) {
@@ -59,10 +63,21 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Pedido/GetListaPedidos")]
-        public ListaPedidosDTO GetListaPedidos() {
-            List<Pedido> ListaTemp = pedidoApplication.GetListaPedido();
+        public ListaPedidosDTO GetListaPedidos(string usuarioID, int origem)
+        {
+            List<Pedido> ListaTemp = null;
+
+            try
+            {
+                ListaTemp = pedidoApplication.GetListaPedido(usuarioID,origem);
+            }
+            catch (Exception ex)
+            {
+                return RetornoController.MontaRetornoListaPedidos(200, "ERROR", ex.Message, null);
+            }
 
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaPedidos(200, "SUCCESS", "", ListaTemp);
@@ -72,10 +87,21 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Pedido/GetListaPedidosAtualizados")]
-        public ListaPedidosDTO GetListaPedidosAtualizados(string dataAt) {
-            List<Pedido> ListaTemp = pedidoApplication.GetListaPedidosAtualizados(dataAt);
+        public ListaPedidosDTO GetListaPedidosAtualizados(string dataAt,string usuarioID, int origem)
+        {
+            List<Pedido> ListaTemp = null;
+
+            try
+            {
+                ListaTemp = pedidoApplication.GetListaPedidosAtualizados(dataAt,usuarioID,origem);
+            }
+            catch (Exception ex)
+            {
+                return RetornoController.MontaRetornoListaPedidos(200, "ERROR", ex.Message, null);
+            }
 
             if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaPedidos(200, "SUCCESS", "", ListaTemp);
@@ -85,6 +111,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Pedido/ConsultaSugestaoProduto")]
         public ListaProdutosDTO ConsultaSugestaoProduto(Cliente cliente){

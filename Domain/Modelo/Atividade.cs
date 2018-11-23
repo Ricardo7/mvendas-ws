@@ -22,6 +22,9 @@ namespace Domain {
         public Usuario UsuarioAtividade { get; set; }
         public string DataAtividade { get; set; }
         public string HoraAtividade { get; set; }
+        public Double Latitude { get; set; }
+        public Double Longitude { get; set; }
+        public string DataCheckin { get; set; }
         public string DtCadastro { get; set; }
         public string DtAtualizacao { get; set; }
     }

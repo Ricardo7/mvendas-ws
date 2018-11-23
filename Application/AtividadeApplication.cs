@@ -10,66 +10,130 @@ using MongoDB.Driver;
 namespace Application {
     public class AtividadeApplication {
         private AtividadeRepository dbAtividade;
+        private UsuarioRepository dbUsuario;
 
         public AtividadeApplication() {
             dbAtividade = new AtividadeRepository();
+            dbUsuario = new UsuarioRepository();
         }
 
         public Atividade GetAtividade(string ID) {
+            
             try {
                 return dbAtividade.ConsultaAtividade(ID);
-            } catch (Exception) {
-                return null;
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
         }
 
-        public List<Atividade> GetListaAtividades() {
-            try {
-                return dbAtividade.GetListaAtividades();
-            } catch (Exception) {
-                List<Atividade> ListaAtividadesvazio = new List<Atividade>();
-
-                return ListaAtividadesvazio;
+        public List<Atividade> GetListaAtividades(string UsuarioID, int origem)
+        {
+            Usuario usuario = dbUsuario.ConsultaUsuarioID(UsuarioID);
+            if (usuario == null)
+            {
+                throw new Exception("Usuário não encontrado");
             }
+
+            List<Atividade> atividades = null;
+            try {
+
+                atividades = new List<Atividade>();
+                //Testa se é usuário Adminstrador(1) se for retorna todos os dados, senão retorna somente os dados relacionados ao usuário.
+                if (usuario.Tipo == 1 && origem == 1)
+                {
+                    atividades = dbAtividade.GetListaAtividadesAdm();
+                }
+                else
+                {
+                    atividades = dbAtividade.GetListaAtividades(UsuarioID);
+                }
+               
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
+            }
+
+            return atividades;
         }
 
-        public List<Atividade> GetListaAtividadesAtualizados(string data) {
-            try {
-                return dbAtividade.GetListaAtividadesAtualizadas(data);
-            } catch (Exception) {
-                List<Atividade> ListaAtividadesvazio = new List<Atividade>();
-
-                return ListaAtividadesvazio;
+        public List<Atividade> GetListaAtividadesAtualizados(string data, string UsuarioID, int origem)
+        {
+            Usuario usuario = dbUsuario.ConsultaUsuarioID(UsuarioID);
+            if (usuario == null)
+            {
+                throw new Exception("Usuário não encontrado");
             }
+           
+            List<Atividade> atividades = null;
+            try
+            {
+
+                atividades = new List<Atividade>();
+                //Testa se é usuário Adminstrador(1) se for retorna todos os dados, senão retorna somente os dados relacionados ao usuário.
+                if (usuario.Tipo == 1 && origem == 1)
+                {
+                    atividades = dbAtividade.GetListaAtividadesAtualizadasAdm(data);
+                }
+                else
+                {
+                    atividades = dbAtividade.GetListaAtividadesAtualizadas(data, UsuarioID);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return atividades;
         }
 
         public List<Atividade> GetListaAtividadesUsuario(string usuarioID) {
             try {
                 return dbAtividade.GetListaAtividadesUsuario(usuarioID);
-            } catch (Exception) {
-                List<Atividade> ListaAtividadesvazio = new List<Atividade>();
-
-                return ListaAtividadesvazio;
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
         public List<Atividade> GetListaAtividadesCliente(string clienteID) {
             try {
                 return dbAtividade.GetListaAtividadesCliente(clienteID);
-            } catch (Exception) {
-                List<Atividade> ListaAtividadesvazio = new List<Atividade>();
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
-                return ListaAtividadesvazio;
+        /**
+         * Retora todos os dados para o usuário solicitado, não testa se é Adm ou não pois este método é utilizado pelo
+         * portal Web como filtro e neste caso, mesmo sendo usuário Adm, vai ver só as informações do usuário solicitado.
+         * 
+         **/
+        public List<Atividade> GetListaAtividadesClienteCheckin(string UsuarioID, string DataIni, string DataFim)
+        {
+            
+                Usuario usuario = dbUsuario.ConsultaUsuarioID(UsuarioID);
+                if (usuario == null)
+                {
+                    throw new Exception("Usuário não encontrado");
+                }
+                try
+            {
+                return dbAtividade.GetListaAtividadesClienteCheckin(UsuarioID, DataIni, DataFim);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
         public List<Atividade> GetListaAtividadesClienteUsuario(string clienteID, string usuarioID) {
             try {
                 return dbAtividade.GetListaAtividadesClienteUsuario(clienteID, usuarioID);
-            } catch (Exception) {
-                List<Atividade> ListaAtividadesvazio = new List<Atividade>();
-
-                return ListaAtividadesvazio;
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 

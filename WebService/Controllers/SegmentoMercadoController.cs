@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Application;
 using Domain;
+using WebService.Filters;
 
 namespace WebService.Controllers {
     public class SegmentoMercadoController : ApiController {
@@ -16,6 +17,7 @@ namespace WebService.Controllers {
             segmentoMercadoApplication = new SegmentoMercadoApplication();
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/SegmentoMercado/AddSegmentoMercado")]
         public SegmentoMercadoDTO AddSegmentoMercado(SegmentoMercado segmentoMercado) {
@@ -29,6 +31,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/SegmentoMercado/GetSegmentoMercado")]
         public SegmentoMercadoDTO GetSegmentoMercado(string id) {
@@ -43,6 +46,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/SegmentoMercado/GetListaSegmentosMercado")]
         public ListaSegmentosMercadoDTO GetListaSegmentosMercado() {
@@ -56,6 +60,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/SegmentoMercado/GetListaSegmentosMercadoAtualizados")]
         public ListaSegmentosMercadoDTO GetListaSegmentosMercadoAtualizados(string dataAt) {

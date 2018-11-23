@@ -11,46 +11,117 @@ using MongoDB.Bson;
 namespace Repository {
     public class PedidoRepository {
 
-        public List<Pedido> GetListaPedidos() {
+        public List<Pedido> GetListaPedidos(string usuarioID) {
 
-            List<Pedido> listaPedidos = new List<Pedido>();
+            List<Pedido> listaPedidos = null;
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+            try {
+                listaPedidos = new List<Pedido>();
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var colecao = db.GetCollection<Pedido>("pedidos");
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var filtro = Builders<Pedido>.Filter.Empty;
+                var colecao = db.GetCollection<Pedido>("pedidos");
 
-            var pedidos = colecao.Find(filtro).ToList();
+                //var filtro = Builders<Pedido>.Filter.Empty;
+                var filtro = Builders<Pedido>.Filter.Eq(u => u.ClientePedido.UsuarioCliente.ID, usuarioID);
 
-            listaPedidos = pedidos;
+                var pedidos = colecao.Find(filtro).ToList();
 
+                listaPedidos = pedidos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return listaPedidos;
 
         }
 
-        public List<Pedido> GetListaPedidosAtualizados(string data) {
+        public List<Pedido> GetListaPedidosAdm()
+        {
 
-            List<Pedido> listaPedidos = new List<Pedido>();
+            List<Pedido> listaPedidos = null;
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+            try
+            {
+                listaPedidos = new List<Pedido>();
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var colecao = db.GetCollection<Pedido>("pedidos");
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var filtro = Builders<Pedido>.Filter.Gt(u => u.DtAtualizacao, data);
+                var colecao = db.GetCollection<Pedido>("pedidos");
 
-            var pedidos = colecao.Find(filtro).ToList();
+                var filtro = Builders<Pedido>.Filter.Empty;
 
-            listaPedidos = pedidos;
+                var pedidos = colecao.Find(filtro).ToList();
 
+                listaPedidos = pedidos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return listaPedidos;
 
         }
 
+        public List<Pedido> GetListaPedidosAtualizados(string data, string usuarioID) {
+
+            List<Pedido> listaPedidos = null;
+            try {
+                listaPedidos = new List<Pedido>();
+                var conexao = new MongoClient(Conexao.CONEXAO);
+
+                var db = conexao.GetDatabase(Conexao.DB);
+
+                var colecao = db.GetCollection<Pedido>("pedidos");
+
+                var filtro = Builders<Pedido>.Filter.Gt(u => u.DtAtualizacao, data);
+                filtro = filtro & (Builders<Pedido>.Filter.Eq(u => u.ClientePedido.UsuarioCliente.ID, usuarioID));
+
+                var pedidos = colecao.Find(filtro).ToList();
+
+                listaPedidos = pedidos;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return listaPedidos;
+
+        }
+
+        public List<Pedido> GetListaPedidosAtualizadosAdm(string data)
+        {
+
+            List<Pedido> listaPedidos = null;
+            try
+            {
+                listaPedidos = new List<Pedido>();
+                var conexao = new MongoClient(Conexao.CONEXAO);
+
+                var db = conexao.GetDatabase(Conexao.DB);
+
+                var colecao = db.GetCollection<Pedido>("pedidos");
+
+                var filtro = Builders<Pedido>.Filter.Gt(u => u.DtAtualizacao, data);
+
+                var pedidos = colecao.Find(filtro).ToList();
+
+                listaPedidos = pedidos;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return listaPedidos;
+
+        }
 
         public Pedido AddPedido(Pedido pedido) {
 

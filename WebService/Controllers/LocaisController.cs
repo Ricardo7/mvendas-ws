@@ -7,6 +7,7 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
+using WebService.Filters;
 
 namespace WebService.Controllers
 {
@@ -19,6 +20,7 @@ namespace WebService.Controllers
             locaisApplication = new LocaisApplication();
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/Locais/AddPais")]
         public PaisDTO AddPais(Pais pais) {
@@ -32,6 +34,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Locais/GetListaPaises")]
         public ListaPaisesDTO GetListaPaises()
@@ -46,6 +49,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Locais/GetListaPaisesAtualizados")]
         public ListaPaisesDTO GetListaPaisesAtualizados(string dataAt) {
@@ -59,6 +63,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Locais/GetPais")]
         public PaisDTO GetPais(string id) {
@@ -72,6 +77,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/Locais/AddEstado")]
         public EstadoDTO AddEstado(Estado estado) {
@@ -85,6 +91,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Locais/GetListaEstados")]
         public ListaEstadosDTO GetListaEstados(String siglaPais)
@@ -98,6 +105,7 @@ namespace WebService.Controllers
             }
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Locais/GetListaEstadosAtualizados")]
         public ListaEstadosDTO GetListaEstadosAtualizados(String dataAt) {
@@ -110,6 +118,7 @@ namespace WebService.Controllers
             }
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Locais/GetEstado")]
         public EstadoDTO GetEstado(string id) {
@@ -123,6 +132,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/Locais/AddCidade")]
         public CidadeDTO AddCidade(Cidade cidade) {
@@ -136,6 +146,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Locais/GetListaCidades")]
         public ListaCidadesDTO GetListaCidades(String siglaEstado)
@@ -149,6 +160,7 @@ namespace WebService.Controllers
             }
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Locais/GetListaCidadesAtualizadas")]
         public ListaCidadesDTO GetListaCidadesAtualizadas(String dataAt) {
@@ -161,6 +173,7 @@ namespace WebService.Controllers
             }
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Locais/GetCidade")]
         public CidadeDTO GetCidade(string id) {

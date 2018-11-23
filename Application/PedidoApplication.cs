@@ -10,9 +10,11 @@ using MongoDB.Driver;
 namespace Application {
     public class PedidoApplication {
         private PedidoRepository dbPedido;
+        private UsuarioRepository dbUsuario;
 
         public PedidoApplication() {
             dbPedido = new PedidoRepository();
+            dbUsuario = new UsuarioRepository();
         }
 
         public Pedido GetPedido(string id) {
@@ -24,24 +26,62 @@ namespace Application {
             }
         }
 
-        public List<Pedido> GetListaPedido() {
-            try {
-                return dbPedido.GetListaPedidos();
-            } catch (Exception) {
-                List<Pedido> ListaVazio = new List<Pedido>();
-
-                return ListaVazio;
+        public List<Pedido> GetListaPedido(string usuarioID, int origem)
+        {
+            Usuario usuario = dbUsuario.ConsultaUsuarioID(usuarioID);
+            if (usuario == null)
+            {
+                throw new Exception("Usuário não encontrado");
             }
+
+            List<Pedido> pedidos = null;
+            try {
+                pedidos = new List<Pedido>();
+                //Testa se é usuário Adminstrador(1) se for retorna todos os dados, senão retorna somente os dados relacionados ao usuário.
+                if (usuario.Tipo == 1 && origem == 1)
+                {
+                    pedidos = dbPedido.GetListaPedidosAdm();
+                }
+                else
+                {
+                    pedidos = dbPedido.GetListaPedidos(usuarioID);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return pedidos;
         }
 
-        public List<Pedido> GetListaPedidosAtualizados(string data) {
-            try {
-                return dbPedido.GetListaPedidosAtualizados(data);
-            } catch (Exception) {
-                List<Pedido> ListaVazio = new List<Pedido>();
+        public List<Pedido> GetListaPedidosAtualizados(string data, string usuarioID, int origem) {
 
-                return ListaVazio;
+            Usuario usuario = dbUsuario.ConsultaUsuarioID(usuarioID);
+            if (usuario == null)
+            {
+                throw new Exception("Usuário não encontrado");
             }
+
+            List<Pedido> pedidos = null;
+            try
+            {
+                pedidos = new List<Pedido>();
+                //Testa se é usuário Adminstrador(1) se for retorna todos os dados, senão retorna somente os dados relacionados ao usuário.
+                if (usuario.Tipo == 1 && origem == 1)
+                {
+                    pedidos = dbPedido.GetListaPedidosAtualizadosAdm(data);
+                }
+                else
+                {
+                    pedidos = dbPedido.GetListaPedidosAtualizados(data, usuarioID);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return pedidos;
+
         }
 
         public Pedido AddPedido(Pedido pedido) {
@@ -49,7 +89,7 @@ namespace Application {
             try {
 
                 //Faz a conta do Numero dos pedidos
-                List<Pedido> listaPed = dbPedido.GetListaPedidos();
+                List<Pedido> listaPed = dbPedido.GetListaPedidosAdm();
                 if (listaPed.Count() == 0) {
                     pedido.Numero = 1;
                 } else {

@@ -7,6 +7,7 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
+using WebService.Filters;
 
 namespace WebService.Controllers {
     public class ImagemController : ApiController {
@@ -17,6 +18,7 @@ namespace WebService.Controllers {
             imagemApplication = new ImagemApplication();
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/Imagem/AddImagem")]
         public ImagemDTO AddImagem(Imagem imagem) {
@@ -37,6 +39,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpPut]
         [Route("api/Imagem/EditaImagem")]
         public ImagemDTO Editaimagem(Imagem imagem) {
@@ -59,6 +62,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Imagem/GetImagem")]
         public ImagemDTO GetImagem(string id) {
@@ -73,6 +77,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Imagem/GetListaImagens")]
         public ListaImagensDTO GetListaImagens() {
@@ -86,6 +91,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Imagem/GetListaImagensAtualizadas")]
         public ListaImagensDTO GetListaImagensAtualizados(string dataAt) {
@@ -100,6 +106,7 @@ namespace WebService.Controllers {
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Imagem/GetListaImagensProduto")]
         public ListaImagensDTO GetListaImagensProduto(string produtoID) {
@@ -113,7 +120,8 @@ namespace WebService.Controllers {
             }
 
         }
-        
+
+        [JwtAuthentication]
         [HttpDelete]
         [Route("api/Imagem/RemoveImagem")]
         public ImagemDTO RemoveImagem(string id) {

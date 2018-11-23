@@ -7,6 +7,7 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
+using WebService.Filters;
 
 namespace WebService.Controllers
 {
@@ -18,6 +19,7 @@ namespace WebService.Controllers
             produtoApplication = new ProdutoApplication();
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/Produto/AddProduto")]
         public ProdutoDTO AddProduto(Produto produto) {
@@ -31,6 +33,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpPut]
         [Route("api/Produto/EditaProduto")]
         public ProdutoDTO Editaproduto(Produto produto) {
@@ -44,6 +47,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Produto/GetProduto")]
         public ProdutoDTO GetProduto(string id) {
@@ -58,6 +62,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Produto/GetListaProdutos")]
         public ListaProdutosDTO GetListaProdutos() {
@@ -71,6 +76,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Produto/GetListaProdutosAtualizados")]
         public ListaProdutosDTO GetListaAtualizados(string dataAt) {
@@ -85,6 +91,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/Produto/GetListaProdutosSugeridos")]
         public ListaProdutosDTO GetListaProdutosSugeridos()

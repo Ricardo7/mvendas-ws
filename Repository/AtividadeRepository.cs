@@ -10,22 +10,57 @@ using MongoDB.Bson;
 namespace Repository {
     public class AtividadeRepository {
 
-        public List<Atividade> GetListaAtividades() {
+        public List<Atividade> GetListaAtividades(string UsuarioID) {
 
-            List<Atividade> lista = new List<Atividade>();
+            List<Atividade> lista = null;
+            try {
+                lista = new List<Atividade>();
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Atividade>("atividades");
+                var colecao = db.GetCollection<Atividade>("atividades");
 
-            var filtro = Builders<Atividade>.Filter.Empty;
+                //var filtro = Builders<Atividade>.Filter.Empty;
+                var filtro = Builders<Atividade>.Filter.Eq(u => u.UsuarioAtividade.ID, UsuarioID);
 
-            var retorno = colecao.Find(filtro).ToList();
+                var retorno = colecao.Find(filtro).ToList();
 
-            lista = retorno;
+                lista = retorno;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return lista;
 
+        }
+
+        public List<Atividade> GetListaAtividadesAdm()
+        {
+
+            List<Atividade> lista = null;
+            try
+            {
+                lista = new List<Atividade>();
+
+                var conexao = new MongoClient(Conexao.CONEXAO);
+
+                var db = conexao.GetDatabase(Conexao.DB);
+
+                var colecao = db.GetCollection<Atividade>("atividades");
+
+                var filtro = Builders<Atividade>.Filter.Empty;
+
+                var retorno = colecao.Find(filtro).ToList();
+
+                lista = retorno;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return lista;
 
         }
@@ -80,7 +115,7 @@ namespace Repository {
 
             var colecao = db.GetCollection<Atividade>("atividades");
 
-            //ainda em desenvoclimento kkkk
+            //ainda em desenvoclimento
             var filtro = Builders<Atividade>.Filter.Where(u => u.ClienteAtividade.ID == clienteID);
 
             var retorno = colecao.Find(filtro).ToList();
@@ -91,22 +126,87 @@ namespace Repository {
 
         }
 
-        public List<Atividade> GetListaAtividadesAtualizadas(string data) {
+        public List<Atividade> GetListaAtividadesClienteCheckin(string usuarioID, string dataIni, string dataFim)
+        {
 
-            List<Atividade> lista = new List<Atividade>();
+            List<Atividade> lista = null;
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+            try
+            {
+                lista = new List<Atividade>();
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Atividade>("atividades");
+                var colecao = db.GetCollection<Atividade>("atividades");
 
-            var filtro = Builders<Atividade>.Filter.Gt(u => u.DtAtualizacao, data);
+                var filtro = Builders<Atividade>.Filter.Where(u => u.UsuarioAtividade.ID == usuarioID);
+                filtro = filtro & (Builders<Atividade>.Filter.Gte(u => u.DataCheckin, dataIni)); //Maior ou igual que a data inicio
+                filtro = filtro & (Builders<Atividade>.Filter.Lte(u => u.DataCheckin, dataFim)); //Menor que a data Fim
+                //filtro = filtro & (Builders<Atividade>.Filter.Eq(u => u.UsuarioAtividade.Tipo, 0)); //Somente usuários do tipo Vendedor (0)
 
-            var retorno = colecao.Find(filtro).ToList();
+                var retorno = colecao.Find(filtro).Sort(Builders<Atividade>.Sort.Ascending("HoraAtividade").Ascending("DataAtividade")).ToList();
 
-            lista = retorno;
+                lista = retorno;
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
+            return lista;
+
+        }
+
+        public List<Atividade> GetListaAtividadesAtualizadas(string data, string UsuarioID)
+        {
+            List<Atividade> lista = null;
+            try
+            {
+                lista = new List<Atividade>();
+
+                var conexao = new MongoClient(Conexao.CONEXAO);
+
+                var db = conexao.GetDatabase(Conexao.DB);
+
+                var colecao = db.GetCollection<Atividade>("atividades");
+
+                var filtro = Builders<Atividade>.Filter.Gt(u => u.DtAtualizacao, data);
+                filtro = filtro & (Builders<Atividade>.Filter.Eq(u => u.UsuarioAtividade.ID, UsuarioID));
+
+                var retorno = colecao.Find(filtro).ToList();
+
+                lista = retorno;
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return lista;
+
+        }
+
+        public List<Atividade> GetListaAtividadesAtualizadasAdm(string data)
+        {
+            List<Atividade> lista = null;
+            try
+            {
+                lista = new List<Atividade>();
+
+                var conexao = new MongoClient(Conexao.CONEXAO);
+
+                var db = conexao.GetDatabase(Conexao.DB);
+
+                var colecao = db.GetCollection<Atividade>("atividades");
+
+                var filtro = Builders<Atividade>.Filter.Gt(u => u.DtAtualizacao, data);
+                
+                var retorno = colecao.Find(filtro).ToList();
+
+                lista = retorno;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return lista;
 
         }
@@ -130,20 +230,26 @@ namespace Repository {
         }
 
         public Atividade ConsultaAtividade(string ID) {
-            Atividade AtividadePesquisada = new Atividade();
+            Atividade AtividadePesquisada = null;
+            try
+            {
+                AtividadePesquisada = new Atividade();
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Atividade>("atividades");
+                var colecao = db.GetCollection<Atividade>("atividades");
 
-            var filtro = Builders<Atividade>.Filter.Where(u => u.ID == ID);
+                var filtro = Builders<Atividade>.Filter.Where(u => u.ID == ID);
+                
+                var retorno = colecao.Find(filtro).FirstOrDefault();
 
-            var retorno = colecao.Find(filtro).FirstOrDefault();
-
-            AtividadePesquisada = (Atividade)retorno;
-
+                AtividadePesquisada = (Atividade)retorno;
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return AtividadePesquisada;
 
         }

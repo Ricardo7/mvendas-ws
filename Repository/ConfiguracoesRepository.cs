@@ -10,23 +10,57 @@ using MongoDB.Bson;
 namespace Repository {
     public class ConfiguracoesRepository {
 
-        public List<Configuracoes> GetListaConfiguracoess() {
+        public List<Configuracoes> GetListaConfiguracoes() {
 
-            List<Configuracoes> lista = new List<Configuracoes>();
+            List<Configuracoes> lista = null;
+            try
+            {
+                lista = new List<Configuracoes>();
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Configuracoes>("configuracoes");
+                var colecao = db.GetCollection<Configuracoes>("configuracoes");
 
-            var filtro = Builders<Configuracoes>.Filter.Empty;
+                var filtro = Builders<Configuracoes>.Filter.Empty;
 
-            var retorno = colecao.Find(filtro).ToList();
+                var retorno = colecao.Find(filtro).ToList();
 
-            lista = retorno;
-
+                lista = retorno;
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return lista;
+
+        }
+
+        public Configuracoes ConsultaConfiguracao()
+        {
+            Configuracoes ConfiguracoesPesquisada = null;
+
+            try
+            {
+                ConfiguracoesPesquisada = new Configuracoes();
+                var conexao = new MongoClient(Conexao.CONEXAO);
+
+                var db = conexao.GetDatabase(Conexao.DB);
+
+                var colecao = db.GetCollection<Configuracoes>("configuracoes");
+
+                var filtro = Builders<Configuracoes>.Filter.Empty;
+
+                var retorno = colecao.Find(filtro).Limit(1).FirstOrDefault();
+                //var retorno = colecao.Find(x => true).SortByDescending(u => u.ID).Limit(1).FirstOrDefaultAsync();
+
+                ConfiguracoesPesquisada = (Configuracoes)retorno;
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return ConfiguracoesPesquisada;
 
         }
 

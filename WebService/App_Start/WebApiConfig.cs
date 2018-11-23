@@ -12,12 +12,13 @@ namespace WebService
         {
             // Serviços e configuração da API da Web
 
-            // Rotas da API da Web
+                        // Rotas da API da Web
             var politicas = new EnableCorsAttribute(
             origins: "*",
             methods: "*",
             headers: "*"
             );
+            config.Filters.Add(new AuthorizeAttribute());
             config.EnableCors(politicas);
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(

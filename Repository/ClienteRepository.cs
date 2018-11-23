@@ -9,61 +9,146 @@ using MongoDB.Bson;
 
 namespace Repository {
     public class ClienteRepository {
-        public List<Cliente> GetListaClientes() {
 
-            List<Cliente> listaClientes = new List<Cliente>();
+        public List<Cliente> GetListaClientes(string usuarioID) {
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+            List<Cliente> listaClientes = null;
+            try
+            {
+                listaClientes = new List<Cliente>();
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var colecao = db.GetCollection<Cliente>("clientes");
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var filtro = Builders<Cliente>.Filter.Empty;
+                var colecao = db.GetCollection<Cliente>("clientes");
 
-            var clientes = colecao.Find(filtro).ToList();
+                //var filtro = Builders<Cliente>.Filter.Empty;
+                var filtro = Builders<Cliente>.Filter.Eq(u => u.UsuarioCliente.ID, usuarioID);
 
-            listaClientes = clientes;
+                var clientes = colecao.Find(filtro).ToList();
 
+                listaClientes = clientes;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return listaClientes;
 
         }
 
-        public List<Cliente> GetListaClientesAtualizados(string data) {
+        public List<Cliente> GetListaClientesAdm()
+        {
 
-            List<Cliente> listaClientes = new List<Cliente>();
+            List<Cliente> listaClientes = null;
+            try
+            {
+                listaClientes = new List<Cliente>();
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Cliente>("clientes");
+                var colecao = db.GetCollection<Cliente>("clientes");
 
-            var filtro = Builders<Cliente>.Filter.Gt(u => u.DtAtualizacao, data);
+                var filtro = Builders<Cliente>.Filter.Empty;
 
-            var clientes = colecao.Find(filtro).ToList();
+                var clientes = colecao.Find(filtro).ToList();
 
-            listaClientes = clientes;
+                listaClientes = clientes;
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return listaClientes;
+
+        }
+
+        public List<Cliente> GetListaClientesAtualizados(string data, string usuarioID) {
+
+            List<Cliente> listaClientes = null;
+
+            try {
+
+                listaClientes = new List<Cliente>();
+
+                var conexao = new MongoClient(Conexao.CONEXAO);
+
+                var db = conexao.GetDatabase(Conexao.DB);
+
+                var colecao = db.GetCollection<Cliente>("clientes");
+
+                var filtro = Builders<Cliente>.Filter.Gt(u => u.DtAtualizacao, data);
+                filtro = filtro & (Builders<Cliente>.Filter.Eq(u => u.UsuarioCliente.ID, usuarioID));
+
+                var clientes = colecao.Find(filtro).ToList();
+
+                listaClientes = clientes;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return listaClientes;
+
+        }
+
+        public List<Cliente> GetListaClientesAtualizadosAdm(string data)
+        {
+
+            List<Cliente> listaClientes = null;
+
+            try
+            {
+
+                listaClientes = new List<Cliente>();
+
+                var conexao = new MongoClient(Conexao.CONEXAO);
+
+                var db = conexao.GetDatabase(Conexao.DB);
+
+                var colecao = db.GetCollection<Cliente>("clientes");
+
+                var filtro = Builders<Cliente>.Filter.Gt(u => u.DtAtualizacao, data);
+
+                var clientes = colecao.Find(filtro).ToList();
+
+                listaClientes = clientes;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return listaClientes;
 
         }
 
         public Cliente AddCliente(Cliente cliente) {
 
-            //Gerar ID para a classe
-            ObjectId identidade = ObjectId.GenerateNewId();
-            cliente.ID = identidade.ToString();
-            cliente._id = identidade;
+            try
+            {
+                //Gerar ID para a classe
+                ObjectId identidade = ObjectId.GenerateNewId();
+                cliente.ID = identidade.ToString();
+                cliente._id = identidade;
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Cliente>("clientes");
+                var colecao = db.GetCollection<Cliente>("clientes");
 
-            colecao.InsertOne(cliente);
-
+                colecao.InsertOne(cliente);
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return cliente;
         }
 
@@ -87,20 +172,26 @@ namespace Repository {
         }
 
         public Cliente ConsultaCnpjExiste(Cliente cliente) {
-            Cliente clientePesquisado = new Cliente();
+            Cliente clientePesquisado = null;
+            try
+            {
+                clientePesquisado = new Cliente();
 
-            var conexao = new MongoClient(Conexao.CONEXAO);
+                var conexao = new MongoClient(Conexao.CONEXAO);
 
-            var db = conexao.GetDatabase(Conexao.DB);
+                var db = conexao.GetDatabase(Conexao.DB);
 
-            var colecao = db.GetCollection<Cliente>("clientes");
+                var colecao = db.GetCollection<Cliente>("clientes");
 
-            var filtro = Builders<Cliente>.Filter.Where(u => u.Cnpj == cliente.Cnpj);
+                var filtro = Builders<Cliente>.Filter.Where(u => u.Cnpj == cliente.Cnpj);
 
-            var retorno = colecao.Find(filtro).FirstOrDefault();
+                var retorno = colecao.Find(filtro).FirstOrDefault();
 
-            clientePesquisado = (Cliente)retorno;
-
+                clientePesquisado = (Cliente)retorno;
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return clientePesquisado;
 
         }

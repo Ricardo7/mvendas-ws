@@ -42,9 +42,6 @@ namespace Application {
                 throw new Exception(ex.Message);
             }
 
-            List<TabelaPrecos> ListaVazio = new List<TabelaPrecos>();
-
-            return ListaVazio;
         }
 
         public TabelaPrecos AddTabelaPrecos(TabelaPrecos tabelaPrecos) {

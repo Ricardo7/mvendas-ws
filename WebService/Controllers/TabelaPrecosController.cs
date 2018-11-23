@@ -7,6 +7,7 @@ using System.Web.Http;
 using Application;
 using Domain;
 using System.Threading.Tasks;
+using WebService.Filters;
 
 namespace WebService.Controllers
 {
@@ -18,6 +19,7 @@ namespace WebService.Controllers
             tabelaPrecosApplication = new TabelaPrecosApplication();
         }
 
+        [JwtAuthentication]
         [HttpPost]
         [Route("api/TabelaPrecos/AddTabelaPrecos")]
         public TabelaPrecosDTO AddTabelaPrecos(TabelaPrecos tabelaPrecos) {
@@ -31,6 +33,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpPut]
         [Route("api/TabelaPrecos/AditaTabelaPrecos")]
         public TabelaPrecosDTO EditaTabelaPrecos(TabelaPrecos tabelaPrecos) {
@@ -44,6 +47,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/TabelaPrecos/GetTabelaPrecos")]
         public TabelaPrecosDTO GetTabelaPrecos(string id) {
@@ -58,6 +62,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/TabelaPrecos/GetListaTabelaPrecos")]
         public ListaTabelasPrecosDTO GetListaTabelaPrecos() {
@@ -71,6 +76,7 @@ namespace WebService.Controllers
 
         }
 
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/TabelaPrecos/GetListaTabelaPrecosAtualizados")]
         public ListaTabelasPrecosDTO GetListaTabelaPrecosAtualizados(string dataAt) {
