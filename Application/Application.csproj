@@ -68,6 +68,7 @@
     <Compile Include="ProdutoApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SegmentoMercadoApplication.cs" />
+    <Compile Include="SugestaoApplication.cs" />
     <Compile Include="TabelaPrecosApplication.cs" />
     <Compile Include="UsuarioApplication.cs" />
   </ItemGroup>

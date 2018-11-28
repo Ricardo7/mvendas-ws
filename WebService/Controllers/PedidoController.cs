@@ -110,19 +110,5 @@ namespace WebService.Controllers
             }
 
         }
-
-        [JwtAuthentication]
-        [HttpGet]
-        [Route("api/Pedido/ConsultaSugestaoProduto")]
-        public ListaProdutosDTO ConsultaSugestaoProduto(Cliente cliente){
-            List<Produto> ListaTemp = pedidoApplication.ConsultaSugestaoProduto(cliente);
-
-            if (ListaTemp.Count() != 0) {
-                return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", ListaTemp);
-            } else {
-                return RetornoController.MontaRetornoListaProdutos(200, "ERROR", "", null);
-            }
-
-        }
     }
 }

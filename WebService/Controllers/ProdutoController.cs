@@ -14,9 +14,11 @@ namespace WebService.Controllers
     public class ProdutoController : ApiController
     {
         public ProdutoApplication produtoApplication;
+        public SugestaoApplication sugestaoApplication;
 
         public ProdutoController() {
             produtoApplication = new ProdutoApplication();
+            sugestaoApplication = new SugestaoApplication();
         }
 
         [JwtAuthentication]
@@ -94,22 +96,14 @@ namespace WebService.Controllers
         [JwtAuthentication]
         [HttpGet]
         [Route("api/Produto/GetListaProdutosSugeridos")]
-        public ListaProdutosDTO GetListaProdutosSugeridos()
-        {
-            /*
-            List<Produto> ListaTemp = produtoApplication.GetListaProdutos();
+        public ListaProdutosDTO GetListaProdutosSugeridos(String idCliente) {
+            List<Produto> ListaTemp = sugestaoApplication.GetListaProdutosSugeridos(idCliente);
 
-            if (ListaTemp.Count() != 0)
-            {
+            if (ListaTemp.Count() != 0) {
                 return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", ListaTemp);
-            }
-            else
-            {
+            } else {
                 return RetornoController.MontaRetornoListaProdutos(200, "ERROR", "", null);
             }
-            */
-            return RetornoController.MontaRetornoListaProdutos(200, "SUCCESS", "", null);
-
         }
 
     }

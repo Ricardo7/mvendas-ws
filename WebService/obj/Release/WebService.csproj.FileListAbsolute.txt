@@ -210,9 +210,7 @@ C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\MongoDB.Driver.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\MongoDB.Driver.Core.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Newtonsoft.Json.xml
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Net.Http.Formatting.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Helpers.xml
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Http.WebHost.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Mvc.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.Web.Optimization.xml
@@ -227,9 +225,7 @@ C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.AI.Web.xml
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\pt-br\System.Net.Http.Formatting.resources.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\pt-br\System.Web.Helpers.resources.dll
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\pt-br\System.Web.Http.resources.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\pt-br\System.Web.Http.WebHost.resources.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\pt-br\System.Web.Mvc.resources.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\pt-br\System.Web.Optimization.resources.dll
@@ -260,3 +256,15 @@ C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.Tokens.pd
 C:\mais_vendas\mvendas-ws-local\WebService\bin\Microsoft.IdentityModel.Tokens.xml
 C:\mais_vendas\mvendas-ws-local\WebService\bin\System.IdentityModel.Tokens.Jwt.pdb
 C:\mais_vendas\mvendas-ws-local\WebService\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.IdentityModel.Logging.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.IdentityModel.Tokens.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\mvendas-ws\WebService\bin\System.IdentityModel.Tokens.Jwt.xml

@@ -12,9 +12,11 @@ using WebService.Filters;
 namespace WebService.Controllers {
     public class AtividadeController : ApiController {
         public AtividadeApplication atividadeApplication;
+        public SugestaoApplication sugestaoApplication;
 
         public AtividadeController() {
             atividadeApplication = new AtividadeApplication();
+            sugestaoApplication = new SugestaoApplication();
         }
 
         [JwtAuthentication]
@@ -196,10 +198,9 @@ namespace WebService.Controllers {
         [JwtAuthentication]
         [HttpGet]
         [Route("api/Atividade/GetListaAtividadesSugeridas")]
-        public ListaAtividadesDTO GetListaAtividadesSugeridas(string data, string usuarioID)
+        public ListaAtividadesDTO GetListaAtividadesSugeridas(string data, string idUsuario)
         {
-            /*
-            List<Atividade> ListaTemp = atividadeApplication.GetListaAtividades();
+            List<Produto> ListaTemp = sugestaoApplication.GetListaAtividadesSugeridas(data, idUsuario);
 
             if (ListaTemp.Count() != 0)
             {
@@ -209,8 +210,6 @@ namespace WebService.Controllers {
             {
                 return RetornoController.MontaRetornoListaAtividades(200, "ERROR", "", null);
             }
-            */
-            return RetornoController.MontaRetornoListaAtividades(200, "SUCCESS", "", null);
 
         }
     }

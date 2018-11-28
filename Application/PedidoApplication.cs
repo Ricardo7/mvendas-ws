@@ -131,48 +131,6 @@ namespace Application {
                 return null;
             }
         }
-
-        public List<Produto> ConsultaSugestaoProduto(Cliente cliente) {
-
-            List<Pedido> ListaPedidos = new List<Pedido>();
-            try {
-                ListaPedidos = dbPedido.GetListaPedidosCliente(cliente.ID);
-            } catch (Exception) {
-                List<Produto> ListaVazio = new List<Produto>();
-
-                return ListaVazio;
-            }
-
-            List<Produto> ListaProdutos = new List<Produto>();
-
-            foreach (Pedido pedido in ListaPedidos) {
-                List<ItemPedido> listaItemPedido = pedido.ListaItemPedido;
-
-                foreach (ItemPedido item in listaItemPedido) {
-
-                    Produto produto = item.ProdutoPedido;
-
-                    int existe = 0;
-
-                    foreach (Produto teste in ListaProdutos) {
-                        if (teste.ID == produto.ID) {
-                            existe = 1;
-                        }
-                    }
-
-                    if (existe == 0) {
-                        ListaProdutos.Add(produto);
-                    }
-                }
-            }
-
-            if (ListaProdutos.Count == 0) {
-                ProdutoRepository dbProduto = new ProdutoRepository();
-                List<Produto> ListaProdutosTemp = dbProduto.GetListaProdutos();
-                ListaProdutos.Add(ListaProdutosTemp[0]);
-            }
-
-            return ListaProdutos;
-        }
+        
     }
 }
