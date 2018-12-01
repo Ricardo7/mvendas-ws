@@ -141,28 +141,43 @@ namespace Application {
             }
 
             ////////////////////Gera as atividades
-            if (ListaClientesNaoCompram.Count() != 0) {
+            if ((ListaClientesNaoCompram.Count() != 0) && (data == "2018-12-01")) {
 
                 Atividade atividade = new Atividade() {
                     Assunto = "Este cliente ainda não tem nenhuma compra registrada, que tal visita-lo?",
                     Observacao = "Veja o motivo dele não estar comprando!",
                     ClienteAtividade = ListaClientesNaoCompram.Last(),
                     UsuarioAtividade = ListaClientesNaoCompram.Last().UsuarioCliente,
-                    DataAtividade = "2018-12-03",
+                    DataAtividade = "2018-12-01",
                     HoraAtividade = "09:00",
                 };
-
                 ListaAtividades.Add(atividade);
-
             }
 
-            if (ListaClientesNaoVisitados.Count() != 0) {
+            if ((ListaClientesNaoVisitados.Count() != 0) && (data == "2018-12-03")) {
 
                 Atividade atividade = new Atividade() {
                     Assunto = "Este cliente ainda não foi visitado, que tal visita-lo?",
                     Observacao = "Uma visita pode ser uma boa forma de iniciar uma venda!",
                     ClienteAtividade = ListaClientesNaoVisitados.Last(),
                     UsuarioAtividade = ListaClientesNaoVisitados.Last().UsuarioCliente,
+                    DataAtividade = "2018-12-03",
+                    HoraAtividade = "09:00",
+                };
+
+                ListaAtividades.Add(atividade);
+            }
+
+            //string dtTemp = "2018-12-05";
+            if ((ListaPedidosUsuario.Count() != 0) & (data.Equals("2018-12-05"))) {
+            //if (data.Equals(dtTemp)) {
+
+
+                    Atividade atividade = new Atividade() {
+                    Assunto = "Este cliente costuma comprar neste período, que tal visita-lo?",
+                    Observacao = "Uma visita no tempo certo é !",
+                    ClienteAtividade = ListaPedidosUsuario.Last().ClientePedido,
+                    UsuarioAtividade = ListaPedidosUsuario.Last().ClientePedido.UsuarioCliente,
                     DataAtividade = "2018-12-05",
                     HoraAtividade = "09:00",
                 };
@@ -170,22 +185,6 @@ namespace Application {
                 ListaAtividades.Add(atividade);
 
             }
-
-            if (ListaPedidosUsuario.Count() != 0) {
-
-                Atividade atividade = new Atividade() {
-                    Assunto = "Este cliente costuma comprar neste período, que tal visita-lo?",
-                    Observacao = "Uma visita no tempo certo é !",
-                    ClienteAtividade = ListaPedidosUsuario.Last().ClientePedido,
-                    UsuarioAtividade = ListaPedidosUsuario.Last().ClientePedido.UsuarioCliente,
-                    DataAtividade = "2018-12-10",
-                    HoraAtividade = "09:00",
-                };
-
-                ListaAtividades.Add(atividade);
-
-            }
-
 
             return ListaAtividades;
         }

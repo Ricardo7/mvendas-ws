@@ -97,7 +97,7 @@ namespace WebService.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("api/Produto/GetListaProdutosSugeridos")]
-        public ListaProdutosDTO GetListaProdutosSugeridos(String idCliente) {
+        public ListaProdutosDTO GetListaProdutosSugeridos(string idCliente) {
             List<Produto> ListaTemp = sugestaoApplication.GetListaProdutosSugeridos(idCliente);
 
             if (ListaTemp.Count() != 0) {
@@ -106,7 +106,6 @@ namespace WebService.Controllers
                 return RetornoController.MontaRetornoListaProdutos(200, "ERROR", "", null);
             }
         }
-
     }
 
 }
