@@ -196,7 +196,8 @@ namespace Repository {
 
             var colecao = db.GetCollection<Pedido>("pedidos");
 
-            var filtro = Builders<Pedido>.Filter.Where(u => u.ClientePedido.ID == IDCliente);
+            //var filtro = Builders<Pedido>.Filter.Where(u => u.ClientePedido.ID == IDCliente);
+            var filtro = Builders<Pedido>.Filter.Eq(u => u.ClientePedido.ID, IDCliente);
 
             var pedidos = colecao.Find(filtro).ToList();
 

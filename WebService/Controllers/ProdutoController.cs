@@ -93,7 +93,8 @@ namespace WebService.Controllers
 
         }
 
-        [JwtAuthentication]
+        //[JwtAuthentication]
+        [AllowAnonymous]
         [HttpGet]
         [Route("api/Produto/GetListaProdutosSugeridos")]
         public ListaProdutosDTO GetListaProdutosSugeridos(String idCliente) {

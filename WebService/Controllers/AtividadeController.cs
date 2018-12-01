@@ -195,12 +195,14 @@ namespace WebService.Controllers {
             }
         }
 
-        [JwtAuthentication]
+
+        //[JwtAuthentication]
+        [AllowAnonymous]
         [HttpGet]
         [Route("api/Atividade/GetListaAtividadesSugeridas")]
         public ListaAtividadesDTO GetListaAtividadesSugeridas(string data, string idUsuario)
         {
-            List<Produto> ListaTemp = sugestaoApplication.GetListaAtividadesSugeridas(data, idUsuario);
+            List<Atividade> ListaTemp = sugestaoApplication.GetListaAtividadesSugeridas(data, idUsuario);
 
             if (ListaTemp.Count() != 0)
             {
